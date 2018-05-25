@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  background-color: #fdffee;
+  font-size: 16px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  max-width: 1000px;
+  font-family: sans-serif;
+  line-height: 1.2em;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+body a:link {
+  color: #000066;
+}
+
+header#top,
+header#help {
+  text-align: center;
+  background-color: #eee;
+}
+
+header#top img,
+header#help img {
+  display: inline-block;
+  margin: 0 1.5rem 0 0;
+  height: 4rem;
+  vertical-align: middle;
+}
+
+header#top h1,
+header#help h1 {
+  display: inline-block;
+  margin: 1.5rem 0 2rem;
+}
+
+nav {
+  position: relative;
+  width: 100%;
+  display: block;
+  border: 1px solid gray;
+  background-color: #eee;
+  text-align: center;
+  margin: 5px 0;
+}
+
+nav div {
+  margin: 10px 0;
+}
+
+#menu-button {
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  padding: 5px;
+  background-color: #aaa;
+  font-weight: bold;
+  width: 4em;
+  /* margin: 1px 5px 1px auto; */
+}
+
+#menu-full {
+  /* display: none; */
+  background-color: #eee;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: block;
+  width: 100%;
+  margin: 3px 0;
+  background-color: #aaa;
+}
+
+nav ul a {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  color: #000000;
+  padding: 5px;
+  border: 1px solid gray;
+}
+
+form {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5px;
+  border: 1px solid gray;
+  background-color: #ccc;
+}
+
+form * {
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+
+form h2 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+form label {
+  margin-top: 8px;
+}
+
+form button {
+  background-color: #999;
+  margin-top: 8px;
+}
+
+#writing-area #lbl-text-box,
+#writing-area form #lbl-text-box div {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+#spelling-actions {
+  margin-top: 5px;
+  text-align: center;
+}
+
+#snippets {
+  text-align: center;
+}
+
+#snippets #lbl-text-box {
+  margin-top: 15px;
+}
+
+#update-snippet {
+  color: white;
+  background-color: #333;
+}
+
+#landing {
+  text-align: center;
+}
+
+#landing p {
+  text-align: left;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 5px;
+  background-color: #eee;
+}

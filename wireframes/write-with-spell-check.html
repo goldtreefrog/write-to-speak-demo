@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="robots" content="">
+  <meta name="author" content="Margaret Blauvelt">
+  <title>Write to Speak</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <section id="writing-area">
+  <form action="#" id="writing" method="get" name="writing">
+    <fieldset id="write">
+      <div style="text-align: center;">
+        <- write box ->
+      </div>
+      <label for="text-box" id="lbl-text-box">
+  Write in the box:
+</label> <textarea accesskey="w" id="text-box" name="text-box" wrap="soft"></textarea>
+    </fieldset>
+    <fieldset id="box-buttons">
+      <button accesskey="l" class="read" id="read-aloud" name="read-aloud" type="submit" value="Read Aloud">
+        Read Aloud
+      </button>
+      <button accesskey="k" class="read" id="check-spelling" name="check-spelling" type="submit" value="Check Spelling">
+        Check Spelling
+      </button>
+      <button accesskey="r" class="read" id="clear" name="reset" type="reset" value="Reset">
+        Reset (Delete)
+      </button>
+    </fieldset>
+  </form>
+</section>
+  <main id="write" role="main">
+    <section id="spelling-area">
+  <p id="spelling-info"></p>
+  <form action="#" id="spelling-actions" method="get" name="spelling-choices">
+    <p>
+      <- spelling area ->
+    </p>
+    <h2>Instead of &quot;banna,&quot; did you mean any of these?</h2>
+    <h3>Click the one you want</h3>
+    <ul id="spelling-choices">
+      <li>banana</li>
+      <li>bandana</li>
+      <li>bananas</li>
+      <li>bandwagon</li>
+      <li>Santana</li>
+    </ul>
+    <div id="more-container">
+      <button accesskey="m" class="spelling" id="more-words" name="more-words" type="submit" value="">
+        More
+      </button>
+    </div>
+    <fieldset id="spelling-alt-actions">
+      <button accesskey="n" class="spelling spelling-button" id="ignore" name="ignore" type="submit" value="Ignore Spelling">
+ Ignore
+</button>
+    </fieldset>
+  </form>
+</section>
+  </main>
+
+</body>
+
+</html>
