@@ -17,7 +17,17 @@
     <section id="snippets">
       <form action="#">
         <h2>Edit Snippets</h2>
-        <p>(Initial View)</p>
+        <p>(after user has selected snippet to edit)</p> <label for="text-box" id="lbl-text-box">
+  Edit snippet text in the box below
+</label> <textarea accesskey="w" id="text-box" name="text-box" wrap="soft"> Once upon a time, when it was a dark and stormy night, there was a terrible crash! Sasha was frightened.</textarea> <button class="write-box-button" id="read-aloud" name="read-aloud" type="submit" value="Read Aloud">
+  Read Aloud
+</button>
+<button class="write-box-button" id="check-spelling" name="check-spelling" type="submit" value="Check Spelling">
+  Check Spelling
+</button>
+        <button type="submit" name="update-snippet" id="update-snippet">Update</button>
+        <button type="submit" name="cancel-update" id="cancel-update">Cancel Update</button>
+        <button type="submit" name="delete-snippet" id="delete-snippet">Delete Snippet</button>
         <h3>Click on the snippet you wish to change</h3> <button type="button" name="snip01" id="snip01" value="Mom">Mom</button>
 <button type="button" name="snip02" id="snip02" value="Dad">Dad</button>
 <button type="button" name="snip03" id="snip03" value="I am hungry">I am hungry</button>

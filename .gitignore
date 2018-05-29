@@ -19,6 +19,7 @@ package-lock.json
 /trash
 Gruntfile*.*
 /wireframes/partials
+/html-includes
 
 npm-debug.log*
 yarn-debug.log*
