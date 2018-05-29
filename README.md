@@ -1,6 +1,8 @@
 # Write to Speak Demo App
 
-This is an app in progress. So far I have completed HTML wireframing.
+This is an app in progress. So far I have completed HTML wireframing and UI flows.
+
+## Wireframes
 
 Below are direct links to the wireframes for each page:
 
@@ -13,6 +15,10 @@ Below are direct links to the wireframes for each page:
 -   [Edit Snippets](https://goldtreefrog.github.io/write-to-speak-demo/wireframes/edit.html) (after user has selected snippet to edit)
 -   [Registration Form](https://goldtreefrog.github.io/write-to-speak-demo/wireframes/register.html)
 
-User Flows:
+\##User Interface Flows:
 
-Stay tuned...
+![UI Flow Landing and Registration Pages](github-images/user-flows-p1.jpg)
+![UI Write Page](github-images/user-flows-p2.jpg)
+![UI Talk and Edit Pages (for snippets)](github-images/user-flows-p3.jpg)
+
+Coding to come. Stay tuned...
