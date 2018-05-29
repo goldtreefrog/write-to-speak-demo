@@ -2,6 +2,8 @@
 
 This is an app in progress. So far I have completed HTML wireframing and UI flows.
 
+The name of the app here on Github is "Write to Speak Demo," to distinguish it from the prior "Write to Speak" written in JQuery, which did not have a database. (This latest version will be a rewrite in React/Redux with MongoDB.)
+
 ## Wireframes
 
 Below are direct links to the wireframes for each page:
