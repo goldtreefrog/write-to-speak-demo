@@ -15,7 +15,7 @@ Below are direct links to the wireframes for each page:
 -   [Edit Snippets](https://goldtreefrog.github.io/write-to-speak-demo/wireframes/edit.html) (after user has selected snippet to edit)
 -   [Registration Form](https://goldtreefrog.github.io/write-to-speak-demo/wireframes/register.html)
 
-\##User Interface Flows:
+## User Interface Flows
 
 ![UI Flow Landing and Registration Pages](github-images/user-flows-p1.jpg)
 ![UI Write Page](github-images/user-flows-p2.jpg)
