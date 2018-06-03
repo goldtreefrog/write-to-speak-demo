@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing and matches snapshot 1`] = `
+<div
+  className="Footer"
+>
+  <footer
+    role="contentinfo"
+  >
+    <summary>
+      ©2018 Margaret Blauvelt
+    </summary>
+  </footer>
+</div>
+`;

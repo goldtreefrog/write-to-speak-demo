@@ -5,7 +5,6 @@
 
 # testing
 /coverage
-src/tests/components/__snapshots__
 
 # production
 /build
