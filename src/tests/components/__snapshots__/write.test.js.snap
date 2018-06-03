@@ -29,7 +29,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
           Write in the box:
         </label>
         <textarea
-          accesskey="w"
           id="text-box"
           name="text-box"
           wrap="soft"
@@ -39,7 +38,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
         id="box-buttons"
       >
         <button
-          accesskey="l"
           className="read"
           id="read-aloud"
           name="read-aloud"
@@ -53,7 +51,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
            Read Aloud
         </button>
         <button
-          accesskey="k"
           className="read"
           id="check-spelling"
           name="check-spelling"
@@ -67,7 +64,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
            Check Spelling
         </button>
         <button
-          accesskey="r"
           className="read"
           id="clear"
           name="reset"
@@ -102,7 +98,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
         id="more-container"
       >
         <button
-          accesskey="m"
           className="spelling"
           id="more-words"
           name="more-words"
@@ -120,7 +115,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
         id="spelling-alt-actions"
       >
         <button
-          accesskey="n"
           className="spelling spelling-button"
           id="ignore"
           name="ignore"
