@@ -56,6 +56,11 @@ main div.write form#writing fieldset#box-buttons button {
   clear: both;
 }
 
+main div.write form#writing fieldset#box-buttons button:hover, main div.write form#writing fieldset#box-buttons button:focus {
+  color: white;
+  background-color: #423e24;
+}
+
 main div.write form#writing fieldset#box-buttons :first-child {
   margin-top: 0;
 }

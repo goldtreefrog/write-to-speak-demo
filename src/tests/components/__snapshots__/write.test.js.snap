@@ -29,9 +29,9 @@ exports[`renders without crashing and matches snapshot 1`] = `
           Write in the box:
         </label>
         <textarea
+          defaultValue="ppp"
           id="text-box"
           name="text-box"
-          value="ppp"
           wrap="soft"
         />
       </fieldset>
@@ -81,7 +81,25 @@ exports[`renders without crashing and matches snapshot 1`] = `
     </form>
   </section>
   <SpellingArea
-    misspelledWord="ppp"
+    spellData={
+      Object {
+        "maxIndex": 4,
+        "minIndex": 0,
+        "misspelledWords": Array [
+          "ppp",
+        ],
+        "wordSuggestions": Array [
+          "pup",
+          "puppy",
+          "pop",
+          "pope",
+          "poppy",
+          "pip",
+          "pap",
+          "pappy",
+        ],
+      }
+    }
   />
 </div>
 `;

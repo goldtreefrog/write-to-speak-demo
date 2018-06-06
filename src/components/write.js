@@ -2,7 +2,12 @@ import React from "react";
 import "./styles/write.css";
 import SpellingArea from "./spelling-area";
 
-const misspelledWord = "ppp";
+const spellData = {
+  misspelledWords: ["ppp"],
+  wordSuggestions: ["pup", "puppy", "pop", "pope", "poppy", "pip", "pap", "pappy"],
+  minIndex: 0,
+  maxIndex: 4
+};
 
 class Write extends React.Component {
   render() {
@@ -16,7 +21,7 @@ class Write extends React.Component {
                 <span aria-hidden="true" className="fa fa-pencil-square-o" />
                 Write in the box:
               </label>
-              <textarea id="text-box" name="text-box" wrap="soft" value={misspelledWord} />
+              <textarea id="text-box" name="text-box" wrap="soft" defaultValue={spellData.misspelledWords[0]} />
             </fieldset>
             <fieldset id="box-buttons">
               <button className="read" id="read-aloud" name="read-aloud" type="submit" value="Read Aloud">
@@ -32,7 +37,7 @@ class Write extends React.Component {
             </fieldset>
           </form>
         </section>
-        <SpellingArea misspelledWord={misspelledWord} />
+        <SpellingArea spellData={spellData} />
       </div>
     );
   }

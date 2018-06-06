@@ -1,21 +1,21 @@
 import React from "react";
 import "./styles/spelling-area.css";
 
-const spellSuggestTest = { words: ["pup", "puppy", "pop", "pope", "poppy", "pip", "pap", "pappy"] };
-
 class SpellingArea extends React.Component {
   render() {
     return (
       <section id="spelling-area">
-        <p id="spelling-info">Instead of {this.props.misspelledWord}, did you mean any of these? Pick the one you want:</p>
+        <p id="spelling-info">Instead of {this.props.spellData.misspelledWords[0]}, did you mean any of these? Pick the one you want:</p>
         <form action="#" id="spelling-actions" method="get" name="spelling-choices">
           <ul id="spelling-choices">
-            {spellSuggestTest.words.map(suggest => {
-              return (
-                <li>
-                  <a href="">{suggest}</a>
-                </li>
-              );
+            {this.props.spellData.wordSuggestions.map((word, index) => {
+              if (this.props.spellData.minIndex <= index && index <= this.props.spellData.maxIndex) {
+                return (
+                  <li key={index}>
+                    <a href="">{word}</a>
+                  </li>
+                );
+              }
             })}
           </ul>
           <div id="more-container">
