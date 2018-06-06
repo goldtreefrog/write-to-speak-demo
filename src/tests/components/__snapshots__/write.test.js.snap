@@ -20,7 +20,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
         id="write-box"
       >
         <label
-          for="text-box"
+          htmlFor="text-box"
         >
           <span
             aria-hidden="true"
@@ -31,6 +31,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
         <textarea
           id="text-box"
           name="text-box"
+          value="ppp"
           wrap="soft"
         />
       </fieldset>
@@ -79,56 +80,8 @@ exports[`renders without crashing and matches snapshot 1`] = `
       </fieldset>
     </form>
   </section>
-  <section
-    id="spelling-area"
-  >
-    <p
-      id="spelling-info"
-    />
-    <form
-      action="#"
-      id="spelling-actions"
-      method="get"
-      name="spelling-choices"
-    >
-      <ul
-        id="spelling-choices"
-      />
-      <div
-        id="more-container"
-      >
-        <button
-          className="spelling"
-          id="more-words"
-          name="more-words"
-          type="submit"
-          value=""
-        >
-          More
-          <span
-            aria-hidden="true"
-            className="fa fa-arrow-circle-right"
-          />
-        </button>
-      </div>
-      <fieldset
-        id="spelling-alt-actions"
-      >
-        <button
-          className="spelling spelling-button"
-          id="ignore"
-          name="ignore"
-          type="submit"
-          value="Ignore Spelling"
-        >
-          <span
-            aria-hidden="true"
-            className="fa fa-caret-square-o-down"
-          />
-           Ignore
-        </button>
-      </fieldset>
-    </form>
-  </section>
+  <SpellingArea
+    misspelledWord="ppp"
+  />
 </div>
 `;

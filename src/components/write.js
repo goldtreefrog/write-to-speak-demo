@@ -1,5 +1,8 @@
 import React from "react";
-// import ReactDOM from "react-dom";
+import "./styles/write.css";
+import SpellingArea from "./spelling-area";
+
+const misspelledWord = "ppp";
 
 class Write extends React.Component {
   render() {
@@ -9,11 +12,11 @@ class Write extends React.Component {
         <section id="writing-area">
           <form action="#" id="writing" method="get" name="writing">
             <fieldset id="write-box">
-              <label for="text-box">
+              <label htmlFor="text-box">
                 <span aria-hidden="true" className="fa fa-pencil-square-o" />
                 Write in the box:
               </label>
-              <textarea id="text-box" name="text-box" wrap="soft" />
+              <textarea id="text-box" name="text-box" wrap="soft" value={misspelledWord} />
             </fieldset>
             <fieldset id="box-buttons">
               <button className="read" id="read-aloud" name="read-aloud" type="submit" value="Read Aloud">
@@ -29,23 +32,7 @@ class Write extends React.Component {
             </fieldset>
           </form>
         </section>
-        <section id="spelling-area">
-          <p id="spelling-info" />
-          <form action="#" id="spelling-actions" method="get" name="spelling-choices">
-            <ul id="spelling-choices" />
-            <div id="more-container">
-              <button className="spelling" id="more-words" name="more-words" type="submit" value="">
-                More
-                <span aria-hidden="true" className="fa fa-arrow-circle-right" />
-              </button>
-            </div>
-            <fieldset id="spelling-alt-actions">
-              <button className="spelling spelling-button" id="ignore" name="ignore" type="submit" value="Ignore Spelling">
-                <span className="fa fa-caret-square-o-down" aria-hidden="true" /> Ignore
-              </button>
-            </fieldset>
-          </form>
-        </section>
+        <SpellingArea misspelledWord={misspelledWord} />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 footer {
+  box-sizing: border-box;
   width: 100%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 3rem;
   padding: 5px;
 }
