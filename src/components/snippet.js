@@ -1,20 +1,17 @@
 import React from "react";
 const Snippet = props => {
-  console.log("oKey in snippet initial: ", props.snippet.oKey);
-  console.log("props.ohmy: ", props.ohmy);
+  // console.log("props.ohmy: ", props.ohmy);
   let snippetText = "";
-  if (props.snippet.text.length > 25) {
-    snippetText = props.snippet.text.substring(0, 22) + "...";
+  if (props.text.length > 25) {
+    snippetText = props.text.substring(0, 22) + "...";
   } else {
-    snippetText = props.snippet.text;
+    snippetText = props.text;
   }
-  // console.log("oKey in snippet wtf: ", btnKey);
   const snippetHtml = (
-    <button id={props.snippet.id} key={props.ohmy}>
-      {snippetText} {props.ohmy}
+    <button id={props.id} orderKey={props.orderKey}>
+      {snippetText}
     </button>
   );
-  console.log("snippetHtml in snippet: ", snippetHtml);
   // return (
   //   <button id={props.snippet.id} key={props.snippet.oKey}>
   //     {snippetText}
