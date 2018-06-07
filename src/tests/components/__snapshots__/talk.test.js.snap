@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing and matches snapshot 1`] = `
+<section
+  id="snippets"
+>
+  <Snippets
+    snippets={
+      Array [
+        Object {
+          "id": 123,
+          "oKey": 0,
+          "text": "Hi there",
+        },
+        Object {
+          "id": 312,
+          "oKey": 3,
+          "text": "Mom",
+        },
+        Object {
+          "id": 666,
+          "oKey": 2,
+          "text": "Dad",
+        },
+        Object {
+          "id": 427,
+          "oKey": 1,
+          "text": "come talk with me",
+        },
+        Object {
+          "id": 555,
+          "oKey": 6,
+          "text": "Once upon a time, when it was a dark and stormy night, Sandy heard a tremendously loud 'boom!'",
+        },
+      ]
+    }
+  />
+</section>
+`;

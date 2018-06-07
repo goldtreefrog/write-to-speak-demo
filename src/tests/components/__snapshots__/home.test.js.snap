@@ -1,7 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing and matches snapshot 1`] = `
-<h1>
-  Home Page
-</h1>
+<section
+  id="landing"
+>
+  <form
+    action=""
+  >
+    <h2>
+      Write and hear it read back to you.
+    </h2>
+    <h3>
+      Anyone can do it - even if you are just learning to spell!
+    </h3>
+    <p>
+      Not writing yet? You can still click words and phrases to make them talk, but you will need someone to help put your words on the screen in the first place.
+    </p>
+    <p>
+      If you are registered, you can save your text for reading aloud later. (But note that this is a demo and all data will be erased from time to time.)
+    </p>
+    <button
+      id="signin"
+      name="signin"
+      type="submit"
+    >
+      Sign In/Register
+    </button>
+    <button
+      id="guest"
+      name="guest"
+      type="submit"
+    >
+      Sign In as Anonymous Guest
+    </button>
+  </form>
+</section>
 `;

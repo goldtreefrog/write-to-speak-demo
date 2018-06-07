@@ -1,0 +1,13 @@
+section#landing form {
+  width: 100%;
+  max-width: 37em;
+  margin: 2em auto;
+  padding: 0 1%;
+}
+
+section#landing form button {
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  max-width: 17em;
+}

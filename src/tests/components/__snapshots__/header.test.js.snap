@@ -23,9 +23,21 @@ exports[`renders without crashing and matches snapshot 1`] = `
   <nav>
     <Link
       replace={false}
+      to="/"
+    >
+      Home
+    </Link>
+    <Link
+      replace={false}
       to="/write"
     >
       Write
+    </Link>
+    <Link
+      replace={false}
+      to="/talk"
+    >
+      Talk
     </Link>
   </nav>
 </header>

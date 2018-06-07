@@ -12,7 +12,9 @@ class Header extends Component {
           <h1 className="app-title">Write to Speak</h1>
         </Link>
         <nav>
+          <Link to="/">Home</Link>
           <Link to="/write">Write</Link>
+          <Link to="/talk">Talk</Link>
         </nav>
       </header>
     );
