@@ -7,6 +7,7 @@ import Footer from "./footer";
 import Write from "./write";
 import Home from "./home";
 import Talk from "./talk";
+import Edit from "./edit";
 import NotFound from "./not-found";
 
 const routes = (
@@ -18,6 +19,7 @@ const routes = (
           <Route path="/" component={Home} exact />
           <Route path="/write" component={Write} exact />
           <Route path="/talk" component={Talk} exact />
+          <Route path="/edit" component={Edit} exact />
           <Route component={NotFound} />
         </Switch>
       </main>

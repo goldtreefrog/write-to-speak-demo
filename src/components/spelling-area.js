@@ -16,11 +16,12 @@ class SpellingArea extends React.Component {
                   </li>
                 );
               }
+              return "";
             })}
           </ul>
           <div id="more-container">
             <button className="spelling" id="more-words" name="more-words" type="submit" value="">
-              More
+              More Words
               <span aria-hidden="true" className="fa fa-arrow-circle-right" />
             </button>
           </div>

@@ -7,15 +7,16 @@ class Header extends Component {
   render() {
     return (
       <header role="banner" className="app-header">
-        <Link to="/">
-          <img src={logo} className="app-logo" alt="logo" />
-          <h1 className="app-title">Write to Speak</h1>
-        </Link>
         <nav>
           <Link to="/">Home</Link>
           <Link to="/write">Write</Link>
           <Link to="/talk">Talk</Link>
+          <Link to="/edit">Edit</Link>
         </nav>
+        <Link to="/">
+          <img src={logo} className="app-logo" alt="logo" />
+          <h1 className="app-title">Write to Speak</h1>
+        </Link>
       </header>
     );
   }

@@ -25,3 +25,7 @@ button:focus {
   background-color: #423e24;
   background: linear-gradient(#423e24, #423e24);
 }
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}

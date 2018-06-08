@@ -7,26 +7,31 @@ exports[`renders without crashing and matches snapshot 1`] = `
   <Snippet
     id={123}
     key="0"
+    orderkey={0}
     text="Hi there"
   />
   <Snippet
     id={312}
     key="3"
+    orderkey={3}
     text="Mom"
   />
   <Snippet
     id={666}
     key="2"
+    orderkey={2}
     text="Dad"
   />
   <Snippet
     id={427}
     key="1"
+    orderkey={1}
     text="come talk with me"
   />
   <Snippet
     id={555}
     key="6"
+    orderkey={6}
     text="Once upon a time, when it was a dark and stormy night, Sandy heard a tremendously loud 'boom!'"
   />
 </section>

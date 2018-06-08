@@ -8,7 +8,7 @@ const Snippet = props => {
     snippetText = props.text;
   }
   const snippetHtml = (
-    <button id={props.id} orderKey={props.orderKey}>
+    <button id={props.id} orderkey={props.orderkey}>
       {snippetText}
     </button>
   );

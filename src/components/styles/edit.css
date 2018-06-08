@@ -1,9 +1,9 @@
-section#snippets {
+section#edit {
   width: 98%;
   margin: 5px auto;
 }
 
-section#snippets button {
+section#edit button {
   width: 100%;
   margin-top: 5px;
   color: black;
@@ -11,8 +11,8 @@ section#snippets button {
   background: linear-gradient(#def, #bcf);
 }
 
-section#snippets button:hover,
-section#snippets button:focus {
+section#edit button:hover,
+section#edit button:focus {
   color: white;
   background-color: #423e24;
   background: linear-gradient(#423e24, #423e24);

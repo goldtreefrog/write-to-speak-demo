@@ -1,6 +1,14 @@
+header.app-header {
+  margin: 0 auto;
+}
+
 header.app-header h1 {
   display: inline-block;
-  margin: 1.5rem 0 2rem;
+  margin: 1.5rem 0 0;
+}
+
+header.app-header h2 {
+  margin: 0;
 }
 
 header.app-header img {
@@ -8,4 +16,28 @@ header.app-header img {
   margin: 0 1.5rem 0 0;
   height: 4rem;
   vertical-align: middle;
+}
+
+nav {
+  margin-top: 5px;
+}
+
+nav a {
+  display: inline;
+  width: 99%;
+  /* margin-left: auto;
+  margin-right: auto; */
+  border-right: solid 1px black;
+  height: 3.5em;
+  vertical-align: top;
+  text-decoration: none;
+  padding: 2px 1em;
+}
+
+nav a:last-child {
+  border-right: 0;
+}
+
+nav a:link {
+  color: #000066;
 }

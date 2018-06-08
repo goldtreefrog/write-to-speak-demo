@@ -5,9 +5,10 @@ class Home extends React.Component {
   render() {
     return (
       <section id="landing">
+        <h2>Home</h2>
         <form action="">
-          <h2>Write and hear it read back to you.</h2>
-          <h3>Anyone can do it - even if you are just learning to spell!</h3>
+          <h3>Write and hear it read back to you.</h3>
+          <p>Anyone can do it - even if you are just learning to spell!</p>
           <p>
             Not writing yet? You can still click words and phrases to make them talk, but you will need someone to help put your words on the screen
             in the first place.

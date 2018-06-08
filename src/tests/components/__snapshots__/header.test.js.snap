@@ -39,6 +39,12 @@ exports[`renders without crashing and matches snapshot 1`] = `
     >
       Talk
     </Link>
+    <Link
+      replace={false}
+      to="/edit"
+    >
+      Edit
+    </Link>
   </nav>
 </header>
 `;

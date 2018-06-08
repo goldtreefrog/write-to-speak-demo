@@ -13,8 +13,9 @@ class Write extends React.Component {
   render() {
     return (
       <div className="write">
-        <p id="instructions" />
         <section id="writing-area">
+          <h2>Write</h2>
+          <p id="instructions" />
           <form action="#" id="writing" method="get" name="writing">
             <fieldset id="write-box">
               <label htmlFor="text-box">

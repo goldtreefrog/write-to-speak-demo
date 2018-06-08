@@ -25,6 +25,11 @@ exports[`renders without crashing and matches snapshot 1`] = `
         />
         <Route
           component={[Function]}
+          exact={true}
+          path="/edit"
+        />
+        <Route
+          component={[Function]}
         />
       </Switch>
     </main>
