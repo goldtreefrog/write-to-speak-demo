@@ -12,7 +12,7 @@ main div.write form#writing fieldset {
   display: block;
   margin: 0;
   padding: 0;
-  float: left;
+  /* float: left; */
   width: 100%;
   border: none;
 }
@@ -28,7 +28,7 @@ main div.write form#writing fieldset#write-box {
 fieldset#write-box label {
   text-align: left;
   display: block;
-  margin-left: 2%;
+  margin-left: 1.5%;
 }
 
 main div.write form#writing fieldset#write-box textarea {
@@ -71,3 +71,7 @@ main div.write form#writing fieldset#box-buttons button:focus {
 main div.write form#writing fieldset#box-buttons :first-child {
   margin-top: 0;
 }
+
+/* main div.write form#writing fieldset#box-buttons :last-child {
+  margin-bottom: 0;
+} */
