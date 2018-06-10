@@ -5,7 +5,7 @@ cache:
   directories:
     - node_modules
 script:
-  - npm test
+  - npm test TZ=America/Los_Angeles
 env:
   - CI=true
 

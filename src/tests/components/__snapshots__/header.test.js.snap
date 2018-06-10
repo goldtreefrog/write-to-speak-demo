@@ -5,21 +5,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
   className="app-header"
   role="banner"
 >
-  <Link
-    replace={false}
-    to="/"
-  >
-    <img
-      alt="logo"
-      className="app-logo"
-      src="wts-pencil2.svg"
-    />
-    <h1
-      className="app-title"
-    >
-      Write to Speak
-    </h1>
-  </Link>
   <nav>
     <Link
       replace={false}
@@ -46,5 +31,20 @@ exports[`renders without crashing and matches snapshot 1`] = `
       Edit
     </Link>
   </nav>
+  <Link
+    replace={false}
+    to="/"
+  >
+    <img
+      alt="logo"
+      className="app-logo"
+      src="wts-pencil2.svg"
+    />
+    <h1
+      className="app-title"
+    >
+      Write to Speak
+    </h1>
+  </Link>
 </header>
 `;
