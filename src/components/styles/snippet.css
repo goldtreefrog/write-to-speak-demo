@@ -1,0 +1,15 @@
+.snippet-area button {
+  width: 100%;
+  margin-top: 5px;
+  color: black;
+  background-color: #cdf;
+  background: linear-gradient(#def, #bcf);
+  padding: 6px;
+}
+
+.snippet-area button:hover,
+.snippet-area button:focus {
+  color: white;
+  background-color: #423e24;
+  background: linear-gradient(#423e24, #423e24);
+}

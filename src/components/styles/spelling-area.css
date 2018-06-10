@@ -1,15 +1,15 @@
-main div.write #spelling-area {
+#spelling-area {
   clear: both;
   text-align: center;
   /* display: none; */
 }
 
-main div.write #spelling-area p {
+#spelling-area p {
   font-size: 1.2rem;
   margin: 0;
 }
 
-main div.write #spelling-area #spelling-info {
+#spelling-area #spelling-info {
   box-sizing: border-box;
   background-color: #fff;
   text-align: left;
@@ -20,7 +20,7 @@ main div.write #spelling-area #spelling-info {
   border-bottom: none;
 }
 
-main div.write #spelling-area #spelling-choices {
+#spelling-area #spelling-choices {
   background-color: #fff;
   display: inline-block;
   width: 90%;
@@ -30,42 +30,43 @@ main div.write #spelling-area #spelling-choices {
   border-top: none;
 }
 
-main div.write #spelling-area ul {
+#spelling-area ul {
   font-size: 1.2rem;
   margin: 0;
 }
 
-main div.write #spelling-area #spelling-choices li {
+#spelling-area #spelling-choices li {
   display: inline-block;
 }
 
-main div.write #spelling-area #spelling-choices li a {
+#spelling-area #spelling-choices li a {
   font-size: 1.2rem;
   padding: 15px 25px;
   margin: 1px 0;
   line-height: 3em;
 }
 
-main div.write #spelling-area fieldset {
+#spelling-area fieldset {
   border: none;
   box-sizing: border-box;
 }
 
-main div.write #spelling-area button.spelling {
+#spelling-area button.spelling {
   text-decoration: none;
   display: inline-block;
-  padding: 13px 10px;
+  /* padding: 13px 10px; */
+  padding: 6px;
   margin: 0 0.65% 2px;
   width: 48.7%;
   min-width: 4.5em;
 }
 
-main div.write #spelling-area #more-container {
+#spelling-area #more-container {
   display: block;
   width: 100%;
 }
 
-main div.write #spelling-area button#more-words {
+#spelling-area button#more-words {
   padding: 15px 25px;
   margin-left: auto;
   margin-right: auto;
@@ -74,19 +75,19 @@ main div.write #spelling-area button#more-words {
   color: #0000cc;
 }
 
-main div.write #spelling-area button#more-words:hover,
-main div.write #spelling-area button#more-words:focus {
+#spelling-area button#more-words:hover,
+#spelling-area button#more-words:focus {
   color: white;
   background-color: #423e24;
   background: linear-gradient(#423e24, #423e24);
 }
 
-main div.write #spelling-area a {
+#spelling-area a {
   text-decoration: none;
 }
 
-main div.write #spelling-area a:hover,
-main div.write #spelling-area a:focus {
+#spelling-area a:hover,
+#spelling-area a:focus {
   color: white;
   background-color: #423e24;
 }

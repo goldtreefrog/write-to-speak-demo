@@ -1,4 +1,6 @@
 import React from "react";
+import "./styles/snippet.css";
+
 const Snippet = props => {
   // console.log("props.ohmy: ", props.ohmy);
   let snippetText = "";
@@ -8,9 +10,11 @@ const Snippet = props => {
     snippetText = props.text;
   }
   const snippetHtml = (
-    <button id={props.id} orderkey={props.orderkey}>
-      {snippetText}
-    </button>
+    <div className="snippet-area">
+      <button id={props.id} orderkey={props.orderkey}>
+        {snippetText}
+      </button>
+    </div>
   );
   // return (
   //   <button id={props.snippet.id} key={props.snippet.oKey}>

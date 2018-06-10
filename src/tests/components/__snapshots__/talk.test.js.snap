@@ -4,6 +4,12 @@ exports[`renders without crashing and matches snapshot 1`] = `
 <section
   id="snippets"
 >
+  <h2>
+    Talk
+  </h2>
+  <p>
+    Click on a snippet to make it speak
+  </p>
   <Snippet
     id={123}
     key="0"
