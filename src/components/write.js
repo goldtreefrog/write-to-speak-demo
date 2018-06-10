@@ -4,13 +4,6 @@ import WritingArea from "./writing-area";
 import SpellingArea from "./spelling-area";
 import { spellDataInitial as spellData } from "./../tests/fixtures/spell-data.js";
 
-// const spellData = {
-//   misspelledWords: ["ppp"],
-//   wordSuggestions: ["pup", "puppy", "pop", "pope", "poppy", "pip", "pap", "pappy"],
-//   minIndex: 0,
-//   maxIndex: 4
-// };
-
 class Write extends React.Component {
   render() {
     return (
@@ -21,7 +14,7 @@ class Write extends React.Component {
           visible={true}
           buttonText={{ saveUpdate: "Save as Snippet", resetCancel: "Reset (Delete)" }}
         />
-        <SpellingArea spellData={spellData} visible={false} />
+        <SpellingArea spellData={spellData} visible={spellData.visible} />
       </div>
     );
   }

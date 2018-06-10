@@ -16,7 +16,28 @@ exports[`renders without crashing and matches snapshot 1`] = `
     }
     misspelledWords={
       Array [
-        "ppp",
+        Object {
+          "suggestions": Array [
+            "pup",
+            "puppy",
+            "pop",
+            "pope",
+            "poppy",
+            "pip",
+            "pap",
+            "pappy",
+          ],
+          "word": "ppp",
+        },
+        Object {
+          "suggestions": Array [
+            "jury",
+            "Jerry",
+            "jewelry",
+            "dry",
+          ],
+          "word": "jry",
+        },
       ]
     }
     visible={true}
@@ -27,18 +48,30 @@ exports[`renders without crashing and matches snapshot 1`] = `
         "maxIndex": 4,
         "minIndex": 0,
         "misspelledWords": Array [
-          "ppp",
+          Object {
+            "suggestions": Array [
+              "pup",
+              "puppy",
+              "pop",
+              "pope",
+              "poppy",
+              "pip",
+              "pap",
+              "pappy",
+            ],
+            "word": "ppp",
+          },
+          Object {
+            "suggestions": Array [
+              "jury",
+              "Jerry",
+              "jewelry",
+              "dry",
+            ],
+            "word": "jry",
+          },
         ],
-        "wordSuggestions": Array [
-          "pup",
-          "puppy",
-          "pop",
-          "pope",
-          "poppy",
-          "pip",
-          "pap",
-          "pappy",
-        ],
+        "visible": false,
       }
     }
     visible={false}

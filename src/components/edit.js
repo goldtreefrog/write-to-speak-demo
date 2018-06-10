@@ -15,7 +15,7 @@ const Edit = () => {
         visible={false}
         buttonText={{ saveUpdate: "Update Snippet", resetCancel: "Cancel Update" }}
       />
-      <SpellingArea spellData={spellData} visible={false} />
+      <SpellingArea spellData={spellData} visible={spellData.visible} />
       <section id="edit">
         <p>Click on the snippet you wish to edit</p>
         {snippets.map(snippet => <Snippet text={snippet.text} id={snippet.id} orderkey={snippet.orderkey} key={snippet.orderkey} />)}
