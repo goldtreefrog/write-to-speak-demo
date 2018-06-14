@@ -12,6 +12,7 @@ class Header extends Component {
           <Link to="/write">Write</Link>
           <Link to="/talk">Talk</Link>
           <Link to="/edit">Edit</Link>
+          <Link to="/login">Login</Link>
         </nav>
         <Link to="/">
           <img src={logo} className="app-logo" alt="logo" />
