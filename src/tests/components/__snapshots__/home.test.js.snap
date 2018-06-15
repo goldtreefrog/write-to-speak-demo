@@ -22,20 +22,22 @@ exports[`renders without crashing and matches snapshot 1`] = `
     <p>
       If you are registered, you can save your text for reading aloud later. (But note that this is a demo and all data will be erased from time to time.)
     </p>
-    <button
-      id="signin"
-      name="signin"
-      type="submit"
+    <Link
+      className="button-link"
+      replace={false}
+      role="button"
+      to="/register"
     >
       Sign In/Register
-    </button>
-    <button
-      id="guest"
-      name="guest"
-      type="submit"
+    </Link>
+    <Link
+      className="button-link"
+      replace={false}
+      role="button"
+      to="/write"
     >
-      Sign In as Anonymous Guest
-    </button>
+      Enter as Guest
+    </Link>
   </form>
 </section>
 `;

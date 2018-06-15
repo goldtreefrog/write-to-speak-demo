@@ -1,14 +1,6 @@
 import { createStore, combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 
-// The short (Thinkful) way:
-// export default createStore(
-//     combineReducers({
-//         form: formReducer
-//     })
-// );
-
-// The equivalent Redux Form Basic Usage Guide way:
 const rootReducer = combineReducers({
   // ...your other reducers here
   // you have to pass formReducer under 'form' key,

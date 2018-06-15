@@ -11,7 +11,7 @@ body {
 }
 
 button {
-  background-color: #99f;
+  background-color: #c7ba6b;
   background: linear-gradient(#f5e882, #c7ba6b);
   border: solid 1px #000000;
   font-family: "EB Garamond", serif;
@@ -26,6 +26,10 @@ button:focus {
   background: linear-gradient(#423e24, #423e24);
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
 }

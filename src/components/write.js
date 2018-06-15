@@ -1,5 +1,4 @@
 import React from "react";
-// import "./styles/write.css";
 import WritingArea from "./writing-area";
 import SpellingArea from "./spelling-area";
 import { spellDataInitial as spellData } from "./../tests/fixtures/spell-data.js";

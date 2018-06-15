@@ -4,7 +4,6 @@ const spellDataInitial = {
     { word: "ppp", suggestions: ["pup", "puppy", "pop", "pope", "poppy", "pip", "pap", "pappy"] },
     { word: "jry", suggestions: ["jury", "Jerry", "jewelry", "dry"] }
   ],
-  // wordSuggestions: ["pup", "puppy", "pop", "pope", "poppy", "pip", "pap", "pappy"],
   minIndex: 0,
   maxIndex: 4
 };

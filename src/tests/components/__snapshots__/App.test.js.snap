@@ -28,6 +28,30 @@ exports[`renders without crashing and matches snapshot 1`] = `
           exact={true}
           path="/edit"
         />
+        <Provider
+          store={
+            Object {
+              "dispatch": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+              Symbol(observable): [Function],
+            }
+          }
+        >
+          <div>
+            <Route
+              component={[Function]}
+              exact={true}
+              path="/login"
+            />
+            <Route
+              component={[Function]}
+              exact={true}
+              path="/register"
+            />
+          </div>
+        </Provider>
         <Route
           component={[Function]}
         />

@@ -1,9 +1,7 @@
 import React from "react";
 import "./styles/spelling-area.css";
 
-// class SpellingArea extends React.Component {
 const SpellingArea = props => {
-  // render() {
   let spellingAreaHtml = "";
   if (props.visible) {
     console.log(props);
@@ -43,5 +41,5 @@ const SpellingArea = props => {
   }
   return spellingAreaHtml;
 };
-// }
+
 export default SpellingArea;

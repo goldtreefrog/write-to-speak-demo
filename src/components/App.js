@@ -9,7 +9,8 @@ import Write from "./write";
 import Home from "./home";
 import Talk from "./talk";
 import Edit from "./edit";
-import LoginOrRegister from "./login-or-register";
+import LoginForm from "./login-form";
+import RegisterForm from "./register-form";
 import NotFound from "./not-found";
 import store from "./../store.js";
 
@@ -24,7 +25,10 @@ const routes = (
           <Route path="/talk" component={Talk} exact />
           <Route path="/edit" component={Edit} exact />
           <Provider store={store}>
-            <Route path="/login" component={LoginOrRegister} exact />
+            <div>
+              <Route path="/login" component={LoginForm} exact />
+              <Route path="/register" component={RegisterForm} exact />
+            </div>
           </Provider>
           <Route component={NotFound} />
         </Switch>
