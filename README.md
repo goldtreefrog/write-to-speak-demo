@@ -1,6 +1,6 @@
 # Write to Speak Demo App
 
-This is an app in progress. So far I have completed HTML wireframing and UI flows.
+This is an app in progress. So far I have completed screen layouts that are not functional yet, but you can get an idea of what they look like - for mobile devices - with dummy data by going [here](https://write-to-speak-demo.netlify.com/).
 
 The name of the app here on Github is "Write to Speak Demo," to distinguish it from the prior "Write to Speak" written in JQuery, which did not have a database. (This latest version will be a rewrite in React/Redux with MongoDB.)
 
@@ -23,4 +23,4 @@ Below are direct links to the wireframes for each page:
 ![UI Write Page](github-images/user-flows-p2.jpg)
 ![UI Talk and Edit Pages (for snippets)](github-images/user-flows-p3.jpg)
 
-Coding to come. Stay tuned...
+More to come. Stay tuned...
