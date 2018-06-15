@@ -23,21 +23,39 @@ nav {
 }
 
 nav a {
-  display: inline;
+  display: block;
   width: 99%;
-  /* margin-left: auto;
-  margin-right: auto; */
-  border-right: solid 1px black;
-  height: 3.5em;
+  border-right: none;
+  height: 1.5em;
   vertical-align: top;
   text-decoration: none;
   padding: 2px 1em;
+  margin-bottom: 2px;
+  color: black;
+  background-color: #c7ba6b;
+  background: linear-gradient(#f5e882, #c7ba6b);
 }
 
-nav a:last-child {
-  border-right: 0;
+nav a:hover,
+nav a:focus {
+  color: white;
+  background-color: #423e24;
+  background: linear-gradient(#423e24, #423e24);
 }
 
-nav a:link {
-  color: #000066;
+@media only screen and (min-width: 370px) {
+  nav a {
+    display: inline;
+    width: 99%;
+    border-right: solid 1px black;
+    height: 3.5em;
+    vertical-align: top;
+    text-decoration: none;
+    padding: 2px 1em;
+    background: none;
+  }
+
+  nav a:last-child {
+    border-right: 0;
+  }
 }
