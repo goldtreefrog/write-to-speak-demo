@@ -5,9 +5,27 @@ section#landing form {
   padding: 0 1%;
 }
 
-section#landing form button {
-  width: 100%;
+.button-link {
+  background-color: #99f;
+  background: linear-gradient(#f5e882, #c7ba6b);
+  border: solid 1px #000000;
+  font-family: "EB Garamond", serif;
+  color: #000000;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button-link:hover,
+.button-link:focus {
+  color: white;
+  background-color: #423e24;
+  background: linear-gradient(#423e24, #423e24);
+}
+
+section#landing form .button-link {
+  width: 96%;
   padding: 5px;
   margin: 5px;
   max-width: 17em;
+  display: inline-block;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles/home.css";
 
 class Home extends React.Component {
@@ -17,12 +18,12 @@ class Home extends React.Component {
             If you are registered, you can save your text for reading aloud later. (But note that this is a demo and all data will be erased from
             time to time.)
           </p>
-          <button type="submit" name="signin" id="signin">
+          <Link to="/register" className="button-link" role="button">
             Sign In/Register
-          </button>
-          <button type="submit" name="guest" id="guest">
-            Sign In as Anonymous Guest
-          </button>
+          </Link>
+          <Link to="/write" className="button-link" role="button">
+            Enter as Guest
+          </Link>
         </form>
       </section>
     );
