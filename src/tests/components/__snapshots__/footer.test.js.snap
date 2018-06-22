@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing and matches snapshot 1`] = `
-<div
-  className="Footer"
->
+<Aux>
   <footer
     role="contentinfo"
   >
@@ -11,5 +9,5 @@ exports[`renders without crashing and matches snapshot 1`] = `
       ©2018 Margaret Blauvelt
     </summary>
   </footer>
-</div>
+</Aux>
 `;

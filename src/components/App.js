@@ -33,7 +33,8 @@ const routes = (
   </Router>
 );
 
-class App extends Component {
+// Use named export for unconnected component (for tests)
+export class App extends Component {
   render() {
     return routes;
   }
@@ -47,4 +48,5 @@ const mapStateToProps = state => {
   };
 };
 
+// Use default export for the connected component (for app)
 export default connect(mapStateToProps)(App);

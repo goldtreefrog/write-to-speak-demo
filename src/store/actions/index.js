@@ -1,7 +1,7 @@
 export const ADD_SNIPPET = "ADD_SNIPPET";
-export const addSnippet = snippetText => ({
+export const addSnippet = snippet => ({
   type: ADD_SNIPPET,
-  snippetText
+  snippet
 });
 
 export const UPDATE_SNIPPET = "UPDATE_SNIPPET";
