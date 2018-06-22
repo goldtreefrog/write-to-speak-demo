@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider } from "react-redux";
 import "normalize.css";
 import "./styles/App.css";
 import Header from "./header";
@@ -12,7 +12,6 @@ import Edit from "./edit";
 import LoginForm from "./login-form";
 import RegisterForm from "./register-form";
 import NotFound from "./not-found";
-import store from "./../store.js";
 
 const routes = (
   <Router>
@@ -24,12 +23,8 @@ const routes = (
           <Route path="/write" component={Write} exact />
           <Route path="/talk" component={Talk} exact />
           <Route path="/edit" component={Edit} exact />
-          <Provider store={store}>
-            <div>
-              <Route path="/login" component={LoginForm} exact />
-              <Route path="/register" component={RegisterForm} exact />
-            </div>
-          </Provider>
+          <Route path="/login" component={LoginForm} exact />
+          <Route path="/register" component={RegisterForm} exact />
           <Route component={NotFound} />
         </Switch>
       </main>
@@ -43,4 +38,13 @@ class App extends Component {
     return routes;
   }
 }
-export default App;
+
+const mapStateToProps = state => {
+  return {
+    snippets: state.snippets,
+    writingArea: state.writingArea,
+    spellingArea: state.spellingArea
+  };
+};
+
+export default connect(mapStateToProps)(App);

@@ -1,4 +1,4 @@
-.snippet-area button {
+button.snippet {
   width: 100%;
   margin-top: 5px;
   color: black;
@@ -7,8 +7,8 @@
   padding: 6px;
 }
 
-.snippet-area button:hover,
-.snippet-area button:focus {
+button.snippet:hover,
+button.snippet:focus {
   color: white;
   background-color: #423e24;
   background: linear-gradient(#423e24, #423e24);

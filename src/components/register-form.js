@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { reduxForm, Field } from "redux-form";
+// import { required, email } from "redux-form-validators";
 import "./styles/register-form.css";
 
 let RegisterForm = props => {
@@ -19,6 +20,7 @@ let RegisterForm = props => {
       <div>
         <label htmlFor="email">Email</label>
         <Field name="email" component="input" type="email" />
+        {/* <Field name="email" type="email" component="input" validate={[required(), email()]} /> */}
       </div>
       <div>
         <label htmlFor="password">Password</label>

@@ -1,4 +1,5 @@
 import React from "react";
+import Aux from "./../hoc/_aux";
 import WritingArea from "./writing-area";
 import SpellingArea from "./spelling-area";
 import { spellDataInitial as spellData } from "./../tests/fixtures/spell-data.js";
@@ -6,7 +7,7 @@ import { spellDataInitial as spellData } from "./../tests/fixtures/spell-data.js
 class Write extends React.Component {
   render() {
     return (
-      <div className="write">
+      <Aux>
         <h2>Write</h2>
         <WritingArea
           misspelledWords={spellData.misspelledWords}
@@ -14,7 +15,7 @@ class Write extends React.Component {
           buttonText={{ saveUpdate: "Save as Snippet", resetCancel: "Reset (Delete)" }}
         />
         <SpellingArea spellData={spellData} visible={spellData.visible} />
-      </div>
+      </Aux>
     );
   }
 }

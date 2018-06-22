@@ -14,7 +14,8 @@ const WritingArea = props => {
               <span aria-hidden="true" className="fa fa-pencil-square-o" />
               Write in the box:
             </label>
-            <textarea id="text-box" name="text-box" wrap="soft" defaultValue={props.misspelledWords.map(wordInfo => wordInfo.word).join(" ")} />
+            <textarea id="text-box" name="text-box" wrap="soft" defaultValue={props.activeSnippetText} />
+            {/* <textarea id="text-box" name="text-box" wrap="soft" defaultValue={props.misspelledWords.map(wordInfo => wordInfo.word).join(" ")} /> */}
           </fieldset>
           <fieldset id="box-buttons">
             <button className="read" id="read-aloud" name="read-aloud" type="submit" value="Read Aloud">
