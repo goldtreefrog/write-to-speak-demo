@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
 import { App } from "./../../components/App.js";
 import { store } from "./../../store/store.js";

@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing and matches snapshot 1`] = `
+<Aux>
+  <h2>
+    Edit
+  </h2>
+  <WritingArea
+    buttonText={
+      Object {
+        "resetCancel": "Cancel Update",
+        "saveUpdate": "Update Snippet",
+      }
+    }
+  />
+  <SpellingArea
+    spellData={
+      Object {
+        "maxIndex": 4,
+        "minIndex": 0,
+        "misspelledWords": Array [
+          Object {
+            "suggestions": Array [
+              "pup",
+              "puppy",
+              "pop",
+              "pope",
+              "poppy",
+              "pip",
+              "pap",
+              "pappy",
+            ],
+            "word": "ppp",
+          },
+          Object {
+            "suggestions": Array [
+              "jury",
+              "Jerry",
+              "jewelry",
+              "dry",
+            ],
+            "word": "jry",
+          },
+        ],
+        "visible": false,
+      }
+    }
+    visible={false}
+  />
+  <section
+    id="edit"
+  >
+    <p>
+      Click on the snippet you wish to edit
+    </p>
+    <Snippet
+      click={[Function]}
+      id={123}
+      key="0"
+      orderkey={0}
+      text="Hi there"
+    />
+    <Snippet
+      click={[Function]}
+      id={312}
+      key="3"
+      orderkey={3}
+      text="Mom"
+    />
+    <Snippet
+      click={[Function]}
+      id={666}
+      key="2"
+      orderkey={2}
+      text="Dad"
+    />
+    <Snippet
+      click={[Function]}
+      id={427}
+      key="1"
+      orderkey={1}
+      text="come talk with me"
+    />
+    <Snippet
+      click={[Function]}
+      id={555}
+      key="6"
+      orderkey={6}
+      text="Once upon a time, when it was a dark and stormy night, Sandy heard a tremendously loud 'boom!'"
+    />
+  </section>
+</Aux>
+`;

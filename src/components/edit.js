@@ -17,15 +17,14 @@ export class Edit extends Component {
   };
 
   render() {
-    console.log(this.props.writingArea);
     return (
       <Aux>
         <h2>Edit</h2>
         <WritingArea
-          misspelledWords={this.props.spellingArea.misspelledWords}
-          activeSnippetId={this.props.writingArea.activeSnippetId}
-          activeSnippetText={this.props.writingArea.activeSnippetText}
-          visible={this.props.writingArea.visible}
+          // misspelledWords={this.props.spellingArea.misspelledWords}
+          // activeSnippetId={this.props.writingArea.activeSnippetId}
+          // activeSnippetText={this.props.writingArea.activeSnippetText}
+          // visible={this.props.writingArea.visible}
           buttonText={{ saveUpdate: "Update Snippet", resetCancel: "Cancel Update" }}
         />
         <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} />

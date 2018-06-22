@@ -14,28 +14,8 @@ exports[`renders without crashing and matches snapshot 1`] = `
     }
     misspelledWords={
       Array [
-        Object {
-          "suggestions": Array [
-            "pup",
-            "puppy",
-            "pop",
-            "pope",
-            "poppy",
-            "pip",
-            "pap",
-            "pappy",
-          ],
-          "word": "ppp",
-        },
-        Object {
-          "suggestions": Array [
-            "jury",
-            "Jerry",
-            "jewelry",
-            "dry",
-          ],
-          "word": "jry",
-        },
+        "bck",
+        "hie",
       ]
     }
     visible={true}
@@ -43,36 +23,12 @@ exports[`renders without crashing and matches snapshot 1`] = `
   <SpellingArea
     spellData={
       Object {
-        "maxIndex": 4,
-        "minIndex": 0,
         "misspelledWords": Array [
-          Object {
-            "suggestions": Array [
-              "pup",
-              "puppy",
-              "pop",
-              "pope",
-              "poppy",
-              "pip",
-              "pap",
-              "pappy",
-            ],
-            "word": "ppp",
-          },
-          Object {
-            "suggestions": Array [
-              "jury",
-              "Jerry",
-              "jewelry",
-              "dry",
-            ],
-            "word": "jry",
-          },
+          "bck",
+          "hie",
         ],
-        "visible": false,
       }
     }
-    visible={false}
   />
 </Aux>
 `;

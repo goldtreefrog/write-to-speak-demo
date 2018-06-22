@@ -13,7 +13,7 @@ const snippetsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_SNIPPET:
       return Object.assign({}, state, {
-        snippets: [...state.snippets, action.snippet]
+        snippets: state.snippets.concat(action.snippet)
       });
     case UPDATE_SNIPPET:
       return Object.assign({}, state, {

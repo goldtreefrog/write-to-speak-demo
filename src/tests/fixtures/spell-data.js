@@ -8,7 +8,7 @@ const spellDataInitial = {
   maxIndex: 4
 };
 
-const spellDataEdit = {
+const spellingArea = {
   visible: false,
   misspelledWords: [
     { word: "jry", suggestions: ["jury", "Jerry", "jewelry", "dry"] },
@@ -19,4 +19,10 @@ const spellDataEdit = {
   maxIndex: 4
 };
 
-export { spellDataInitial, spellDataEdit };
+const misspelledWords = [
+  { word: "jry", suggestions: ["jury", "Jerry", "jewelry", "dry"] },
+  { word: "ppp", suggestions: ["pup", "puppy", "pop", "pope", "poppy", "pip", "pap", "pappy"] }
+];
+const activeSnippetId = "3";
+export { spellDataInitial, spellingArea, misspelledWords, activeSnippetId };
+// export { misspelledWords };

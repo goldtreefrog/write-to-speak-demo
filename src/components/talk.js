@@ -3,7 +3,8 @@ import Snippet from "./snippet";
 import { connect } from "react-redux";
 import "./styles/talk.css";
 
-class Talk extends Component {
+// Use named export for unconnected component (for tests)
+export class Talk extends Component {
   render() {
     return (
       <section id="edit">
@@ -22,4 +23,5 @@ const mapStateToProps = state => {
   };
 };
 
+// Use default export for the connected component (for app)
 export default connect(mapStateToProps)(Talk);

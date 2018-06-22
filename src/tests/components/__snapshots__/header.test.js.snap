@@ -30,6 +30,12 @@ exports[`renders without crashing and matches snapshot 1`] = `
     >
       Edit
     </Link>
+    <Link
+      replace={false}
+      to="/login"
+    >
+      Login
+    </Link>
   </nav>
   <Link
     replace={false}

@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
-import Test from "./../../components/talk.js";
+import { Talk } from "./../../components/talk.js";
+import { store } from "./../../store/store.js";
+import { snippets } from "./../fixtures/snippet-data.js";
 
-it("renders without crashing and matches snapshot", () => {
-  const wrapper = shallow(<Test />);
+it("renders Talk page with snippets", () => {
+  const wrapper = shallow(<Talk snippets={snippets} />);
   expect(wrapper).toMatchSnapshot();
 });
