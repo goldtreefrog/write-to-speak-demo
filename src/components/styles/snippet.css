@@ -13,3 +13,9 @@ button.snippet:focus {
   background-color: #423e24;
   background: linear-gradient(#423e24, #423e24);
 }
+
+button.snippet:disabled {
+  color: #666;
+  background: none;
+  background-color: #ccc;
+}

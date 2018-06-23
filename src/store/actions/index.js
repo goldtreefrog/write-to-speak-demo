@@ -16,6 +16,12 @@ export const deleteSnippet = snippetText => ({
   snippetText
 });
 
+export const SET_SNIPPETS_AVAILABILITY = "SET_SNIPPETS_AVAILABILITY";
+export const setSnippetsAvailability = (type, action) => ({
+  type: type,
+  enabled: action.enabled
+});
+
 export const WRITING_AREA_VISIBLE = "WRITING_AREA_VISIBLE";
 export const writingAreaVisible = () => ({
   type: WRITING_AREA_VISIBLE

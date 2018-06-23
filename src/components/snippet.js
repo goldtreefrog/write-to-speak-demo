@@ -11,8 +11,8 @@ const Snippet = props => {
     snippetText = props.text;
   }
   const snippetHtml = (
-    // Ultimately we will look up id in db and use snippet text from there; thus we may not need to use value (below) at all.
-    <button id={props.id} className="snippet" onClick={props.click()} orderkey={props.orderkey} value={props.text}>
+    // Ultimately we will look up id and text in db.
+    <button id={props.id} className="snippet" onClick={props.click()} orderkey={props.orderkey} value={props.text} disabled={props.disabled}>
       {snippetText}
     </button>
   );

@@ -12,6 +12,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
         "saveUpdate": "Update Snippet",
       }
     }
+    visible={true}
   />
   <SpellingArea
     spellData={
@@ -51,10 +52,11 @@ exports[`renders without crashing and matches snapshot 1`] = `
     id="edit"
   >
     <p>
-      Click on the snippet you wish to edit
+      The snippets below will become active again when you finish your update (above).
     </p>
     <Snippet
       click={[Function]}
+      disabled={true}
       id={123}
       key="0"
       orderkey={0}
@@ -62,6 +64,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
     />
     <Snippet
       click={[Function]}
+      disabled={true}
       id={312}
       key="3"
       orderkey={3}
@@ -69,6 +72,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
     />
     <Snippet
       click={[Function]}
+      disabled={true}
       id={666}
       key="2"
       orderkey={2}
@@ -76,6 +80,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
     />
     <Snippet
       click={[Function]}
+      disabled={true}
       id={427}
       key="1"
       orderkey={1}
@@ -83,6 +88,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
     />
     <Snippet
       click={[Function]}
+      disabled={true}
       id={555}
       key="6"
       orderkey={6}

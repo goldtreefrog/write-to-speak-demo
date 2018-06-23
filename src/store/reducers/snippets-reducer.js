@@ -1,6 +1,7 @@
-import { ADD_SNIPPET, UPDATE_SNIPPET, DELETE_SNIPPET } from "./../actions";
+import { SET_SNIPPETS_AVAILABILITY, ADD_SNIPPET, UPDATE_SNIPPET, DELETE_SNIPPET } from "./../actions";
 
 const initialState = {
+  snippetsAvail: true,
   snippets: [
     { id: 123, orderkey: 0, text: "Hi there" },
     { id: 312, orderkey: 3, text: "Mom" },
@@ -11,6 +12,10 @@ const initialState = {
 };
 const snippetsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_SNIPPETS_AVAILABILITY:
+      return Object.assign({}, state, {
+        snippetsAvail: false
+      });
     case ADD_SNIPPET:
       return Object.assign({}, state, {
         snippets: state.snippets.concat(action.snippet)
