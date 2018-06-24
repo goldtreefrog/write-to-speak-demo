@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import Aux from "./../hoc/_aux";
 import WritingArea from "./writing-area";
@@ -17,7 +17,7 @@ import SpellingArea from "./spelling-area";
 // } from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
-export class Write extends React.Component {
+export class Write extends Component {
   render() {
     return (
       <Aux>
@@ -26,6 +26,7 @@ export class Write extends React.Component {
           misspelledWords={this.props.spellingArea.misspelledWords}
           visible={true}
           buttonText={{ saveUpdate: "Save as Snippet", resetCancel: "Reset (Delete)" }}
+          click={() => this.addSnippet}
         />
         <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} />
       </Aux>

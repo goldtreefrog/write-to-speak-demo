@@ -5,13 +5,14 @@ exports[`renders without crashing and matches snapshot 1`] = `
   <h2>
     Write
   </h2>
-  <WritingArea
+  <Connect(WritingArea)
     buttonText={
       Object {
         "resetCancel": "Reset (Delete)",
         "saveUpdate": "Save as Snippet",
       }
     }
+    click={[Function]}
     misspelledWords={
       Array [
         "bck",

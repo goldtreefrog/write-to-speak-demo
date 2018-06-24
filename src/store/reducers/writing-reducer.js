@@ -1,7 +1,7 @@
 import { WRITING_AREA_VISIBLE, WRITING_AREA_HIDDEN, WRITING_AREA_POPULATE } from "./../actions";
 
 const initialState = {
-  writingArea: { visible: false, activeSnippetId: "1234", activeSnippetText: "You are like a comet", hasChanged: false }
+  writingArea: { visible: false, activeSnippetId: null, activeSnippetText: null, hasChanged: false }
 };
 
 const writingReducer = (state = initialState, action) => {
@@ -17,8 +17,8 @@ const writingReducer = (state = initialState, action) => {
       });
 
     case WRITING_AREA_POPULATE:
-      console.log(action.activeSnippetId);
-      console.log(action.activeSnippetText);
+      console.log("WRITING_AREA_POPULATE: ", action.activeSnippetId);
+      console.log("WRITING_AREA_POPULATE: ", action.activeSnippetText);
       return Object.assign({}, state, {
         writingArea: { activeSnippetId: action.activeSnippetId, activeSnippetText: action.activeSnippetText, visible: true }
       });

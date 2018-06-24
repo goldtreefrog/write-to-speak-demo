@@ -24,16 +24,22 @@ export class Edit extends Component {
   };
 
   render() {
+    console.log(this.props.writingArea.visible);
     return (
       <Aux>
         <h2>Edit</h2>
-        <WritingArea
-          activeSnippetId={this.props.writingArea.activeSnippetId}
-          activeSnippetText={this.props.writingArea.activeSnippetText}
-          visible={this.props.writingArea.visible}
-          buttonText={{ saveUpdate: "Update Snippet", resetCancel: "Cancel Update" }}
-        />
-        <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} />
+
+        {this.props.writingArea.visible && (
+          <div>
+            <WritingArea
+              activeSnippetId={this.props.writingArea.activeSnippetId}
+              activeSnippetText={this.props.writingArea.activeSnippetText}
+              visible={this.props.writingArea.visible}
+              buttonText={{ saveUpdate: "Update Snippet", resetCancel: "Cancel Update" }}
+            />
+            <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} />
+          </div>
+        )}
         <section id="edit">
           <p>
             {this.props.snippets.snippetsAvail
