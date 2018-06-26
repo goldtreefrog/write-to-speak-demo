@@ -1,56 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing and matches snapshot 1`] = `
-<header
-  className="app-header"
-  role="banner"
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
 >
-  <nav>
+  <header
+    className="app-header"
+    role="banner"
+  >
+    <nav>
+      <Link
+        replace={false}
+        to="/"
+      >
+        Home
+      </Link>
+      <Link
+        onClick={[Function]}
+        replace={false}
+        to="/write"
+      >
+        Write
+      </Link>
+      <Link
+        replace={false}
+        to="/talk"
+      >
+        Talk
+      </Link>
+      <Link
+        replace={false}
+        to="/edit"
+      >
+        Edit
+      </Link>
+      <Link
+        replace={false}
+        to="/login"
+      >
+        Login
+      </Link>
+    </nav>
     <Link
       replace={false}
       to="/"
     >
-      Home
+      <img
+        alt="logo"
+        className="app-logo"
+        src="wts-pencil2.svg"
+      />
+      <h1
+        className="app-title"
+      >
+        Write to Speak
+      </h1>
     </Link>
-    <Link
-      replace={false}
-      to="/write"
-    >
-      Write
-    </Link>
-    <Link
-      replace={false}
-      to="/talk"
-    >
-      Talk
-    </Link>
-    <Link
-      replace={false}
-      to="/edit"
-    >
-      Edit
-    </Link>
-    <Link
-      replace={false}
-      to="/login"
-    >
-      Login
-    </Link>
-  </nav>
-  <Link
-    replace={false}
-    to="/"
-  >
-    <img
-      alt="logo"
-      className="app-logo"
-      src="wts-pencil2.svg"
-    />
-    <h1
-      className="app-title"
-    >
-      Write to Speak
-    </h1>
-  </Link>
-</header>
+  </header>
+</Provider>
 `;
