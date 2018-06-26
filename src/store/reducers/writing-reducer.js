@@ -3,7 +3,7 @@ import { WRITING_AREA_VISIBLE, WRITING_AREA_HIDDEN, WRITING_AREA_POPULATE, WRITI
 const initialState = {
   visible: false,
   activeSnippetId: null,
-  activeSnippetText: null,
+  activeSnippetText: "",
   isEditing: false,
   editingPage: "",
   hasChanged: false
@@ -42,7 +42,7 @@ const writingReducer = (state = initialState, action) => {
       return Object.assign({}, state, { activeSnippetText: action.activeSnippetText });
 
     case WRITING_AREA_RESET:
-      return Object.assign({}, state, { activeSnippedId: "", activeSnippetText: "", visible: false });
+      return Object.assign({}, state, { activeSnippetId: "", activeSnippetText: "", visible: false });
 
     default:
       return state;

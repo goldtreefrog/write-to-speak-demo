@@ -4,7 +4,9 @@ import {
   ADD_SNIPPET,
   addSnippet,
   WRITING_AREA_CHANGE,
-  writingAreaChange
+  writingAreaChange,
+  WRITING_AREA_RESET,
+  writingAreaReset
   //   UPDATE_SNIPPET,
   //   updateSnippet,
   //   DELETE_SNIPPET,
@@ -21,6 +23,8 @@ export class WritingArea extends Component {
     this.props.writing.activeSnippetId
       ? console.log("Update the snippet")
       : this.props.dispatch(addSnippet(ADD_SNIPPET, { snippet: { id: 57, text: this.props.writing.activeSnippetText } }));
+
+    this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
   };
 
   handleTextChange = e => {
@@ -28,6 +32,7 @@ export class WritingArea extends Component {
   };
 
   render() {
+    console.log(this.props.writing.activeSnippetText);
     return (
       <section id="writing-area">
         <p id="instructions" />
@@ -37,8 +42,7 @@ export class WritingArea extends Component {
               <span aria-hidden="true" className="fa fa-pencil-square-o" />
               Write in the box:
             </label>
-            <textarea id="text-box" name="text-box" wrap="soft" value={this.props.activeSnippetText} onChange={this.handleTextChange} />
-            {/* <textarea id="text-box" name="text-box" wrap="soft" defaultValue={this.props.activeSnippetText} /> */}
+            <textarea id="text-box" name="text-box" wrap="soft" value={this.props.writing.activeSnippetText} onChange={this.handleTextChange} />
           </fieldset>
           <fieldset id="box-buttons">
             <button className="read" id="read-aloud" name="read-aloud" type="submit" value="Read Aloud">
