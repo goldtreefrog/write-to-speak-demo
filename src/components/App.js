@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "normalize.css";
 import "./styles/App.css";
@@ -13,37 +14,41 @@ import LoginForm from "./login-form";
 import RegisterForm from "./register-form";
 import NotFound from "./not-found";
 
-const routes = (
-  <Router>
-    <div className="App">
-      <Header />
-      <main>
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/write" component={Write} exact />
-          <Route path="/talk" component={Talk} exact />
-          <Route path="/edit" component={Edit} exact />
-          <Route path="/login" component={LoginForm} exact />
-          <Route path="/register" component={RegisterForm} exact />
-          <Route component={NotFound} />
-        </Switch>
-      </main>
-      <Footer />
-    </div>
-  </Router>
-);
-
 // Use named export for unconnected component (for tests)
 export class App extends Component {
   render() {
-    return routes;
+    console.log(this.props.writing);
+    // return routes;
+    return (
+      <Router>
+        <div className="App">
+          <Header />
+          <main>
+            <Switch>
+              <Route path="/" component={Home} exact />
+              <Route
+                exact
+                path="/write"
+                render={() => (this.props.writing.isEditing ? <Redirect to={this.props.writing.editingPage} /> : <Write />)}
+              />
+              <Route path="/talk" component={Talk} exact />
+              <Route path="/edit" component={Edit} exact />
+              <Route path="/login" component={LoginForm} exact />
+              <Route path="/register" component={RegisterForm} exact />
+              <Route component={NotFound} />
+            </Switch>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
     snippets: state.snippets,
-    writingArea: state.writingArea,
+    writing: state.writing,
     spellingArea: state.spellingArea
   };
 };

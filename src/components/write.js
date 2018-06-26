@@ -37,7 +37,7 @@ export class Write extends Component {
 const mapStateToProps = state => {
   return {
     snippets: state.snippets,
-    writingArea: state.writing.writingArea,
+    writing: state.writing,
     spellingArea: state.spelling.spellingArea
   };
 };

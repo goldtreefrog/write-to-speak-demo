@@ -14,7 +14,7 @@ const snippetsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SNIPPETS_AVAILABILITY:
       return Object.assign({}, state, {
-        snippetsAvail: false
+        snippetsAvail: action.snippetsAvail
       });
     case ADD_SNIPPET:
       return Object.assign({}, state, {

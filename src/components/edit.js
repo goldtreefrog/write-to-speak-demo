@@ -6,16 +6,27 @@ import WritingArea from "./writing-area";
 import SpellingArea from "./spelling-area";
 import "./styles/edit.css";
 // import { spellDataEdit as spellData } from "./../tests/fixtures/spell-data.js";
-import { WRITING_AREA_POPULATE, writingAreaPopulate, SET_SNIPPETS_AVAILABILITY, setSnippetsAvailability } from "./../store/actions";
+import {
+  WRITING_AREA_POPULATE,
+  writingAreaPopulate,
+  SET_SNIPPETS_AVAILABILITY,
+  setSnippetsAvailability,
+  IS_EDITING,
+  isEditing
+} from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
   loadSnippetForUpdate = e => {
+    console.log("You are in loadSnippetForUpdate");
     let writingObject = { activeSnippetId: e.target.id, activeSnippetText: e.target.value };
-    console.log(writingObject);
+    // console.log(writingObject);
 
     // Copy snippet text into writing textarea.
     this.props.dispatch(writingAreaPopulate(WRITING_AREA_POPULATE, writingObject));
+
+    // Set isEditing flag
+    this.props.dispatch(isEditing(IS_EDITING, { editingPage: "edit", isEditing: true }));
 
     // Make all snippets disabled and grayed out, except for the one we are updating, which we give a different color scheme.
     this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: false }));
@@ -24,17 +35,17 @@ export class Edit extends Component {
   };
 
   render() {
-    console.log(this.props.writingArea.visible);
+    console.log(this.props);
     return (
       <Aux>
         <h2>Edit</h2>
 
-        {this.props.writingArea.visible && (
+        {this.props.writing.visible && (
           <div>
             <WritingArea
-              activeSnippetId={this.props.writingArea.activeSnippetId}
-              activeSnippetText={this.props.writingArea.activeSnippetText}
-              visible={this.props.writingArea.visible}
+              activeSnippetId={this.props.writing.activeSnippetId}
+              activeSnippetText={this.props.writing.activeSnippetText}
+              visible={this.props.writing.visible}
               buttonText={{ saveUpdate: "Update Snippet", resetCancel: "Cancel Update" }}
             />
             <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} />
@@ -65,7 +76,7 @@ export class Edit extends Component {
 const mapStateToProps = state => {
   return {
     snippets: state.snippets,
-    writingArea: state.writing.writingArea,
+    writing: state.writing,
     spellingArea: state.spelling.spellingArea
   };
 };

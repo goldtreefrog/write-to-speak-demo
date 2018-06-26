@@ -5,7 +5,7 @@ exports[`renders without crashing 1`] = `
   <div
     className="App"
   >
-    <Header />
+    <Connect(Header) />
     <main>
       <Switch>
         <Route
@@ -14,9 +14,9 @@ exports[`renders without crashing 1`] = `
           path="/"
         />
         <Route
-          component={[Function]}
           exact={true}
           path="/write"
+          render={[Function]}
         />
         <Route
           component={[Function]}
