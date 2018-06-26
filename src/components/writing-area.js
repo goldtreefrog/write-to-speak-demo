@@ -3,16 +3,16 @@ import { connect } from "react-redux";
 import {
   ADD_SNIPPET,
   addSnippet,
+  IS_EDITING,
+  isEditing,
   WRITING_AREA_CHANGE,
   writingAreaChange,
   WRITING_AREA_RESET,
-  writingAreaReset
-  //   UPDATE_SNIPPET,
-  //   updateSnippet,
-  //   DELETE_SNIPPET,
-  //   deleteSnippet,
-  //   WRITING_AREA_VISIBLE,
-  //   writingAreaVisible
+  writingAreaReset,
+  SET_SNIPPETS_AVAILABILITY,
+  setSnippetsAvailability,
+  UPDATE_SNIPPET,
+  updateSnippet
 } from "./../store/actions";
 
 import "./styles/writing-area.css";
@@ -20,9 +20,16 @@ import "./styles/writing-area.css";
 export class WritingArea extends Component {
   addUpdateSnippet = e => {
     e.preventDefault();
-    this.props.writing.activeSnippetId
-      ? console.log("Update the snippet")
-      : this.props.dispatch(addSnippet(ADD_SNIPPET, { snippet: { id: 57, text: this.props.writing.activeSnippetText } }));
+    if (this.props.writing.activeSnippetId) {
+      this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
+      this.props.dispatch(
+        updateSnippet(UPDATE_SNIPPET, { snippet: { id: this.props.writing.activeSnippetId, text: this.props.writing.activeSnippetText } })
+      );
+      // Reset isEditing flag
+      this.props.dispatch(isEditing(IS_EDITING, { editingPage: "edit", isEditing: false }));
+    } else {
+      this.props.dispatch(addSnippet(ADD_SNIPPET, { snippet: { id: 57, text: this.props.writing.activeSnippetText } }));
+    }
 
     this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
   };
@@ -32,7 +39,6 @@ export class WritingArea extends Component {
   };
 
   render() {
-    console.log(this.props.writing.activeSnippetText);
     return (
       <section id="writing-area">
         <p id="instructions" />

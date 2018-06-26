@@ -24,7 +24,7 @@ const snippetsReducer = (state = initialState, action) => {
 
     case UPDATE_SNIPPET:
       return Object.assign({}, state, {
-        snippets: state.snippets.map(snippet => (snippet.id === action.snippet.id ? action.snippet : snippet))
+        snippets: state.snippets.map(snippet => (snippet.id == action.snippet.id ? { id: action.snippet.id, text: action.snippet.text } : snippet))
       });
 
     case DELETE_SNIPPET:

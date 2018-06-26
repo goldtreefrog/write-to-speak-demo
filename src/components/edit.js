@@ -20,7 +20,6 @@ export class Edit extends Component {
   loadSnippetForUpdate = e => {
     // console.log("You are in loadSnippetForUpdate");
     let writingObject = { activeSnippetId: e.target.id, activeSnippetText: e.target.value };
-    // console.log(writingObject);
 
     // Copy snippet text into writing textarea.
     this.props.dispatch(writingAreaPopulate(WRITING_AREA_POPULATE, writingObject));

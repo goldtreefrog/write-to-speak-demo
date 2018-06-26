@@ -5,9 +5,9 @@ export const addSnippet = (type, action) => ({
 });
 
 export const UPDATE_SNIPPET = "UPDATE_SNIPPET";
-export const updateSnippet = snippetText => ({
+export const updateSnippet = (type, action) => ({
   type: UPDATE_SNIPPET,
-  snippetText
+  snippet: action.snippet
 });
 
 export const DELETE_SNIPPET = "DELETE_SNIPPET";
