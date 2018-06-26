@@ -4,7 +4,6 @@ import "./styles/spelling-area.css";
 const SpellingArea = props => {
   let spellingAreaHtml = "";
   if (props.visible) {
-    console.log(props);
     spellingAreaHtml = (
       <section id="spelling-area">
         <p id="spelling-info">Instead of {props.spellData.misspelledWords[0].word}, did you mean any of these? Pick the one you want:</p>

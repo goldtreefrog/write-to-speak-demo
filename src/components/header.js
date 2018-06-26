@@ -18,7 +18,6 @@ import {
 // Use named export for unconnected component (for tests)
 export class Header extends Component {
   checkUpdateStatus(e, stuff) {
-    console.log(e.target.href);
     if (stuff.writing.isEditing) {
       let choice = window.confirm(
         "Press OK to cancel this update and continue to the Write page. Press 'Cancel' to continue working on this snippet."

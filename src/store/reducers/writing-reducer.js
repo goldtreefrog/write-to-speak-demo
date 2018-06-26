@@ -1,4 +1,4 @@
-import { WRITING_AREA_VISIBLE, WRITING_AREA_HIDDEN, WRITING_AREA_POPULATE, WRITING_AREA_RESET, IS_EDITING } from "./../actions";
+import { WRITING_AREA_VISIBLE, WRITING_AREA_HIDDEN, WRITING_AREA_POPULATE, WRITING_AREA_CHANGE, WRITING_AREA_RESET, IS_EDITING } from "./../actions";
 
 const initialState = {
   visible: false,
@@ -23,7 +23,6 @@ const writingReducer = (state = initialState, action) => {
       });
 
     case IS_EDITING:
-      console.log(action.editingPage);
       return Object.assign({}, state, {
         isEditing: action.isEditing,
         editingPage:
@@ -33,13 +32,14 @@ const writingReducer = (state = initialState, action) => {
       });
 
     case WRITING_AREA_POPULATE:
-      console.log("WRITING_AREA_POPULATE: ", action.activeSnippetId);
-      console.log("WRITING_AREA_POPULATE: ", action.activeSnippetText);
       return Object.assign({}, state, {
         activeSnippetId: action.activeSnippetId,
         activeSnippetText: action.activeSnippetText,
         visible: true
       });
+
+    case WRITING_AREA_CHANGE:
+      return Object.assign({}, state, { activeSnippetText: action.activeSnippetText });
 
     case WRITING_AREA_RESET:
       return Object.assign({}, state, { activeSnippedId: "", activeSnippetText: "", visible: false });

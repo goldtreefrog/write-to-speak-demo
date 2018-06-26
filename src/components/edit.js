@@ -18,7 +18,7 @@ import {
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
   loadSnippetForUpdate = e => {
-    console.log("You are in loadSnippetForUpdate");
+    // console.log("You are in loadSnippetForUpdate");
     let writingObject = { activeSnippetId: e.target.id, activeSnippetText: e.target.value };
     // console.log(writingObject);
 
@@ -35,7 +35,7 @@ export class Edit extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <Aux>
         <h2>Edit</h2>

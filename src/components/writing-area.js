@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   ADD_SNIPPET,
-  addSnippet
+  addSnippet,
+  WRITING_AREA_CHANGE,
+  writingAreaChange
   //   UPDATE_SNIPPET,
   //   updateSnippet,
   //   DELETE_SNIPPET,
@@ -16,10 +18,13 @@ import "./styles/writing-area.css";
 export class WritingArea extends Component {
   addUpdateSnippet = e => {
     e.preventDefault();
-    console.log("Do something with the snippet already, OK?");
-    this.props.activeSnippetId
+    this.props.writing.activeSnippetId
       ? console.log("Update the snippet")
-      : this.props.dispatch(addSnippet(ADD_SNIPPET, { snippetId: this.props.activeSnippetId, snippetText: this.props.activeSnippetText }));
+      : this.props.dispatch(addSnippet(ADD_SNIPPET, { snippet: { id: 57, text: this.props.writing.activeSnippetText } }));
+  };
+
+  handleTextChange = e => {
+    this.props.dispatch(writingAreaChange(WRITING_AREA_CHANGE, { activeSnippetText: e.target.value }));
   };
 
   render() {
@@ -32,7 +37,8 @@ export class WritingArea extends Component {
               <span aria-hidden="true" className="fa fa-pencil-square-o" />
               Write in the box:
             </label>
-            <textarea id="text-box" name="text-box" wrap="soft" defaultValue={this.props.activeSnippetText} />
+            <textarea id="text-box" name="text-box" wrap="soft" value={this.props.activeSnippetText} onChange={this.handleTextChange} />
+            {/* <textarea id="text-box" name="text-box" wrap="soft" defaultValue={this.props.activeSnippetText} /> */}
           </fieldset>
           <fieldset id="box-buttons">
             <button className="read" id="read-aloud" name="read-aloud" type="submit" value="Read Aloud">
@@ -66,7 +72,7 @@ export class WritingArea extends Component {
 const mapStateToProps = state => {
   return {
     snippets: state.snippets,
-    writingArea: state.writing.writingArea,
+    writing: state.writing,
     spellingArea: state.spelling.spellingArea
   };
 };

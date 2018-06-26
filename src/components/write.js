@@ -4,18 +4,6 @@ import Aux from "./../hoc/_aux";
 import WritingArea from "./writing-area";
 import SpellingArea from "./spelling-area";
 
-// import { spellDataInitial as spellData } from "./../tests/fixtures/spell-data.js";
-// import {
-//   ADD_SNIPPET,
-//   addSnippet,
-//   UPDATE_SNIPPET,
-//   updateSnippet,
-//   DELETE_SNIPPET,
-//   deleteSnippet,
-//   WRITING_AREA_VISIBLE,
-//   writingAreaVisible
-// } from "./../store/actions";
-
 // Use named export for unconnected component (for tests)
 export class Write extends Component {
   render() {

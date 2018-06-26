@@ -1,7 +1,7 @@
 export const ADD_SNIPPET = "ADD_SNIPPET";
-export const addSnippet = snippet => ({
+export const addSnippet = (type, action) => ({
   type: ADD_SNIPPET,
-  snippet
+  snippet: action.snippet
 });
 
 export const UPDATE_SNIPPET = "UPDATE_SNIPPET";
@@ -54,6 +54,12 @@ export const writingAreaPopulate = (type, action) => ({
   // type: WRITING_AREA_POPULATE,
   type: type,
   activeSnippetId: action.activeSnippetId,
+  activeSnippetText: action.activeSnippetText
+});
+
+export const WRITING_AREA_CHANGE = "WRITING_AREA_CHANGE";
+export const writingAreaChange = (type, action) => ({
+  type,
   activeSnippetText: action.activeSnippetText
 });
 

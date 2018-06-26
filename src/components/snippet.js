@@ -11,7 +11,15 @@ const Snippet = props => {
   }
   const snippetHtml = (
     // Ultimately we will look up id and text in db.
-    <button id={props.id} className="snippet" onClick={props.click()} orderkey={props.orderkey} value={props.text} disabled={props.disabled}>
+    <button
+      id={props.id}
+      className="snippet"
+      onClick={props.click()}
+      orderkey={props.orderkey}
+      value={props.text}
+      disabled={props.disabled}
+      key={props.id}
+    >
       {snippetText}
     </button>
   );

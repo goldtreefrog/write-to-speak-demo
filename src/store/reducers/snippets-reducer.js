@@ -16,18 +16,22 @@ const snippetsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         snippetsAvail: action.snippetsAvail
       });
+
     case ADD_SNIPPET:
       return Object.assign({}, state, {
         snippets: state.snippets.concat(action.snippet)
       });
+
     case UPDATE_SNIPPET:
       return Object.assign({}, state, {
         snippets: state.snippets.map(snippet => (snippet.id === action.snippet.id ? action.snippet : snippet))
       });
+
     case DELETE_SNIPPET:
       return Object.assign({}, state, {
         snippets: state.snippets.filter(snippet => snippet.id !== action.snippet.id)
       });
+
     default:
       return state;
   }

@@ -17,8 +17,6 @@ import NotFound from "./not-found";
 // Use named export for unconnected component (for tests)
 export class App extends Component {
   render() {
-    console.log(this.props.writing);
-    // return routes;
     return (
       <Router>
         <div className="App">
