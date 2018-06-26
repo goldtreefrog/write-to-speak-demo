@@ -1,6 +1,6 @@
 export const ADD_SNIPPET = "ADD_SNIPPET";
 export const addSnippet = (type, action) => ({
-  type: ADD_SNIPPET,
+  type,
   snippet: action.snippet
 });
 
