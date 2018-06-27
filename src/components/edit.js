@@ -62,7 +62,7 @@ export class Edit extends Component {
               text={snippet.text}
               id={snippet.id}
               orderkey={snippet.orderkey}
-              key={snippet.orderkey}
+              key={snippet.id}
               disabled={!this.props.snippets.snippetsAvail}
             />
           ))}

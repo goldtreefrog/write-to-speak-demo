@@ -10,7 +10,7 @@ export class Talk extends Component {
       <section id="edit">
         <p>Click on a snippet to have it speak</p>
         {this.props.snippets.snippets.map(snippet => (
-          <Snippet click={() => this.loadSnippetForUpdate} text={snippet.text} id={snippet.id} orderkey={snippet.orderkey} key={snippet.orderkey} />
+          <Snippet click={() => this.loadSnippetForUpdate} text={snippet.text} id={snippet.id} orderkey={snippet.orderkey} key={snippet.id} />
         ))}
       </section>
     );

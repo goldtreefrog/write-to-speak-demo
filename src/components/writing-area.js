@@ -28,7 +28,8 @@ export class WritingArea extends Component {
       // Reset isEditing flag
       this.props.dispatch(isEditing(IS_EDITING, { editingPage: "edit", isEditing: false }));
     } else {
-      this.props.dispatch(addSnippet(ADD_SNIPPET, { snippet: { id: 57, text: this.props.writing.activeSnippetText } }));
+      let calcDate = new Date();
+      this.props.dispatch(addSnippet(ADD_SNIPPET, { snippet: { id: calcDate.toISOString(), text: this.props.writing.activeSnippetText } }));
     }
 
     this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));

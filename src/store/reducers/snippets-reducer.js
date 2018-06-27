@@ -10,6 +10,7 @@ const initialState = {
     { id: 555, orderkey: 6, text: "Once upon a time, when it was a dark and stormy night, Sandy heard a tremendously loud 'boom!'" }
   ]
 };
+
 const snippetsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SNIPPETS_AVAILABILITY:
@@ -24,7 +25,9 @@ const snippetsReducer = (state = initialState, action) => {
 
     case UPDATE_SNIPPET:
       return Object.assign({}, state, {
-        snippets: state.snippets.map(snippet => (snippet.id == action.snippet.id ? { id: action.snippet.id, text: action.snippet.text } : snippet))
+        snippets: state.snippets.map(
+          snippet => (snippet.id.toString() === action.snippet.id.toString() ? { id: action.snippet.id, text: action.snippet.text } : snippet)
+        )
       });
 
     case DELETE_SNIPPET:
