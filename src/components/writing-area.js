@@ -39,6 +39,16 @@ export class WritingArea extends Component {
     this.props.dispatch(writingAreaChange(WRITING_AREA_CHANGE, { activeSnippetText: e.target.value }));
   };
 
+  resetWriteBox = () => {
+    this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
+
+    // Reset isEditing flag
+    this.props.dispatch(isEditing(IS_EDITING, { editingPage: "edit", isEditing: false }));
+
+    // Make snippets available (for edit page)
+    this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
+  };
+
   render() {
     return (
       <section id="writing-area">
@@ -69,7 +79,7 @@ export class WritingArea extends Component {
               <span aria-hidden="true" className="fa fa-trash" />
               {this.props.activeSnippetId ? "Update Snippet" : "Save as Snippet"}
             </button>
-            <button className="reset" id="clear" name="reset" type="reset" value="Reset">
+            <button className="reset" id="clear" name="reset" type="reset" value="Reset" onClick={this.resetWriteBox}>
               <span aria-hidden="true" className="fa fa-trash" />
               {this.props.buttonText.resetCancel}
             </button>
