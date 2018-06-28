@@ -11,8 +11,6 @@ import {
   writingAreaPopulate,
   SET_SNIPPETS_AVAILABILITY,
   setSnippetsAvailability,
-  IS_EDITING,
-  isEditing,
   CLEAR_FEEDBACK,
   clearFeedback
 } from "./../store/actions";
