@@ -34,6 +34,10 @@ export class WritingArea extends Component {
 
       this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Snippet updated." }));
     } else {
+      if (this.props.writing.activeSnippetText === "") {
+        this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "There is no text in the write box and so nothing to save." }));
+        return;
+      }
       let calcDate = new Date();
       this.props.dispatch(addSnippet(ADD_SNIPPET, { snippet: { id: calcDate.toISOString(), text: this.props.writing.activeSnippetText } }));
 
