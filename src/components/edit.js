@@ -19,6 +19,10 @@ import {
 
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
     this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
@@ -36,8 +40,7 @@ export class Edit extends Component {
     // Make all snippets disabled and grayed out, except for the one we are updating, which we give a different color scheme.
     this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: false }));
 
-    e.target.style.color = "black";
-    e.target.style.backgroundColor = "#5a5530";
+    window.scrollTo(0, 0);
   };
 
   render() {

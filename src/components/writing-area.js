@@ -22,7 +22,10 @@ import {
 import "./styles/writing-area.css";
 
 export class WritingArea extends Component {
-  // this.props.dispatch(clearFeedback(CLEAR_FEEDBACK));
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   addUpdateSnippet = e => {
     e.preventDefault();
     // If there is an activeSnippetId, we are editing rather than saving a new one.
@@ -36,6 +39,8 @@ export class WritingArea extends Component {
     } else {
       if (this.props.writing.activeSnippetText === "") {
         this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "There is no text in the write box and so nothing to save." }));
+
+        window.scrollTo(0, 0);
         return;
       }
       let calcDate = new Date();
@@ -47,6 +52,8 @@ export class WritingArea extends Component {
     this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
     // Reset isEditing flag
     this.props.dispatch(isEditing(IS_EDITING, { editingPage: this.props.writing.editingPage, isEditing: false }));
+
+    window.scrollTo(0, 0);
   };
 
   handleTextChange = e => {
@@ -68,6 +75,13 @@ export class WritingArea extends Component {
     this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
 
     this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Save/update canceled" }));
+
+    window.scrollTo(0, 0);
+  };
+
+  doNothingYet = e => {
+    e.preventDefault();
+    console.log("This function needs more work.");
   };
 
   render() {
@@ -76,30 +90,27 @@ export class WritingArea extends Component {
         <p id="instructions" />
         <form action="#" id="writing" method="get" name="writing">
           <fieldset id="write-box">
-            <label htmlFor="text-box">
-              <span aria-hidden="true" className="fa fa-pencil-square-o" />
-              Write in the box:
-            </label>
+            <label htmlFor="text-box">Write in the box:</label>
             <textarea id="text-box" name="text-box" wrap="soft" value={this.props.writing.activeSnippetText} onChange={this.handleTextChange} />
           </fieldset>
           <fieldset id="box-buttons">
-            <button className="read" id="read-aloud" name="read-aloud" type="submit" value="Read Aloud">
+            <button className="read" id="read-aloud" name="read-aloud" type="button" value="Read Aloud" onClick={this.doNothingYet}>
               Read Aloud
             </button>
-            <button className="read" id="check-spelling" name="check-spelling" type="submit" value="Check Spelling">
+            <button className="read" id="check-spelling" name="check-spelling" type="button" value="Check Spelling" onClick={this.doNothingYet}>
               Check Spelling
             </button>
             <button
               className="save-snippet"
               id="save-snippet"
               name="save-snippet"
-              type="save-snippet"
+              type="button"
               value="save-snippet"
               onClick={this.addUpdateSnippet}
             >
               {this.props.activeSnippetId ? "Update Snippet" : "Save as Snippet"}
             </button>
-            <button className="reset" id="clear" name="reset" type="reset" value="Reset" onClick={this.resetWriteBox}>
+            <button className="reset" id="clear" name="reset" type="button" value="Reset" onClick={this.resetWriteBox}>
               {this.props.buttonText.resetCancel}
             </button>
           </fieldset>
