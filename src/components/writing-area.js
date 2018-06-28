@@ -12,12 +12,17 @@ import {
   SET_SNIPPETS_AVAILABILITY,
   setSnippetsAvailability,
   UPDATE_SNIPPET,
-  updateSnippet
+  updateSnippet,
+  GIVE_FEEDBACK,
+  giveFeedback,
+  CLEAR_FEEDBACK,
+  clearFeedback
 } from "./../store/actions";
 
 import "./styles/writing-area.css";
 
 export class WritingArea extends Component {
+  // this.props.dispatch(clearFeedback(CLEAR_FEEDBACK));
   addUpdateSnippet = e => {
     e.preventDefault();
     if (this.props.writing.activeSnippetId) {
@@ -26,10 +31,14 @@ export class WritingArea extends Component {
         updateSnippet(UPDATE_SNIPPET, { snippet: { id: this.props.writing.activeSnippetId, text: this.props.writing.activeSnippetText } })
       );
       // Reset isEditing flag
-      this.props.dispatch(isEditing(IS_EDITING, { editingPage: "edit", isEditing: false }));
+      this.props.dispatch(isEditing(IS_EDITING, { editingPage: this.props.writing.editingPage, isEditing: false }));
+
+      this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Snippet updated." }));
     } else {
       let calcDate = new Date();
       this.props.dispatch(addSnippet(ADD_SNIPPET, { snippet: { id: calcDate.toISOString(), text: this.props.writing.activeSnippetText } }));
+
+      this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Snippet added. Click Talk or Edit (above) to see it." }));
     }
 
     this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
@@ -37,6 +46,11 @@ export class WritingArea extends Component {
 
   handleTextChange = e => {
     this.props.dispatch(writingAreaChange(WRITING_AREA_CHANGE, { activeSnippetText: e.target.value }));
+
+    // Set isEditing flag
+    this.props.dispatch(isEditing(IS_EDITING, { editingPage: this.props.writing.editingPage, isEditing: true }));
+
+    this.props.dispatch(clearFeedback(CLEAR_FEEDBACK));
   };
 
   resetWriteBox = () => {
@@ -47,6 +61,8 @@ export class WritingArea extends Component {
 
     // Make snippets available (for edit page)
     this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
+
+    this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Save/update canceled" }));
   };
 
   render() {
@@ -76,11 +92,9 @@ export class WritingArea extends Component {
               value="save-snippet"
               onClick={this.addUpdateSnippet}
             >
-              <span aria-hidden="true" className="fa fa-trash" />
               {this.props.activeSnippetId ? "Update Snippet" : "Save as Snippet"}
             </button>
             <button className="reset" id="clear" name="reset" type="reset" value="Reset" onClick={this.resetWriteBox}>
-              <span aria-hidden="true" className="fa fa-trash" />
               {this.props.buttonText.resetCancel}
             </button>
           </fieldset>
@@ -94,7 +108,8 @@ const mapStateToProps = state => {
   return {
     snippets: state.snippets,
     writing: state.writing,
-    spellingArea: state.spelling.spellingArea
+    spellingArea: state.spelling.spellingArea,
+    other: state.other
   };
 };
 

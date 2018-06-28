@@ -27,10 +27,27 @@ export class App extends Component {
               <Route
                 exact
                 path="/write"
-                render={() => (this.props.writing.isEditing ? <Redirect to={this.props.writing.editingPage} /> : <Write />)}
+                render={() =>
+                  this.props.writing.isEditing && !this.props.writing.editingPage === "/write" ? (
+                    <Redirect to={this.props.writing.editingPage} />
+                  ) : (
+                    <Write />
+                  )
+                }
               />
               <Route path="/talk" component={Talk} exact />
-              <Route path="/edit" component={Edit} exact />
+              <Route
+                exact
+                path="/edit"
+                render={() =>
+                  this.props.writing.isEditing && !this.props.writing.editingPage === "/edit" ? (
+                    <Redirect to={this.props.writing.editingPage} />
+                  ) : (
+                    <Edit />
+                  )
+                }
+              />
+
               <Route path="/login" component={LoginForm} exact />
               <Route path="/register" component={RegisterForm} exact />
               <Route component={NotFound} />

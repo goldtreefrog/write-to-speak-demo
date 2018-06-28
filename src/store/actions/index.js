@@ -1,3 +1,14 @@
+export const GIVE_FEEDBACK = "GIVE_FEEDBACK";
+export const giveFeedback = (type, action) => ({
+  type,
+  feedback: action.feedback
+});
+
+export const CLEAR_FEEDBACK = "CLEAR_FEEDBACK";
+export const clearFeedback = () => ({
+  type: CLEAR_FEEDBACK
+});
+
 export const ADD_SNIPPET = "ADD_SNIPPET";
 export const addSnippet = (type, action) => ({
   type,
@@ -51,7 +62,6 @@ export const isEditing = (type, action) => ({
 
 export const WRITING_AREA_POPULATE = "WRITING_AREA_POPULATE";
 export const writingAreaPopulate = (type, action) => ({
-  // type: WRITING_AREA_POPULATE,
   type: type,
   activeSnippetId: action.activeSnippetId,
   activeSnippetText: action.activeSnippetText

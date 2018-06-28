@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { reduxForm, Field } from "redux-form";
-// import { required, email } from "redux-form-validators";
 import "./styles/register-form.css";
 
 let RegisterForm = props => {

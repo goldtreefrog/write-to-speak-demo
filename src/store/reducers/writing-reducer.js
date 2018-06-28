@@ -14,7 +14,6 @@ const writingReducer = (state = initialState, action) => {
     case WRITING_AREA_VISIBLE:
       return Object.assign({}, state, {
         visible: true
-        // writingArea: { visible: true }
       });
 
     case WRITING_AREA_HIDDEN:
@@ -26,7 +25,7 @@ const writingReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         isEditing: action.isEditing,
         editingPage:
-          action.editingPage.substring(0, 3) === "http"
+          action.editingPage.substring(0, 4) === "http"
             ? action.editingPage
             : action.editingPage.substring(0, 1) === "/" ? action.editingPage : "/" + action.editingPage
       });

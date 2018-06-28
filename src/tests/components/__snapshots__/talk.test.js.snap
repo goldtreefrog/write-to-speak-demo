@@ -2,43 +2,46 @@
 
 exports[`renders Talk page with snippets 1`] = `
 <section
-  id="edit"
+  id="talk"
 >
+  <h2>
+    Talk
+  </h2>
   <p>
-    Click on a snippet to have it speak
+    Click on a snippet to hear it:
   </p>
   <Snippet
     click={[Function]}
     id={123}
-    key="0"
+    key="123"
     orderkey={0}
     text="Hi there"
   />
   <Snippet
     click={[Function]}
     id={312}
-    key="3"
+    key="312"
     orderkey={3}
     text="Mom"
   />
   <Snippet
     click={[Function]}
     id={666}
-    key="2"
+    key="666"
     orderkey={2}
     text="Dad"
   />
   <Snippet
     click={[Function]}
     id={427}
-    key="1"
+    key="427"
     orderkey={1}
     text="come talk with me"
   />
   <Snippet
     click={[Function]}
     id={555}
-    key="6"
+    key="555"
     orderkey={6}
     text="Once upon a time, when it was a dark and stormy night, Sandy heard a tremendously loud 'boom!'"
   />

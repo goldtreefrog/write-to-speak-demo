@@ -18,6 +18,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
   >
     <nav>
       <Link
+        onClick={[Function]}
         replace={false}
         to="/"
       >
@@ -31,18 +32,21 @@ exports[`renders without crashing and matches snapshot 1`] = `
         Write
       </Link>
       <Link
+        onClick={[Function]}
         replace={false}
         to="/talk"
       >
         Talk
       </Link>
       <Link
+        onClick={[Function]}
         replace={false}
         to="/edit"
       >
         Edit
       </Link>
       <Link
+        onClick={[Function]}
         replace={false}
         to="/login"
       >

@@ -24,9 +24,9 @@ exports[`renders without crashing 1`] = `
           path="/talk"
         />
         <Route
-          component={[Function]}
           exact={true}
           path="/edit"
+          render={[Function]}
         />
         <Route
           component={[Function]}

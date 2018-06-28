@@ -25,4 +25,3 @@ const misspelledWords = [
 ];
 const activeSnippetId = "3";
 export { spellDataInitial, spellingArea, misspelledWords, activeSnippetId };
-// export { misspelledWords };

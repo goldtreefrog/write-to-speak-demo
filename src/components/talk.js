@@ -7,8 +7,9 @@ import "./styles/talk.css";
 export class Talk extends Component {
   render() {
     return (
-      <section id="edit">
-        <p>Click on a snippet to have it speak</p>
+      <section id="talk">
+        <h2>Talk</h2>
+        <p>Click on a snippet to hear it:</p>
         {this.props.snippets.snippets.map(snippet => (
           <Snippet click={() => this.loadSnippetForUpdate} text={snippet.text} id={snippet.id} orderkey={snippet.orderkey} key={snippet.id} />
         ))}
