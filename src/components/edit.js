@@ -9,6 +9,8 @@ import "./styles/edit.css";
 import {
   WRITING_AREA_POPULATE,
   writingAreaPopulate,
+  WRITING_AREA_RESET,
+  writingAreaReset,
   SET_SNIPPETS_AVAILABILITY,
   setSnippetsAvailability,
   CLEAR_FEEDBACK,
@@ -17,6 +19,11 @@ import {
 
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
+  componentWillUnmount = () => {
+    this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
+    this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
+  };
+
   loadSnippetForUpdate = e => {
     let writingObject = { activeSnippetId: e.target.id, activeSnippetText: e.target.value };
 
@@ -52,7 +59,7 @@ export class Edit extends Component {
         <section id="edit">
           <p>
             {this.props.snippets.snippetsAvail
-              ? this.props.other.feedback === "" ? "Click on the snippet you wish to edit:" : ""
+              ? this.props.other.feedback === "" ? "Click on the snippet you wish to change:" : ""
               : "The snippets below will become active again when you finish your update (above)."}
           </p>
           {this.props.snippets.snippets.map(snippet => (

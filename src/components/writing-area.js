@@ -25,13 +25,12 @@ export class WritingArea extends Component {
   // this.props.dispatch(clearFeedback(CLEAR_FEEDBACK));
   addUpdateSnippet = e => {
     e.preventDefault();
+    // If there is an activeSnippetId, we are editing rather than saving a new one.
     if (this.props.writing.activeSnippetId) {
       this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
       this.props.dispatch(
         updateSnippet(UPDATE_SNIPPET, { snippet: { id: this.props.writing.activeSnippetId, text: this.props.writing.activeSnippetText } })
       );
-      // Reset isEditing flag
-      this.props.dispatch(isEditing(IS_EDITING, { editingPage: this.props.writing.editingPage, isEditing: false }));
 
       this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Snippet updated." }));
     } else {
@@ -40,8 +39,10 @@ export class WritingArea extends Component {
 
       this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Snippet added. Click Talk or Edit (above) to see it." }));
     }
-
+    // Reset write box (textarea)
     this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
+    // Reset isEditing flag
+    this.props.dispatch(isEditing(IS_EDITING, { editingPage: this.props.writing.editingPage, isEditing: false }));
   };
 
   handleTextChange = e => {
@@ -79,10 +80,10 @@ export class WritingArea extends Component {
           </fieldset>
           <fieldset id="box-buttons">
             <button className="read" id="read-aloud" name="read-aloud" type="submit" value="Read Aloud">
-              <span aria-hidden="true" className="fa fa-bullhorn" /> Read Aloud
+              Read Aloud
             </button>
             <button className="read" id="check-spelling" name="check-spelling" type="submit" value="Check Spelling">
-              <span aria-hidden="true" className="fa fa-check-square-o" /> Check Spelling
+              Check Spelling
             </button>
             <button
               className="save-snippet"
