@@ -19,9 +19,9 @@ import {
 
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
-  componentDidMount() {
+  componentDidMount = () => {
     window.scrollTo(0, 0);
-  }
+  };
 
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
@@ -47,7 +47,7 @@ export class Edit extends Component {
     return (
       <Aux>
         <h2>Edit</h2>
-        {this.props.other.feedback && <Feedback />}
+        <Feedback />
         {this.props.writing.visible && (
           <div>
             <WritingArea

@@ -5,6 +5,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
   <h2>
     Edit
   </h2>
+  <Connect(Feedback) />
   <div>
     <Connect(WritingArea)
       buttonText={

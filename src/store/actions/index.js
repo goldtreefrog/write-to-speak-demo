@@ -9,6 +9,26 @@ export const clearFeedback = () => ({
   type: CLEAR_FEEDBACK
 });
 
+export const CLEAR_ALL_FEEDBACK = "CLEAR_ALL_FEEDBACK";
+export const clearAllFeedback = () => ({
+  type: CLEAR_ALL_FEEDBACK
+});
+
+// export const SET_PREV_RENDERED_FEEDBACK = "SET_PREV_RENDERED_FEEDBACK";
+// export const setPrevRenderedFeedback = (type, action) => ({
+//   type,
+//   prevRenderedFeedback: action.prevRenderedFeedback
+// });
+export const SET_FEEDBACK_FOR_NEXT_PAGE = "SET_FEEDBACK_FOR_NEXT_PAGE";
+export const setFeedbackforNextPage = () => ({
+  type: SET_FEEDBACK_FOR_NEXT_PAGE
+});
+
+export const RESET_FEEDBACK_FOR_NEXT_PAGE = "RESET_FEEDBACK_FOR_NEXT_PAGE";
+export const resetFeedbackforNextPage = () => ({
+  type: RESET_FEEDBACK_FOR_NEXT_PAGE
+});
+
 export const ADD_SNIPPET = "ADD_SNIPPET";
 export const addSnippet = (type, action) => ({
   type,
