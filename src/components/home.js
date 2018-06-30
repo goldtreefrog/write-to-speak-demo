@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Feedback from "./feedback";
 import "./styles/home.css";
 
 class Home extends React.Component {
@@ -7,6 +8,7 @@ class Home extends React.Component {
     return (
       <section id="landing">
         <h2>Home</h2>
+        <Feedback />
         <form action="">
           <h3>Write and hear it read back to you.</h3>
           <p>Anyone can do it - even if you are just learning to spell!</p>

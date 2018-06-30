@@ -19,14 +19,14 @@ export const clearAllFeedback = () => ({
 //   type,
 //   prevRenderedFeedback: action.prevRenderedFeedback
 // });
-export const SET_FEEDBACK_FOR_NEXT_PAGE = "SET_FEEDBACK_FOR_NEXT_PAGE";
-export const setFeedbackforNextPage = () => ({
-  type: SET_FEEDBACK_FOR_NEXT_PAGE
+export const SET_FEEDBACK_FLAG = "SET_FEEDBACK_FLAG";
+export const setFeedbackFlag = () => ({
+  type: SET_FEEDBACK_FLAG
 });
 
-export const RESET_FEEDBACK_FOR_NEXT_PAGE = "RESET_FEEDBACK_FOR_NEXT_PAGE";
-export const resetFeedbackforNextPage = () => ({
-  type: RESET_FEEDBACK_FOR_NEXT_PAGE
+export const RESET_FEEDBACK_FLAG = "RESET_FEEDBACK_FLAG";
+export const resetFeedbackFlag = () => ({
+  type: RESET_FEEDBACK_FLAG
 });
 
 export const ADD_SNIPPET = "ADD_SNIPPET";

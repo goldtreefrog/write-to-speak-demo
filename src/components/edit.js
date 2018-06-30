@@ -15,13 +15,15 @@ import {
   setSnippetsAvailability,
   CLEAR_FEEDBACK,
   clearFeedback
+  // RESET_FEEDBACK_FLAG,
+  // resetFeedbackFlag
 } from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
-  componentDidMount = () => {
-    window.scrollTo(0, 0);
-  };
+  // componentDidMount = () => {
+  //   window.scrollTo(0, 0);
+  // };
 
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));

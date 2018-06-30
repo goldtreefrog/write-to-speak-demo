@@ -16,15 +16,15 @@ import {
   GIVE_FEEDBACK,
   giveFeedback,
   CLEAR_FEEDBACK,
-  clearFeedback,
-  SET_FEEDBACK_FOR_NEXT_PAGE,
-  setFeedbackforNextPage
-  // SET_PREV_RENDERED_FEEDBACK,
-  // setPrevRenderedFeedback
+  clearFeedback
 } from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
 export class Header extends Component {
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
+
   checkUpdateStatus(e, stuff) {
     // If user was editing, confirm that wants to leave page without updating
     if (stuff.writing.isEditing) {
@@ -39,15 +39,18 @@ export class Header extends Component {
         this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
         this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
         this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Save or update was canceled" }));
-        this.props.dispatch(setFeedbackforNextPage(SET_FEEDBACK_FOR_NEXT_PAGE));
-        // this.props.dispatch(setPrevRenderedFeedback(SET_PREV_RENDERED_FEEDBACK, { prevRenderedFeedback: "" }));
+
+        localStorage.setItem("showFeedbackFlag", "t");
       } else {
         //  User is cancelling. Clear any previous feedback (in case it pertains to an operation before the current one)
         e.preventDefault();
         this.props.dispatch(clearFeedback(CLEAR_FEEDBACK));
+        // Reset feedback flag so that feedback generated from this page will not appear on the next page
+        localStorage.setItem("showFeedbackFlag", "f");
       }
-      // Not editing
     } else {
+      // Reset feedback flag so that feedback generated from this page will not appear on the next page
+      localStorage.setItem("showFeedbackFlag", "f");
       // Log the page you are about to go.
       const tgt = e.target || e.srcElement;
       const url = tgt.getAttribute("href");

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { reduxForm, Field } from "redux-form";
+import Feedback from "./feedback";
 import "./styles/login-form.css";
 
 let LoginForm = props => {
@@ -8,6 +9,7 @@ let LoginForm = props => {
   return (
     <form className="login" onSubmit={handleSubmit}>
       <h2>Login</h2>
+      <Feedback />
       <div>
         <label htmlFor="email">Email</label>
         <Field name="email" component="input" type="email" />

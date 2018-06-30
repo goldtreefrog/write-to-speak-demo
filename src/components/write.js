@@ -4,7 +4,6 @@ import Aux from "./../hoc/_aux";
 import WritingArea from "./writing-area";
 import SpellingArea from "./spelling-area";
 import Feedback from "./feedback";
-// import { CLEAR_FEEDBACK, clearFeedback } from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
 export class Write extends Component {

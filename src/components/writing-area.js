@@ -57,6 +57,10 @@ export class WritingArea extends Component {
   };
 
   handleTextChange = e => {
+    let i = 0;
+    if (i++ < 1) {
+      console.log("In handleTextChange, where will call WRITING, IS_EDITING and CLEAR_FEEDBACK");
+    }
     this.props.dispatch(writingAreaChange(WRITING_AREA_CHANGE, { activeSnippetText: e.target.value }));
 
     // Set isEditing flag
