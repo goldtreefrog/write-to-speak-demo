@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./styles/feedback.css";
-import { CLEAR_FEEDBACK, clearFeedback } from "./../store/actions";
+import { clearFeedback } from "./../store/actions";
 
 export class Feedback extends Component {
   componentWillUnmount = () => {
     // If you do not want the feedback message to appear on the next page, clear it here.
     if (localStorage.getItem("showFeedbackFlag") === "f") {
-      this.props.dispatch(clearFeedback(CLEAR_FEEDBACK));
+      this.props.dispatch(clearFeedback());
     }
     localStorage.setItem("showFeedbackFlag", "f");
   };

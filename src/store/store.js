@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, compose } from "redux";
 import { reducer as formReducer } from "redux-form";
 import snippetsReducer from "./reducers/snippets-reducer";
 import writingReducer from "./reducers/writing-reducer";
@@ -16,7 +16,9 @@ const rootReducer = combineReducers({
   other: otherReducer
 });
 
-// The part after && makes Redux dev tools work in Chrome
-const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// Use to make Redux dev tools work in Chrome. See https://github.com/zalmoxisus/redux-devtools-extension
+const composeEnhancers = (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) || compose;
+
+const store = createStore(rootReducer, composeEnhancers);
 
 export default store;

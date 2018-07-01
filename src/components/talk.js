@@ -3,13 +3,13 @@ import Snippet from "./snippet";
 import { connect } from "react-redux";
 import Feedback from "./feedback";
 import "./styles/talk.css";
-import { WRITING_AREA_RESET, writingAreaReset, SET_SNIPPETS_AVAILABILITY, setSnippetsAvailability } from "./../store/actions";
+import { writingAreaReset, setSnippetsAvailability } from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
 export class Talk extends Component {
   componentWillUnmount = () => {
-    this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
-    this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
+    this.props.dispatch(writingAreaReset());
+    this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
   };
 
   render() {

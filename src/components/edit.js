@@ -6,18 +6,7 @@ import WritingArea from "./writing-area";
 import SpellingArea from "./spelling-area";
 import Feedback from "./feedback";
 import "./styles/edit.css";
-import {
-  WRITING_AREA_POPULATE,
-  writingAreaPopulate,
-  WRITING_AREA_RESET,
-  writingAreaReset,
-  SET_SNIPPETS_AVAILABILITY,
-  setSnippetsAvailability,
-  CLEAR_FEEDBACK,
-  clearFeedback
-  // RESET_FEEDBACK_FLAG,
-  // resetFeedbackFlag
-} from "./../store/actions";
+import { writingAreaPopulate, writingAreaReset, setSnippetsAvailability, clearFeedback } from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
@@ -26,21 +15,19 @@ export class Edit extends Component {
   // };
 
   componentWillUnmount = () => {
-    this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
-    this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
+    this.props.dispatch(writingAreaReset());
+    this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
   };
 
   loadSnippetForUpdate = e => {
-    let writingObject = { activeSnippetId: e.target.id, activeSnippetText: e.target.value };
-
     // Copy snippet text into writing textarea.
-    this.props.dispatch(writingAreaPopulate(WRITING_AREA_POPULATE, writingObject));
+    this.props.dispatch(writingAreaPopulate({ activeSnippetId: e.target.id, activeSnippetText: e.target.value }));
 
     // Remove any previous feedback
-    this.props.dispatch(clearFeedback(CLEAR_FEEDBACK));
+    this.props.dispatch(clearFeedback());
 
     // Make all snippets disabled and grayed out, except for the one we are updating, which we give a different color scheme.
-    this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: false }));
+    this.props.dispatch(setSnippetsAvailability({ snippetsAvail: false }));
 
     window.scrollTo(0, 0);
   };

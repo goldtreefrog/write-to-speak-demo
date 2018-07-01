@@ -1,21 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
-  ADD_SNIPPET,
   addSnippet,
-  IS_EDITING,
   isEditing,
-  WRITING_AREA_CHANGE,
   writingAreaChange,
-  WRITING_AREA_RESET,
   writingAreaReset,
-  SET_SNIPPETS_AVAILABILITY,
   setSnippetsAvailability,
-  UPDATE_SNIPPET,
   updateSnippet,
-  GIVE_FEEDBACK,
   giveFeedback,
-  CLEAR_FEEDBACK,
   clearFeedback
 } from "./../store/actions";
 
@@ -30,55 +22,53 @@ export class WritingArea extends Component {
     e.preventDefault();
     // If there is an activeSnippetId, we are editing rather than saving a new one.
     if (this.props.writing.activeSnippetId) {
-      this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
-      this.props.dispatch(
-        updateSnippet(UPDATE_SNIPPET, { snippet: { id: this.props.writing.activeSnippetId, text: this.props.writing.activeSnippetText } })
-      );
+      this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
+      this.props.dispatch(updateSnippet({ snippet: { id: this.props.writing.activeSnippetId, text: this.props.writing.activeSnippetText } }));
 
-      this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Snippet updated." }));
+      this.props.dispatch(giveFeedback({ feedback: "Snippet updated." }));
     } else {
       if (this.props.writing.activeSnippetText === "") {
-        this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "There is no text in the write box and so nothing to save." }));
+        this.props.dispatch(giveFeedback({ feedback: "There is no text in the write box and so nothing to save." }));
 
         window.scrollTo(0, 0);
         return;
       }
       let calcDate = new Date();
-      this.props.dispatch(addSnippet(ADD_SNIPPET, { snippet: { id: calcDate.toISOString(), text: this.props.writing.activeSnippetText } }));
+      this.props.dispatch(addSnippet({ snippet: { id: calcDate.toISOString(), text: this.props.writing.activeSnippetText } }));
 
-      this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Snippet added. Click Talk or Edit (above) to see it." }));
+      this.props.dispatch(giveFeedback({ feedback: "Snippet added. Click Talk or Edit (above) to see it." }));
     }
     // Reset write box (textarea)
-    this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
+    this.props.dispatch(writingAreaReset());
     // Reset isEditing flag
-    this.props.dispatch(isEditing(IS_EDITING, { editingPage: this.props.writing.editingPage, isEditing: false }));
+    this.props.dispatch(isEditing({ editingPage: this.props.writing.editingPage, isEditing: false }));
 
     window.scrollTo(0, 0);
   };
 
   handleTextChange = e => {
-    let i = 0;
-    if (i++ < 1) {
-      console.log("In handleTextChange, where will call WRITING, IS_EDITING and CLEAR_FEEDBACK");
-    }
-    this.props.dispatch(writingAreaChange(WRITING_AREA_CHANGE, { activeSnippetText: e.target.value }));
+    // let i = 0;
+    // if (i++ < 1) {
+    //   console.log("In handleTextChange, where will call WRITING, IS_EDITING and CLEAR_FEEDBACK");
+    // }
+    this.props.dispatch(writingAreaChange({ activeSnippetText: e.target.value }));
 
     // Set isEditing flag
-    this.props.dispatch(isEditing(IS_EDITING, { editingPage: this.props.writing.editingPage, isEditing: true }));
+    this.props.dispatch(isEditing({ editingPage: this.props.writing.editingPage, isEditing: true }));
 
-    this.props.dispatch(clearFeedback(CLEAR_FEEDBACK));
+    this.props.dispatch(clearFeedback());
   };
 
   resetWriteBox = () => {
-    this.props.dispatch(writingAreaReset(WRITING_AREA_RESET));
+    this.props.dispatch(writingAreaReset());
 
     // Reset isEditing flag
-    this.props.dispatch(isEditing(IS_EDITING, { editingPage: "edit", isEditing: false }));
+    this.props.dispatch(isEditing({ editingPage: "edit", isEditing: false }));
 
     // Make snippets available (for edit page)
-    this.props.dispatch(setSnippetsAvailability(SET_SNIPPETS_AVAILABILITY, { snippetsAvail: true }));
+    this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
 
-    this.props.dispatch(giveFeedback(GIVE_FEEDBACK, { feedback: "Save/update canceled" }));
+    this.props.dispatch(giveFeedback({ feedback: "Save/update canceled" }));
 
     window.scrollTo(0, 0);
   };

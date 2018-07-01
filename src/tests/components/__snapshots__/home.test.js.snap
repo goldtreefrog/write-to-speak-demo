@@ -7,6 +7,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
   <h2>
     Home
   </h2>
+  <Connect(Feedback) />
   <form
     action=""
   >

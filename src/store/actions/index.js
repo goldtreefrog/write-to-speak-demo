@@ -1,6 +1,6 @@
 export const GIVE_FEEDBACK = "GIVE_FEEDBACK";
-export const giveFeedback = (type, action) => ({
-  type,
+export const giveFeedback = action => ({
+  type: GIVE_FEEDBACK,
   feedback: action.feedback
 });
 
@@ -14,11 +14,6 @@ export const clearAllFeedback = () => ({
   type: CLEAR_ALL_FEEDBACK
 });
 
-// export const SET_PREV_RENDERED_FEEDBACK = "SET_PREV_RENDERED_FEEDBACK";
-// export const setPrevRenderedFeedback = (type, action) => ({
-//   type,
-//   prevRenderedFeedback: action.prevRenderedFeedback
-// });
 export const SET_FEEDBACK_FLAG = "SET_FEEDBACK_FLAG";
 export const setFeedbackFlag = () => ({
   type: SET_FEEDBACK_FLAG
@@ -30,26 +25,25 @@ export const resetFeedbackFlag = () => ({
 });
 
 export const ADD_SNIPPET = "ADD_SNIPPET";
-export const addSnippet = (type, action) => ({
-  type,
+export const addSnippet = action => ({
+  type: ADD_SNIPPET,
   snippet: action.snippet
 });
 
 export const UPDATE_SNIPPET = "UPDATE_SNIPPET";
-export const updateSnippet = (type, action) => ({
+export const updateSnippet = action => ({
   type: UPDATE_SNIPPET,
   snippet: action.snippet
 });
 
 export const DELETE_SNIPPET = "DELETE_SNIPPET";
-export const deleteSnippet = snippetText => ({
-  type: DELETE_SNIPPET,
-  snippetText
+export const deleteSnippet = () => ({
+  type: DELETE_SNIPPET
 });
 
 export const SET_SNIPPETS_AVAILABILITY = "SET_SNIPPETS_AVAILABILITY";
-export const setSnippetsAvailability = (type, action) => ({
-  type: type,
+export const setSnippetsAvailability = action => ({
+  type: SET_SNIPPETS_AVAILABILITY,
   snippetsAvail: action.snippetsAvail
 });
 
@@ -74,22 +68,22 @@ export const spellingAreaHidden = () => ({
 });
 
 export const IS_EDITING = "IS_EDITING";
-export const isEditing = (type, action) => ({
+export const isEditing = action => ({
   type: IS_EDITING,
   isEditing: action.isEditing,
   editingPage: action.editingPage
 });
 
 export const WRITING_AREA_POPULATE = "WRITING_AREA_POPULATE";
-export const writingAreaPopulate = (type, action) => ({
-  type: type,
+export const writingAreaPopulate = action => ({
+  type: WRITING_AREA_POPULATE,
   activeSnippetId: action.activeSnippetId,
   activeSnippetText: action.activeSnippetText
 });
 
 export const WRITING_AREA_CHANGE = "WRITING_AREA_CHANGE";
-export const writingAreaChange = (type, action) => ({
-  type,
+export const writingAreaChange = action => ({
+  type: WRITING_AREA_CHANGE,
   activeSnippetText: action.activeSnippetText
 });
 
