@@ -1,4 +1,4 @@
-import { SET_SNIPPETS_AVAILABILITY, ADD_SNIPPET, UPDATE_SNIPPET, DELETE_SNIPPET } from "./../actions";
+import { SET_SNIPPETS_AVAILABILITY, ADD_SNIPPET, UPDATE_SNIPPET, DELETE_SNIPPET } from "./../actions/actionTypes";
 
 const initialState = {
   snippetsAvail: true,

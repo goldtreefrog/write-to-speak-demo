@@ -1,4 +1,4 @@
-import { GIVE_FEEDBACK, CLEAR_FEEDBACK, SET_FEEDBACK_FLAG, RESET_FEEDBACK_FLAG } from "./../actions";
+import { GIVE_FEEDBACK, CLEAR_FEEDBACK, SET_FEEDBACK_FLAG, RESET_FEEDBACK_FLAG } from "./../actions/actionTypes";
 
 const initialState = {
   feedback: "",

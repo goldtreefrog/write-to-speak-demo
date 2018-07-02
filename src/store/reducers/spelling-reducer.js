@@ -1,4 +1,4 @@
-import { SPELLING_AREA_VISIBLE, SPELLING_AREA_HIDDEN } from "./../actions";
+import { SPELLING_AREA_VISIBLE, SPELLING_AREA_HIDDEN } from "./../actions/actionTypes";
 
 const initialState = {
   spellingArea: { visible: false, misspelledWords: ["heckk", "Hrny"], wordSuggestions: [], minIndex: 0, maxIndex: 4 }
