@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Snippet from "./snippet";
 import { connect } from "react-redux";
 import Feedback from "./feedback";
+import responsiveVoice from "responsivevoice";
 import "./styles/talk.css";
 import { writingAreaReset, setSnippetsAvailability } from "./../store/actions";
 
@@ -12,6 +13,16 @@ export class Talk extends Component {
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
   };
 
+  sayIt = (useVoice = "UK English Male") => e => {
+    // Interestingly, if I do not include responsivevoice import, none of this works, and if I do not explicitly use it in the program, I get a warning (even though everything works), which makes Travis upset. So I need this console.log until I figure out how not to.
+    console.log("responsiveVoice: ", responsiveVoice);
+    window.cancel(); // In case user clicked again before finished talking
+    window.speak(e.target.value, useVoice);
+    if (window.isPlaying()) {
+      console.log("Speaking:", e.target.value);
+    }
+  };
+
   render() {
     return (
       <section id="talk">
@@ -19,7 +30,13 @@ export class Talk extends Component {
         <Feedback />
         <p>Click on a snippet to hear it:</p>
         {this.props.snippets.snippets.map(snippet => (
-          <Snippet click={() => this.loadSnippetForUpdate} text={snippet.text} id={snippet.id} orderkey={snippet.orderkey} key={snippet.id} />
+          <Snippet
+            text={snippet.text}
+            id={snippet.id}
+            orderkey={snippet.orderkey}
+            key={snippet.id}
+            click={e => this.sayIt("US English Female", e)}
+          />
         ))}
       </section>
     );
