@@ -20,15 +20,8 @@ export class WritingArea extends Component {
     window.scrollTo(0, 0);
   }
 
-  componentWillUnmount = () => {
-    this.props.dispatch(clearWhatToSay());
-  };
-
   addUpdateSnippet = e => {
     e.preventDefault();
-
-    // Shhhh...
-    this.props.dispatch(clearWhatToSay());
 
     let whatSay;
     let voice = "UK English Female";
@@ -40,7 +33,7 @@ export class WritingArea extends Component {
       this.props.dispatch(updateSnippet({ snippet: { id: this.props.writing.activeSnippetId, text: this.props.writing.activeSnippetText } }));
 
       this.props.dispatch(giveFeedback({ feedback: whatSay }));
-      this.props.dispatch(setWhatToSay({ whatToSay: whatSay, useVoice: voice }));
+      this.props.dispatch(setWhatToSay({ whatToSay: whatSay }));
     } else {
       if (this.props.writing.activeSnippetText === "") {
         whatSay = "There is no text in the write box and so nothing to save.";
@@ -90,7 +83,7 @@ export class WritingArea extends Component {
 
     this.props.dispatch(giveFeedback({ feedback: whatSay }));
     this.props.dispatch(setWhatToSay({ whatToSay: whatSay, useVoice: voice }));
-
+    console.log("Just SET_WHAT_TO_SAY from writing-area.js in resetWriteBox");
     window.scrollTo(0, 0);
   };
 
@@ -99,10 +92,16 @@ export class WritingArea extends Component {
 
     // Changing the state makes the <SayIt> component talk if it has text to speak.
     // If there is text to speak, speak it. Otherwise give the noTextMsg in speech and in feedback area.
-    (this.props.writing.activeSnippetText &&
-      this.props.dispatch(setWhatToSay({ whatToSay: this.props.writing.activeSnippetText, useVoice: "UK English Male" }))) ||
-      (this.props.dispatch(setWhatToSay({ whatToSay: noTextMsg, useVoice: "UK English Female" })),
-      this.props.dispatch(giveFeedback({ feedback: noTextMsg })));
+    const determineAndSetVoice = () => {
+      return (
+        (this.props.writing.activeSnippetText &&
+          this.props.dispatch(setWhatToSay({ whatToSay: this.props.writing.activeSnippetText, useVoice: "UK English Male" }))) ||
+        (this.props.dispatch(setWhatToSay({ whatToSay: noTextMsg, useVoice: "UK English Female" })),
+        this.props.dispatch(giveFeedback({ feedback: noTextMsg })))
+      );
+    };
+
+    determineAndSetVoice();
   };
 
   doNothingYet = e => {

@@ -46,5 +46,6 @@ exports[`renders Talk page with snippets 1`] = `
     orderkey={6}
     text="Once upon a time, when it was a dark and stormy night, Sandy heard a tremendously loud 'boom!'"
   />
+  <Connect(SayIt) />
 </section>
 `;

@@ -13,14 +13,6 @@ export const clearAllFeedback = () => ({
   type: actionTypes.CLEAR_ALL_FEEDBACK
 });
 
-export const setFeedbackFlag = () => ({
-  type: actionTypes.SET_FEEDBACK_FLAG
-});
-
-export const resetFeedbackFlag = () => ({
-  type: actionTypes.RESET_FEEDBACK_FLAG
-});
-
 export const setWhatToSay = action => ({
   type: actionTypes.SET_WHAT_TO_SAY,
   whatToSay: action.whatToSay,

@@ -55,7 +55,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
     id="edit"
   >
     <p>
-      The snippets below will become active again when you finish your update (above).
+      The snippets below will become active again when you finish your update
     </p>
     <Snippet
       click={[Function]}

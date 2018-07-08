@@ -4,7 +4,6 @@ import Aux from "./../hoc/_aux.js";
 import "./styles/footer.css";
 
 function Footer() {
-  // render() {
   return (
     <Aux>
       <footer role="contentinfo">

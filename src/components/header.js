@@ -4,7 +4,16 @@ import { Provider, connect } from "react-redux"; // Provider MAY be needed for t
 import store from "./../store/store.js"; // Store MAY be needed for testing only (as index.js has it anyway)
 import "./styles/header.css";
 import logo from "./images/wts-pencil2.svg";
-import { isEditing, writingAreaReset, writingAreaHidden, setSnippetsAvailability, giveFeedback, clearFeedback } from "./../store/actions";
+import {
+  isEditing,
+  writingAreaReset,
+  writingAreaHidden,
+  setSnippetsAvailability,
+  giveFeedback,
+  clearFeedback,
+  setWhatToSay,
+  clearWhatToSay
+} from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
 export class Header extends Component {
@@ -21,17 +30,21 @@ export class Header extends Component {
         // User chooses to leave - reset everything and give message that update was canceled.
         const tgt = e.target || e.srcElement;
         const url = tgt.getAttribute("href");
+        let feedbackMsg = "Save or update was canceled";
+
         this.props.dispatch(isEditing({ editingPage: url, isEditing: false }));
         this.props.dispatch(writingAreaHidden());
         this.props.dispatch(writingAreaReset());
         this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
-        this.props.dispatch(giveFeedback({ feedback: "Save or update was canceled" }));
+        this.props.dispatch(giveFeedback({ feedback: feedbackMsg }));
+        this.props.dispatch(setWhatToSay({ whatToSay: feedbackMsg }));
 
         localStorage.setItem("showFeedbackFlag", "t");
       } else {
-        //  User is cancelling. Clear any previous feedback (in case it pertains to an operation before the current one)
+        //  User is cancelling. Clear any previous feedback (in case it pertains to an operation before the current one), written and spoken.
         e.preventDefault();
         this.props.dispatch(clearFeedback());
+        this.props.dispatch(clearWhatToSay());
         // Reset feedback flag so that feedback generated from this page will not appear on the next page
         localStorage.setItem("showFeedbackFlag", "f");
       }

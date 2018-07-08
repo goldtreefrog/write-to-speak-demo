@@ -1,10 +1,9 @@
-import { GIVE_FEEDBACK, CLEAR_FEEDBACK, SET_FEEDBACK_FLAG, RESET_FEEDBACK_FLAG, SET_WHAT_TO_SAY, CLEAR_WHAT_TO_SAY } from "./../actions/actionTypes";
+import { GIVE_FEEDBACK, CLEAR_FEEDBACK, SET_WHAT_TO_SAY, CLEAR_WHAT_TO_SAY } from "./../actions/actionTypes";
 
 const initialState = {
   feedback: "",
-  showFeedbackNextPage: false,
-  whatToSay: "Welcome to Write to Speak",
-  useVoice: "UK English Male"
+  whatToSay: "",
+  useVoice: ""
 };
 
 const otherReducer = (state = initialState, action) => {
@@ -19,17 +18,8 @@ const otherReducer = (state = initialState, action) => {
         feedback: ""
       });
 
-    case SET_FEEDBACK_FLAG:
-      return Object.assign({}, state, {
-        showFeedbackNextPage: true
-      });
-
-    case RESET_FEEDBACK_FLAG:
-      return Object.assign({}, state, {
-        showFeedbackNextPage: false
-      });
-
     case SET_WHAT_TO_SAY:
+      console.log("SET_WHAT_TO_SAY with ", action.whatToSay);
       return (
         (action.useVoice &&
           Object.assign({}, state, {

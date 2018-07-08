@@ -5,26 +5,31 @@ import Snippet from "./snippet";
 import WritingArea from "./writing-area";
 import SpellingArea from "./spelling-area";
 import Feedback from "./feedback";
+import SayIt from "./say-it";
 import "./styles/edit.css";
-import { writingAreaPopulate, writingAreaReset, setSnippetsAvailability, clearFeedback } from "./../store/actions";
+import {
+  writingAreaPopulate,
+  writingAreaReset,
+  setSnippetsAvailability,
+  clearFeedback,
+  // setWhatToSay,
+  clearWhatToSay
+} from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
-  // componentDidMount = () => {
-  //   window.scrollTo(0, 0);
-  // };
-
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset());
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
   };
 
   loadSnippetForUpdate = e => {
+    // Remove any previous feedback and text to speak
+    this.props.dispatch(clearFeedback());
+    this.props.dispatch(clearWhatToSay());
+
     // Copy snippet text into writing textarea.
     this.props.dispatch(writingAreaPopulate({ activeSnippetId: e.target.id, activeSnippetText: e.target.value }));
-
-    // Remove any previous feedback
-    this.props.dispatch(clearFeedback());
 
     // Make all snippets disabled and grayed out, except for the one we are updating, which we give a different color scheme.
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: false }));
@@ -33,6 +38,13 @@ export class Edit extends Component {
   };
 
   render() {
+    let snippetInstructions = () => {
+      if (this.props.snippets.snippetsAvail) {
+        return "Click on the snippet you wish to change:";
+      }
+      return "The snippets below will become active again when you finish your update";
+    };
+
     return (
       <Aux>
         <h2>Edit</h2>
@@ -50,9 +62,8 @@ export class Edit extends Component {
         )}
         <section id="edit">
           <p>
-            {this.props.snippets.snippetsAvail
-              ? this.props.other.feedback === "" ? "Click on the snippet you wish to change:" : ""
-              : "The snippets below will become active again when you finish your update (above)."}
+            {snippetInstructions()}
+            {this.props.snippets.snippetsAvail && <SayIt />}
           </p>
           {this.props.snippets.snippets.map(snippet => (
             <Snippet
