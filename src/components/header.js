@@ -96,7 +96,7 @@ const mapStateToProps = state => {
   return {
     snippets: state.snippets,
     writing: state.writing,
-    spellingArea: state.spelling.spellingArea,
+    // spellingArea: state.spelling.spellingArea,
     other: state.other
   };
 };

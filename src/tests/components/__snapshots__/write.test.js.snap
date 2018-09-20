@@ -14,23 +14,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
       }
     }
     click={[Function]}
-    misspelledWords={
-      Array [
-        "bck",
-        "hie",
-      ]
-    }
     visible={true}
-  />
-  <SpellingArea
-    spellData={
-      Object {
-        "misspelledWords": Array [
-          "bck",
-          "hie",
-        ],
-      }
-    }
   />
 </Aux>
 `;

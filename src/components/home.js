@@ -12,13 +12,10 @@ class Home extends React.Component {
         <form action="">
           <h3>Write and hear it read back to you.</h3>
           <p>Anyone can do it - even if you are just learning to spell!</p>
+          <p>Not writing yet? You can still click words and phrases to make them talk, but only after someone helps you enter your words.</p>
           <p>
-            Not writing yet? You can still click words and phrases to make them talk, but you will need someone to help put your words on the screen
-            in the first place.
-          </p>
-          <p>
-            If you are registered, you can save your text for reading aloud later. (But note that this is a demo and all data will be erased from
-            time to time.)
+            If you register, you can (theoretically) save your text to be read aloud next time you sign in. <strong>However</strong>, this is only a
+            demo and all data will be erased periodically.
           </p>
           <Link to="/register" className="button-link" role="button">
             Sign In/Register

@@ -16,40 +16,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
       }
       visible={true}
     />
-    <SpellingArea
-      spellData={
-        Object {
-          "maxIndex": 4,
-          "minIndex": 0,
-          "misspelledWords": Array [
-            Object {
-              "suggestions": Array [
-                "pup",
-                "puppy",
-                "pop",
-                "pope",
-                "poppy",
-                "pip",
-                "pap",
-                "pappy",
-              ],
-              "word": "ppp",
-            },
-            Object {
-              "suggestions": Array [
-                "jury",
-                "Jerry",
-                "jewelry",
-                "dry",
-              ],
-              "word": "jry",
-            },
-          ],
-          "visible": false,
-        }
-      }
-      visible={false}
-    />
   </div>
   <section
     id="edit"

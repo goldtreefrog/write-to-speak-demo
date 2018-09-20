@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Aux from "./../hoc/_aux.js";
 import Snippet from "./snippet";
 import WritingArea from "./writing-area";
-import SpellingArea from "./spelling-area";
+// import SpellingArea from "./spelling-area";
 import Feedback from "./feedback";
 import SayIt from "./say-it";
 import "./styles/edit.css";
@@ -57,7 +57,7 @@ export class Edit extends Component {
               visible={this.props.writing.visible}
               buttonText={{ saveUpdate: "Update Snippet", resetCancel: "Cancel Update" }}
             />
-            <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} />
+            {/* <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} /> */}
           </div>
         )}
         <section id="edit">
@@ -85,7 +85,7 @@ const mapStateToProps = state => {
   return {
     snippets: state.snippets,
     writing: state.writing,
-    spellingArea: state.spelling.spellingArea,
+    // spellingArea: state.spelling.spellingArea,
     other: state.other
   };
 };

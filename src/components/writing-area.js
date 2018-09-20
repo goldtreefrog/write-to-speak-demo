@@ -122,9 +122,9 @@ export class WritingArea extends Component {
             <button className="read" id="read-aloud" name="read-aloud" type="button" value="Read Aloud" onClick={this.readOnClick}>
               Read Aloud
             </button>
-            <button className="read" id="check-spelling" name="check-spelling" type="button" value="Check Spelling" onClick={this.doNothingYet}>
+            {/* <button className="read" id="check-spelling" name="check-spelling" type="button" value="Check Spelling" onClick={this.doNothingYet}>
               Check Spelling
-            </button>
+            </button> */}
             <button
               className="save-snippet"
               id="save-snippet"
@@ -150,7 +150,7 @@ const mapStateToProps = state => {
   return {
     snippets: state.snippets,
     writing: state.writing,
-    spellingArea: state.spelling.spellingArea,
+    // spellingArea: state.spelling.spellingArea,
     other: state.other
   };
 };

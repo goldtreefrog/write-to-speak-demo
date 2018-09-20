@@ -63,8 +63,8 @@ export class App extends Component {
 const mapStateToProps = state => {
   return {
     snippets: state.snippets,
-    writing: state.writing,
-    spellingArea: state.spellingArea
+    writing: state.writing
+    // spellingArea: state.spellingArea
   };
 };
 
