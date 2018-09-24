@@ -1,10 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import LoginForm from "./login-form.js";
 import Feedback from "./feedback";
 import "./styles/home.css";
 
 class Home extends React.Component {
   render() {
+    // console.log("state.auth", state.auth);
+    console.log("this.props: ", this.props);
+    if (this.props.loggedIn) {
+      return <Redirect to="/talk" />;
+    }
     return (
       <section id="landing">
         <h2>Home</h2>
@@ -12,17 +18,24 @@ class Home extends React.Component {
         <form action="">
           <h3>Write and hear it read back to you.</h3>
           <p>Anyone can do it - even if you are just learning to spell!</p>
-          <p>Not writing yet? You can still click words and phrases to make them talk, but only after someone helps you enter your words.</p>
           <p>
-            If you register, you can (theoretically) save your text to be read aloud next time you sign in. <strong>However</strong>, this is only a
-            demo and all data will be erased periodically.
+            Not writing yet? You can still click words and phrases to make them
+            talk, but only after someone helps you enter your words.
+          </p>
+          <p>
+            If you register, you can (theoretically) save your text to be read
+            aloud next time you sign in. <strong>However</strong>, this is only
+            a demo and all data will be erased periodically.
           </p>
           <Link to="/register" className="button-link" role="button">
-            Sign In/Register
+            Register
           </Link>
           <Link to="/write" className="button-link" role="button">
             Enter as Guest
           </Link>
+          <p>
+            Already registered? <Link to="/login">Login</Link>
+          </p>
         </form>
       </section>
     );

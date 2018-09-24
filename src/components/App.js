@@ -10,12 +10,42 @@ import Write from "./write";
 import Home from "./home";
 import Talk from "./talk";
 import Edit from "./edit";
-import LoginForm from "./login-form";
+import LoginPage from "./login-page";
 import RegisterForm from "./register-form";
+import { refreshAuthToken } from "./../store/actions/auth.js";
 import NotFound from "./not-found";
 
 // Use named export for unconnected component (for tests)
 export class App extends Component {
+  componentDidUpdate(prevProps) {
+    if (!prevProps.loggedIn && this.props.loggedIn) {
+      // When we are logged in, refresh the auth token periodically
+      this.startPeriodicRefresh();
+    } else if (prevProps.loggedIn && !this.props.loggedIn) {
+      // Stop refreshing when we log out
+      this.stopPeriodicRefresh();
+    }
+  }
+
+  componentWillUnmount() {
+    this.stopPeriodicRefresh();
+  }
+
+  startPeriodicRefresh() {
+    this.refreshInterval = setInterval(
+      () => this.props.dispatch(refreshAuthToken()),
+      60 * 60 * 1000 // One hour
+    );
+  }
+
+  stopPeriodicRefresh() {
+    if (!this.refreshInterval) {
+      return;
+    }
+
+    clearInterval(this.refreshInterval);
+  }
+
   render() {
     return (
       <Router>
@@ -28,7 +58,8 @@ export class App extends Component {
                 exact
                 path="/write"
                 render={() =>
-                  this.props.writing.isEditing && !this.props.writing.editingPage === "/write" ? (
+                  this.props.writing.isEditing &&
+                  !this.props.writing.editingPage === "/write" ? (
                     <Redirect to={this.props.writing.editingPage} />
                   ) : (
                     <Write />
@@ -40,7 +71,8 @@ export class App extends Component {
                 exact
                 path="/edit"
                 render={() =>
-                  this.props.writing.isEditing && !this.props.writing.editingPage === "/edit" ? (
+                  this.props.writing.isEditing &&
+                  !this.props.writing.editingPage === "/edit" ? (
                     <Redirect to={this.props.writing.editingPage} />
                   ) : (
                     <Edit />
@@ -48,7 +80,8 @@ export class App extends Component {
                 }
               />
 
-              <Route path="/login" component={LoginForm} exact />
+              {/* <Route path="/login" component={LoginForm} exact /> */}
+              <Route path="/login" component={LoginPage} exact />
               <Route path="/register" component={RegisterForm} exact />
               <Route component={NotFound} />
             </Switch>
@@ -63,8 +96,10 @@ export class App extends Component {
 const mapStateToProps = state => {
   return {
     snippets: state.snippets,
-    writing: state.writing
+    writing: state.writing,
     // spellingArea: state.spellingArea
+    hasAuthToken: state.auth.authToken !== null,
+    loggedIn: state.auth.currentUser !== null
   };
 };
 
