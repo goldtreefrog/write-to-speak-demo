@@ -9,8 +9,10 @@ import {
   CLEAR_AUTH,
   AUTH_REQUEST,
   AUTH_SUCCESS,
-  AUTH_ERROR
+  AUTH_ERROR,
+  ADD_SNIPPET
 } from "./actionTypes.js";
+import { addSnippet } from "./snippets";
 
 export const setAuthToken = authToken => ({
   type: SET_AUTH_TOKEN,
@@ -42,24 +44,19 @@ const storeAuthInfo = (authToken, dispatch) => {
   dispatch(setAuthToken(authToken));
   dispatch(authSuccess(decodedToken.user));
   saveAuthToken(authToken);
+  decodedToken.user.snippets.map(snippet => {
+    dispatch(addSnippet({ snippet }));
+  });
 };
 
 export const loginUser = (email, password) => dispatch => {
-  console.log("about to dispatch authRequest");
   dispatch(authRequest());
-  console.log(
-    "Loading auth should be true but big deal. Next: fetch using ",
-    email,
-    " password: ",
-    password
-  );
   return (
     fetch(`${API_BASE_URL}/val/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      // body: JSON.stringify(email)
       body: JSON.stringify({
         email,
         password
@@ -86,10 +83,6 @@ export const loginUser = (email, password) => dispatch => {
               code +
               ": Login function is temporarily down. Please try later. Sorry for the inconvenience.";
         }
-        //     const message =
-        //     code === 401
-        //       ? "Incorrect username or password"
-        //       : "Unable to login, please try again";
         dispatch(authError(err));
         // Could not authenticate, so return a SubmissionError for Redux Form
         console.log(err);

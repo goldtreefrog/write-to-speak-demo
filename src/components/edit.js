@@ -29,7 +29,12 @@ export class Edit extends Component {
     this.props.dispatch(clearWhatToSay());
 
     // Copy snippet text into writing textarea.
-    this.props.dispatch(writingAreaPopulate({ activeSnippetId: e.target.id, activeSnippetText: e.target.value }));
+    this.props.dispatch(
+      writingAreaPopulate({
+        activeSnippetId: e.target.id,
+        activeSnippetText: e.target.value
+      })
+    );
 
     // Make all snippets disabled and grayed out, except for the one we are updating, which we give a different color scheme.
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: false }));
@@ -55,7 +60,10 @@ export class Edit extends Component {
               activeSnippetId={this.props.writing.activeSnippetId}
               activeSnippetText={this.props.writing.activeSnippetText}
               visible={this.props.writing.visible}
-              buttonText={{ saveUpdate: "Update Snippet", resetCancel: "Cancel Update" }}
+              buttonText={{
+                saveUpdate: "Update Snippet",
+                resetCancel: "Cancel Update"
+              }}
             />
             {/* <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} /> */}
           </div>
@@ -68,10 +76,10 @@ export class Edit extends Component {
           {this.props.snippets.snippets.map(snippet => (
             <Snippet
               click={() => this.loadSnippetForUpdate}
-              text={snippet.text}
-              id={snippet.id}
+              text={snippet.snippetText}
+              id={snippet._id}
               orderkey={snippet.orderkey}
-              key={snippet.id}
+              key={snippet._id}
               disabled={!this.props.snippets.snippetsAvail}
             />
           ))}

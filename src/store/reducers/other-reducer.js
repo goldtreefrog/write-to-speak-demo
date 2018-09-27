@@ -1,4 +1,9 @@
-import { GIVE_FEEDBACK, CLEAR_FEEDBACK, SET_WHAT_TO_SAY, CLEAR_WHAT_TO_SAY } from "./../actions/actionTypes";
+import {
+  GIVE_FEEDBACK,
+  CLEAR_FEEDBACK,
+  SET_WHAT_TO_SAY,
+  CLEAR_WHAT_TO_SAY
+} from "./../actions/actionTypes";
 
 const initialState = {
   feedback: "",
@@ -19,7 +24,6 @@ const otherReducer = (state = initialState, action) => {
       });
 
     case SET_WHAT_TO_SAY:
-      console.log("SET_WHAT_TO_SAY with ", action.whatToSay);
       return (
         (action.useVoice &&
           Object.assign({}, state, {
@@ -32,7 +36,6 @@ const otherReducer = (state = initialState, action) => {
       );
 
     case CLEAR_WHAT_TO_SAY:
-      console.log("Inside reducer, CLEAR_WHAT_TO_SAY");
       return Object.assign({}, state, { whatToSay: "" });
 
     default:

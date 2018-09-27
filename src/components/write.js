@@ -15,7 +15,10 @@ export class Write extends Component {
         <WritingArea
           // misspelledWords={this.props.spellingArea.misspelledWords}
           visible={true}
-          buttonText={{ saveUpdate: "Save as Snippet", resetCancel: "Reset (Delete)" }}
+          buttonText={{
+            saveUpdate: "Save as Snippet",
+            resetCancel: "Reset (Delete)"
+          }}
           click={() => this.addSnippet}
         />
         {/* <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} /> */}
@@ -26,7 +29,6 @@ export class Write extends Component {
 
 const mapStateToProps = state => {
   return {
-    snippets: state.snippets,
     writing: state.writing
     // spellingArea: state.spelling.spellingArea
   };

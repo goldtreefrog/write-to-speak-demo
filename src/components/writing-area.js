@@ -30,7 +30,14 @@ export class WritingArea extends Component {
     if (this.props.writing.activeSnippetId) {
       whatSay = "Snippet updated.";
       this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
-      this.props.dispatch(updateSnippet({ snippet: { id: this.props.writing.activeSnippetId, text: this.props.writing.activeSnippetText } }));
+      this.props.dispatch(
+        updateSnippet({
+          snippet: {
+            _id: this.props.writing.activeSnippetId,
+            snippetText: this.props.writing.activeSnippetText
+          }
+        })
+      );
 
       this.props.dispatch(giveFeedback({ feedback: whatSay }));
       this.props.dispatch(setWhatToSay({ whatToSay: whatSay }));
@@ -38,7 +45,9 @@ export class WritingArea extends Component {
       if (this.props.writing.activeSnippetText === "") {
         whatSay = "There is no text in the write box and so nothing to save.";
         this.props.dispatch(giveFeedback({ feedback: whatSay }));
-        this.props.dispatch(setWhatToSay({ whatToSay: whatSay, useVoice: voice }));
+        this.props.dispatch(
+          setWhatToSay({ whatToSay: whatSay, useVoice: voice })
+        );
 
         window.scrollTo(0, 0);
         return;
@@ -46,24 +55,45 @@ export class WritingArea extends Component {
 
       whatSay = "Snippet added. Click Talk or Edit (above) to see it.";
       let calcDate = new Date();
-      this.props.dispatch(addSnippet({ snippet: { id: calcDate.toISOString(), text: this.props.writing.activeSnippetText } }));
+      this.props.dispatch(
+        addSnippet({
+          snippet: {
+            _id: calcDate.toISOString(),
+            snippetText: this.props.writing.activeSnippetText
+          }
+        })
+      );
 
       this.props.dispatch(giveFeedback({ feedback: whatSay }));
-      this.props.dispatch(setWhatToSay({ whatToSay: whatSay, useVoice: voice }));
+      this.props.dispatch(
+        setWhatToSay({ whatToSay: whatSay, useVoice: voice })
+      );
     }
     // Reset write box (textarea)
     this.props.dispatch(writingAreaReset());
     // Reset isEditing flag
-    this.props.dispatch(isEditing({ editingPage: this.props.writing.editingPage, isEditing: false }));
+    this.props.dispatch(
+      isEditing({
+        editingPage: this.props.writing.editingPage,
+        isEditing: false
+      })
+    );
 
     window.scrollTo(0, 0);
   };
 
   handleTextChange = e => {
-    this.props.dispatch(writingAreaChange({ activeSnippetText: e.target.value }));
+    this.props.dispatch(
+      writingAreaChange({ activeSnippetText: e.target.value })
+    );
 
     // Set isEditing flag
-    this.props.dispatch(isEditing({ editingPage: this.props.writing.editingPage, isEditing: true }));
+    this.props.dispatch(
+      isEditing({
+        editingPage: this.props.writing.editingPage,
+        isEditing: true
+      })
+    );
 
     this.props.dispatch(clearFeedback());
     this.props.dispatch(clearWhatToSay());
@@ -83,20 +113,27 @@ export class WritingArea extends Component {
 
     this.props.dispatch(giveFeedback({ feedback: whatSay }));
     this.props.dispatch(setWhatToSay({ whatToSay: whatSay, useVoice: voice }));
-    console.log("Just SET_WHAT_TO_SAY from writing-area.js in resetWriteBox");
     window.scrollTo(0, 0);
   };
 
   readOnClick = useVoice => {
-    const noTextMsg = "Please type somthing into the box and I will be happy to read it to you.";
+    const noTextMsg =
+      "Please type somthing into the box and I will be happy to read it to you.";
 
     // Changing the state makes the <SayIt> component talk if it has text to speak.
     // If there is text to speak, speak it. Otherwise give the noTextMsg in speech and in feedback area.
     const determineAndSetVoice = () => {
       return (
         (this.props.writing.activeSnippetText &&
-          this.props.dispatch(setWhatToSay({ whatToSay: this.props.writing.activeSnippetText, useVoice: "UK English Male" }))) ||
-        (this.props.dispatch(setWhatToSay({ whatToSay: noTextMsg, useVoice: "UK English Female" })),
+          this.props.dispatch(
+            setWhatToSay({
+              whatToSay: this.props.writing.activeSnippetText,
+              useVoice: "UK English Male"
+            })
+          )) ||
+        (this.props.dispatch(
+          setWhatToSay({ whatToSay: noTextMsg, useVoice: "UK English Female" })
+        ),
         this.props.dispatch(giveFeedback({ feedback: noTextMsg })))
       );
     };
@@ -116,10 +153,23 @@ export class WritingArea extends Component {
         <form action="#" id="writing" method="get" name="writing">
           <fieldset id="write-box">
             <label htmlFor="text-box">Write in the box:</label>
-            <textarea id="text-box" name="text-box" wrap="soft" value={this.props.writing.activeSnippetText} onChange={this.handleTextChange} />
+            <textarea
+              id="text-box"
+              name="text-box"
+              wrap="soft"
+              value={this.props.writing.activeSnippetText}
+              onChange={this.handleTextChange}
+            />
           </fieldset>
           <fieldset id="box-buttons">
-            <button className="read" id="read-aloud" name="read-aloud" type="button" value="Read Aloud" onClick={this.readOnClick}>
+            <button
+              className="read"
+              id="read-aloud"
+              name="read-aloud"
+              type="button"
+              value="Read Aloud"
+              onClick={this.readOnClick}
+            >
               Read Aloud
             </button>
             {/* <button className="read" id="check-spelling" name="check-spelling" type="button" value="Check Spelling" onClick={this.doNothingYet}>
@@ -133,9 +183,18 @@ export class WritingArea extends Component {
               value="save-snippet"
               onClick={this.addUpdateSnippet}
             >
-              {this.props.activeSnippetId ? "Update Snippet" : "Save as Snippet"}
+              {this.props.activeSnippetId
+                ? "Update Snippet"
+                : "Save as Snippet"}
             </button>
-            <button className="reset" id="clear" name="reset" type="button" value="Reset" onClick={this.resetWriteBox}>
+            <button
+              className="reset"
+              id="clear"
+              name="reset"
+              type="button"
+              value="Reset"
+              onClick={this.resetWriteBox}
+            >
               {this.props.buttonText.resetCancel}
             </button>
             <SayIt />
@@ -150,8 +209,8 @@ const mapStateToProps = state => {
   return {
     snippets: state.snippets,
     writing: state.writing,
-    // spellingArea: state.spelling.spellingArea,
-    other: state.other
+    other: state.other,
+    loggedIn: state.auth.currentUser !== null
   };
 };
 

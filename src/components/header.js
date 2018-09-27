@@ -24,7 +24,9 @@ export class Header extends Component {
   checkUpdateStatus(e, stuff) {
     // If user was editing, confirm that wants to leave page without updating
     if (stuff.writing.isEditing) {
-      let choice = window.confirm("Press 'OK' to discard new or changed text and change pages. Press 'Cancel' to continue working on this snippet.");
+      let choice = window.confirm(
+        "Press 'OK' to discard new or changed text and change pages. Press 'Cancel' to continue working on this snippet."
+      );
 
       if (choice) {
         // User chooses to leave - reset everything and give message that update was canceled.
@@ -68,16 +70,28 @@ export class Header extends Component {
             <Link to="/" onClick={e => this.checkUpdateStatus(e, this.props)}>
               Home
             </Link>
-            <Link to="/write" onClick={e => this.checkUpdateStatus(e, this.props)}>
+            <Link
+              to="/write"
+              onClick={e => this.checkUpdateStatus(e, this.props)}
+            >
               Write
             </Link>
-            <Link to="/talk" onClick={e => this.checkUpdateStatus(e, this.props)}>
+            <Link
+              to="/talk"
+              onClick={e => this.checkUpdateStatus(e, this.props)}
+            >
               Talk
             </Link>
-            <Link to="/edit" onClick={e => this.checkUpdateStatus(e, this.props)}>
+            <Link
+              to="/edit"
+              onClick={e => this.checkUpdateStatus(e, this.props)}
+            >
               Edit
             </Link>
-            <Link to="/login" onClick={e => this.checkUpdateStatus(e, this.props)}>
+            <Link
+              to="/login"
+              onClick={e => this.checkUpdateStatus(e, this.props)}
+            >
               Login
             </Link>
           </nav>

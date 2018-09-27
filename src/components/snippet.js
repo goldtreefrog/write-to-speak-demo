@@ -1,6 +1,9 @@
 import React from "react";
 import "./styles/snippet.css";
 
+// We will have registeredUser, which has the snippets: [].
+// This is a single snippet, so it has its own snippet._id.
+
 const Snippet = props => {
   let snippetText = "";
   if (props.text && props.text.length > 25) {

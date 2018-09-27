@@ -7,11 +7,8 @@ import { registerUser } from "./../store/actions/users.js";
 import { loginUser } from "./../store/actions/auth.js";
 import "./styles/register-form.css";
 
-// let RegisterForm = props => {
 export class RegisterForm extends React.Component {
   onSubmit(values) {
-    console.log("*********************values: ", values);
-    console.log("this.prop.handleSubmit: ", this.prop.handleSubmit);
     const { email, password, firstName, lastName } = values;
     const user = { email, password, firstName, lastName };
     return this.props
@@ -21,7 +18,6 @@ export class RegisterForm extends React.Component {
   }
   render() {
     return (
-      // <form className="login" onSubmit={handleSubmit}>
       <form
         className="login"
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}

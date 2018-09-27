@@ -6,7 +6,7 @@ import writingReducer from "./reducers/writing-reducer";
 import spellingReducer from "./reducers/spelling-reducer";
 import otherReducer from "./reducers/other-reducer";
 import authReducer from "./reducers/auth.js";
-import protectedDataReducer from "./reducers/protected-data.js";
+// import protectedDataReducer from "./reducers/protected-data.js";
 
 const rootReducer = combineReducers({
   // you have to pass formReducer under 'form' key,
@@ -17,8 +17,8 @@ const rootReducer = combineReducers({
   writing: writingReducer,
   spelling: spellingReducer,
   other: otherReducer,
-  auth: authReducer,
-  protectedData: protectedDataReducer
+  auth: authReducer
+  // protectedData: protectedDataReducer
 });
 
 // Use to make Redux dev tools work in Chrome. See https://github.com/zalmoxisus/redux-devtools-extension

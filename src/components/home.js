@@ -6,8 +6,6 @@ import "./styles/home.css";
 
 class Home extends React.Component {
   render() {
-    // console.log("state.auth", state.auth);
-    console.log("this.props: ", this.props);
     if (this.props.loggedIn) {
       return <Redirect to="/talk" />;
     }

@@ -8,12 +8,10 @@ import "./styles/login-form.css";
 
 export class LoginForm extends React.Component {
   onSubmit(values) {
-    // return this.props.dispatch(loginUser(values.email, values.password));
     return this.props.dispatch(loginUser(values.email, values.password));
   }
   render() {
     let error;
-    console.log("----------------this.props: ", this.props);
     if (this.props.error) {
       error = (
         <div className="form-error" aria-live="polite">
@@ -24,7 +22,6 @@ export class LoginForm extends React.Component {
     return (
       <form
         className="login"
-        // onSubmit={handleSubmit}
         onSubmit={this.props.handleSubmit(values => {
           this.onSubmit(values);
         })}
@@ -55,9 +52,3 @@ LoginForm = reduxForm({
 })(LoginForm);
 
 export default LoginForm;
-
-// const mapStateToProps = state => ({
-//   loggedIn: state.auth.currentUser !== null
-// });
-//
-// export default connect(mapStateToProps)(LoginForm);

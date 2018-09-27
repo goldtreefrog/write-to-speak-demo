@@ -8,7 +8,7 @@ export class Feedback extends Component {
     // If you do not want the feedback message to appear on the next page, clear it here.
     // Also clear any speech message, because the logic for appearing on the next page is the same.
     if (localStorage.getItem("showFeedbackFlag") === "f") {
-      console.log("Feedback flag check in feedback shows flag as false so clearing feedback & whatToSay");
+      // console.log("Feedback flag check in feedback shows flag as false so clearing feedback & whatToSay");
       this.props.dispatch(clearFeedback());
       this.props.dispatch(clearWhatToSay());
     }

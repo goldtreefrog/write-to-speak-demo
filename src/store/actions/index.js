@@ -24,4 +24,3 @@ export {
   writingAreaReset,
   ritingAreaVisible
 } from "./writing";
-// export { languageTool } from "./apis";

@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 import { giveFeedback, setWhatToSay } from "./../store/actions";
 import LoginForm from "./login-form";
 
-// export function LoginPage(props) {
 export class LoginPage extends Component {
   componentWillUnmount = () => {
     if (this.props.loggedIn) {
