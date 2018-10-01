@@ -1,13 +1,17 @@
 import {
+  SNIPPET_REQUEST,
+  SNIPPET_ERROR,
   SET_SNIPPETS_AVAILABILITY,
-  ADD_SNIPPET,
-  UPDATE_SNIPPET,
+  ADD_SNIPPET_SUCCESS,
+  UPDATE_SNIPPET_SUCCESS,
   DELETE_SNIPPET
 } from "./../actions/actionTypes";
 
 const initialState = {
   snippetsAvail: true,
-  snippets: []
+  snippets: [],
+  loading: false,
+  error: null
 };
 
 const snippetsReducer = (state = initialState, action) => {
@@ -17,12 +21,26 @@ const snippetsReducer = (state = initialState, action) => {
         snippetsAvail: action.snippetsAvail
       });
 
-    case ADD_SNIPPET:
+    case SNIPPET_REQUEST:
       return Object.assign({}, state, {
+        loading: true,
+        error: null
+      });
+
+    case SNIPPET_ERROR:
+      return Object.assign({}, state, {
+        loading: false,
+        error: action.error
+      });
+
+    case ADD_SNIPPET_SUCCESS: // Renamed from ADD_SNIPPET
+      return Object.assign({}, state, {
+        loading: false,
+        error: null,
         snippets: state.snippets.concat(action.snippet)
       });
 
-    case UPDATE_SNIPPET:
+    case UPDATE_SNIPPET_SUCCESS:
       return Object.assign({}, state, {
         snippets: state.snippets.map(
           snippet =>

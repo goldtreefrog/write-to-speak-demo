@@ -32,8 +32,9 @@ export class WritingArea extends Component {
       this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
       this.props.dispatch(
         updateSnippet({
+          userId: this.props.currentUser._id,
           snippet: {
-            _id: this.props.writing.activeSnippetId,
+            snippetId: this.props.writing.activeSnippetId,
             snippetText: this.props.writing.activeSnippetText
           }
         })
@@ -54,13 +55,18 @@ export class WritingArea extends Component {
       }
 
       whatSay = "Snippet added. Click Talk or Edit (above) to see it.";
-      let calcDate = new Date();
+      let orderFromDate = new Date().getTime();
+      // let orderFromDate = calcDate.getTime();
+
+      // calcDate.getFullYear() + calcDate.getMonth() + calcDate.getDate() +
       this.props.dispatch(
         addSnippet({
-          snippet: {
-            _id: calcDate.toISOString(),
-            snippetText: this.props.writing.activeSnippetText
-          }
+          // _id: calcDate.toISOString(),
+          userId: this.props.currentUser._id,
+          category: "general", // Until we add user choice of category, we only have this one.
+          snippetText: this.props.writing.activeSnippetText,
+          snippetOrder: orderFromDate.toString()
+          // At some point will add capabiility to reorder snippets, but for now, use datetime so latest will be at end.
         })
       );
 
@@ -210,7 +216,8 @@ const mapStateToProps = state => {
     snippets: state.snippets,
     writing: state.writing,
     other: state.other,
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    currentUser: state.auth.currentUser
   };
 };
 

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Aux from "./../hoc/_aux";
 import WritingArea from "./writing-area";
@@ -8,6 +9,11 @@ import Feedback from "./feedback";
 // Use named export for unconnected component (for tests)
 export class Write extends Component {
   render() {
+    if (!this.props.loggedIn) {
+      console.log("We need to add a user message asking to please log in.");
+      return <Redirect to="/login" />;
+    }
+
     return (
       <Aux>
         <h2>Write</h2>
@@ -29,8 +35,10 @@ export class Write extends Component {
 
 const mapStateToProps = state => {
   return {
-    writing: state.writing
+    writing: state.writing,
     // spellingArea: state.spelling.spellingArea
+    // loggedIn: state.auth.loggedIn // Potential for infinite loop. Do not do this.
+    loggedIn: state.auth.currentUser !== null
   };
 };
 
