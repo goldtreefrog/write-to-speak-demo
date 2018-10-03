@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import Aux from "./../hoc/_aux.js";
 import Snippet from "./snippet";
+import SnippetDelete from "./snippet-delete";
 import WritingArea from "./writing-area";
 // import SpellingArea from "./spelling-area";
 import Feedback from "./feedback";
@@ -13,7 +15,8 @@ import {
   setSnippetsAvailability,
   clearFeedback,
   // setWhatToSay,
-  clearWhatToSay
+  clearWhatToSay,
+  deleteSnippet
 } from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
@@ -42,10 +45,29 @@ export class Edit extends Component {
     window.scrollTo(0, 0);
   };
 
+  deleteSnippetClicked = e => {
+    e.preventDefault();
+
+    let whatSay = "Snippet deleted.";
+    let voice = "UK English Female";
+
+    this.props.dispatch(
+      deleteSnippet({
+        userId: this.props.currentUser._id,
+        snippetId: e.target.value
+      })
+    );
+  };
+
   render() {
+    if (!this.props.loggedIn) {
+      console.log("We need to add a user message asking to please log in.");
+      return <Redirect to="/login" />;
+    }
+
     let snippetInstructions = () => {
       if (this.props.snippets.snippetsAvail) {
-        return "Click on the snippet you wish to change:";
+        return "Click on the snippet you wish to change. To delete it, click the 'Delete' button.";
       }
       return "The snippets below will become active again when you finish your update";
     };
@@ -74,14 +96,22 @@ export class Edit extends Component {
             {this.props.snippets.snippetsAvail && <SayIt />}
           </p>
           {this.props.snippets.snippets.map(snippet => (
-            <Snippet
-              click={() => this.loadSnippetForUpdate}
-              text={snippet.snippetText}
-              id={snippet._id}
-              orderkey={snippet.orderkey}
-              key={snippet._id}
-              disabled={!this.props.snippets.snippetsAvail}
-            />
+            <div className="snippet-line" key={"div" + snippet._id}>
+              <Snippet
+                className="snippet snippet-edit"
+                click={() => this.loadSnippetForUpdate}
+                text={snippet.snippetText}
+                id={snippet._id}
+                orderkey={snippet.orderkey}
+                // key={snippet._id}
+                disabled={!this.props.snippets.snippetsAvail}
+              />
+              <SnippetDelete
+                click={() => this.deleteSnippetClicked}
+                id={snippet._id}
+                ishidden={!this.props.snippets.snippetsAvail}
+              />
+            </div>
           ))}
         </section>
       </Aux>
@@ -94,7 +124,9 @@ const mapStateToProps = state => {
     snippets: state.snippets,
     writing: state.writing,
     // spellingArea: state.spelling.spellingArea,
-    other: state.other
+    other: state.other,
+    currentUser: state.auth.currentUser,
+    loggedIn: state.auth.currentUser !== null
   };
 };
 

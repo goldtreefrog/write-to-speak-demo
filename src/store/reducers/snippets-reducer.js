@@ -4,7 +4,7 @@ import {
   SET_SNIPPETS_AVAILABILITY,
   ADD_SNIPPET_SUCCESS,
   UPDATE_SNIPPET_SUCCESS,
-  DELETE_SNIPPET
+  DELETE_SNIPPET_SUCCESS
 } from "./../actions/actionTypes";
 
 const initialState = {
@@ -53,12 +53,13 @@ const snippetsReducer = (state = initialState, action) => {
         )
       });
 
-    case DELETE_SNIPPET:
+    case DELETE_SNIPPET_SUCCESS: {
       return Object.assign({}, state, {
         snippets: state.snippets.filter(
-          snippet => snippet.id !== action.snippet.id
+          snippet => snippet._id !== action.snippet._id
         )
       });
+    }
 
     default:
       return state;

@@ -1,0 +1,31 @@
+button.snippet-delete {
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  width: auto;
+  min-width: 2em;
+  margin: 2px -2px 2px 0;
+  color: black;
+  /* background-color: #cdf;
+  background: linear-gradient(#def, #bcf); */
+  padding: 1px 4px;
+}
+
+button.snippet-delete:hover,
+button.snippet-delete:focus {
+  color: white;
+  background-color: #423e24;
+  background: linear-gradient(#423e24, #423e24);
+}
+
+button.snippet-delete:disabled {
+  color: #666;
+  background: none;
+  background-color: #ccc;
+}
+
+@media only screen and (min-width: 636px) {
+  button.snippet-delete {
+    position: relative;
+  }
+}

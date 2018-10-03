@@ -2,3 +2,10 @@ section#edit {
   width: 98%;
   margin: 5px auto;
 }
+
+.snippet-line {
+  /* background-color: yellow; */
+  position: relative;
+  width: 100%;
+  display: block;
+}

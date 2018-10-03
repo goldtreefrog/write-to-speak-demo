@@ -42,6 +42,7 @@ export class Talk extends Component {
         <p>Click on a snippet to hear it:</p>
         {this.props.snippets.snippets.map(snippet => (
           <Snippet
+            className="snippet"
             text={snippet.snippetText}
             id={snippet.id}
             orderkey={snippet.orderkey}

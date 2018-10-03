@@ -6,7 +6,8 @@ import {
   ADD_SNIPPET_SUCCESS,
   SNIPPET_ERROR,
   UPDATE_SNIPPET_SUCCESS,
-  DELETE_SNIPPET,
+  // DELETE_SNIPPET,
+  DELETE_SNIPPET_SUCCESS,
   SET_SNIPPETS_AVAILABILITY
 } from "./actionTypes";
 import { normalizeResponseErrors } from "./utils";
@@ -74,9 +75,26 @@ export const updateSnippet = _userSnippet => {
   };
 };
 
-export const deleteSnippet = () => ({
-  type: DELETE_SNIPPET
-});
+export const deleteSnippet = userAndSnippetId => {
+  return (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    dispatch(snippetRequest);
+    return fetch(`${API_BASE_URL}/snippets/delete-snippet`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/JSON",
+        Authorization: `Bearer ${authToken}`
+      },
+      body: JSON.stringify(userAndSnippetId)
+    })
+      .then(() =>
+        dispatch(
+          deleteSnippetSuccess({ snippet: { _id: userAndSnippetId.snippetId } })
+        )
+      )
+      .catch(err => dispatch(snippetError(err)));
+  };
+};
 
 export const snippetRequest = () => ({
   type: SNIPPET_REQUEST
@@ -89,6 +107,11 @@ export const addSnippetSuccess = action => ({
 
 export const updateSnippetSuccess = action => ({
   type: UPDATE_SNIPPET_SUCCESS,
+  snippet: action.snippet
+});
+
+export const deleteSnippetSuccess = action => ({
+  type: DELETE_SNIPPET_SUCCESS,
   snippet: action.snippet
 });
 

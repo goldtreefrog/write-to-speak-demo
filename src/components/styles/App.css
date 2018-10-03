@@ -2,3 +2,7 @@
   text-align: center;
   width: 100%;
 }
+
+button {
+  border-radius: 10px;
+}
