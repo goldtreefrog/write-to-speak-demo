@@ -5,20 +5,37 @@ import store from "./../store/store.js"; // Store MAY be needed for testing only
 import "./styles/header.css";
 import logo from "./images/wts-pencil2.svg";
 import {
+  clearAuth,
   isEditing,
   writingAreaReset,
   writingAreaHidden,
   setSnippetsAvailability,
+  clearSnippets,
   giveFeedback,
   clearFeedback,
   setWhatToSay,
   clearWhatToSay
 } from "./../store/actions";
+import { clearAuthToken } from "./../local-storage";
 
 // Use named export for unconnected component (for tests)
 export class Header extends Component {
   componentDidMount = () => {
     window.scrollTo(0, 0);
+  };
+
+  logout = msg => {
+    // alert("!!!!!!!!!!!!");
+    localStorage.setItem("showFeedbackFlag", "t");
+    let feedbackMsg = "You have logged out.";
+    if (msg) {
+      feedbackMsg = msg + ".  " + feedbackMsg;
+    }
+    this.props.dispatch(giveFeedback({ feedback: feedbackMsg }));
+    this.props.dispatch(setWhatToSay({ whatToSay: feedbackMsg }));
+    this.props.dispatch(clearAuth());
+    this.props.dispatch(clearSnippets());
+    clearAuthToken();
   };
 
   checkUpdateStatus(e, stuff) {
@@ -42,6 +59,9 @@ export class Header extends Component {
         this.props.dispatch(setWhatToSay({ whatToSay: feedbackMsg }));
 
         localStorage.setItem("showFeedbackFlag", "t");
+        if (e.target.getAttribute("href") === "/logout") {
+          this.logout(feedbackMsg);
+        }
       } else {
         //  User is cancelling. Clear any previous feedback (in case it pertains to an operation before the current one), written and spoken.
         e.preventDefault();
@@ -51,12 +71,14 @@ export class Header extends Component {
         localStorage.setItem("showFeedbackFlag", "f");
       }
     } else {
-      // Reset feedback flag so that feedback generated from this page will not appear on the next page
-      localStorage.setItem("showFeedbackFlag", "f");
-      // Log the page you are about to go.
       const tgt = e.target || e.srcElement;
       const url = tgt.getAttribute("href");
       this.props.dispatch(isEditing({ editingPage: url, isEditing: false }));
+      // Reset feedback flag so that old feedback generated from this page will not appear on the next page
+      localStorage.setItem("showFeedbackFlag", "f");
+      if (e.target.getAttribute("href") === "/logout") {
+        this.logout();
+      }
     }
     return;
   }
@@ -88,12 +110,16 @@ export class Header extends Component {
             >
               Edit
             </Link>
-            <Link
-              to="/login"
-              onClick={e => this.checkUpdateStatus(e, this.props)}
-            >
-              Login
-            </Link>
+            {!this.props.loggedIn && <Link to="/login">Login</Link>}
+            {this.props.loggedIn && (
+              <Link
+                to="/logout"
+                // to="/"
+                onClick={e => this.checkUpdateStatus(e, this.props)}
+              >
+                Logout
+              </Link>
+            )}
           </nav>
           <Link to="/">
             <img src={logo} className="app-logo" alt="logo" />
@@ -111,7 +137,8 @@ const mapStateToProps = state => {
     snippets: state.snippets,
     writing: state.writing,
     // spellingArea: state.spelling.spellingArea,
-    other: state.other
+    other: state.other,
+    loggedIn: state.auth.currentUser != null
   };
 };
 

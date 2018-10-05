@@ -18,7 +18,6 @@ export class Talk extends Component {
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset());
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
-    this.props.dispatch(clearWhatToSay());
   };
 
   speak = useVoice => e => {

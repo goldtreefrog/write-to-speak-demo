@@ -79,10 +79,9 @@ export class App extends Component {
                   )
                 }
               />
-
-              {/* <Route path="/login" component={LoginForm} exact /> */}
               <Route path="/login" component={LoginPage} exact />
               <Route path="/register" component={RegisterForm} exact />
+              <Route path="/logout" component={Home} exact />
               <Route component={NotFound} />
             </Switch>
           </main>

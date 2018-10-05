@@ -1,5 +1,5 @@
 function sendToLanguageToolAPI(textToCheck) {
-  // Find misspellings with LanguageTool
+  // Find misspellings with LanguageTool. (Currently not in use but will be Phase 2)
   const params = {
     site: "",
     text: textToCheck,

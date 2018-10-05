@@ -1,5 +1,5 @@
 "option explicit";
-export { loginUser } from "./auth";
+export { loginUser, setAuthToken, refreshAuthToken, clearAuth } from "./auth";
 export {
   resetFeedbackFlag,
   setFeedbackFlag,
@@ -12,8 +12,9 @@ export {
 export {
   addSnippet,
   deleteSnippet,
-  setSnippetsAvailability,
-  updateSnippet
+  updateSnippet,
+  clearSnippets,
+  setSnippetsAvailability
 } from "./snippets";
 export { spellingAreaHidden, spellingAreaVisible } from "./spelling";
 export {

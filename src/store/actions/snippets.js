@@ -1,13 +1,12 @@
 "option explicit";
 import { API_BASE_URL } from "./../../config.js";
-// import * as actionTypes from "./actionTypes";
 import {
   SNIPPET_REQUEST,
   ADD_SNIPPET_SUCCESS,
   SNIPPET_ERROR,
   UPDATE_SNIPPET_SUCCESS,
-  // DELETE_SNIPPET,
   DELETE_SNIPPET_SUCCESS,
+  CLEAR_SNIPPETS,
   SET_SNIPPETS_AVAILABILITY
 } from "./actionTypes";
 import { normalizeResponseErrors } from "./utils";
@@ -48,30 +47,25 @@ export const updateSnippet = _userSnippet => {
   return (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(snippetRequest());
-    return (
-      fetch(`${API_BASE_URL}/snippets/update-snippet`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authToken}`
-        },
-        body: JSON.stringify(userSnippet)
-        // body: `${snippet}`
+    return fetch(`${API_BASE_URL}/snippets/update-snippet`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`
+      },
+      body: JSON.stringify(userSnippet)
+    })
+      .then(() => {
+        dispatch(
+          updateSnippetSuccess({
+            snippet: {
+              _id: userSnippet.snippet.snippetId,
+              snippetText: userSnippet.snippet.snippetText
+            }
+          })
+        );
       })
-        // .then(data => data.json()) // converts data to json
-        .then(() => {
-          dispatch(
-            updateSnippetSuccess({
-              snippet: {
-                _id: userSnippet.snippet.snippetId,
-                snippetText: userSnippet.snippet.snippetText
-              }
-            })
-          );
-          // dispatch(updateSnippetSuccess(userSnippet.snippet));
-        })
-        .catch(err => dispatch(snippetError(err)))
-    );
+      .catch(err => dispatch(snippetError(err)));
   };
 };
 
@@ -113,6 +107,10 @@ export const updateSnippetSuccess = action => ({
 export const deleteSnippetSuccess = action => ({
   type: DELETE_SNIPPET_SUCCESS,
   snippet: action.snippet
+});
+
+export const clearSnippets = () => ({
+  type: CLEAR_SNIPPETS
 });
 
 export const snippetError = error => ({

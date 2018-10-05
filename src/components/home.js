@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import LoginForm from "./login-form.js";
 import Feedback from "./feedback";
+import SayIt from "./say-it";
 import "./styles/home.css";
 
 class Home extends React.Component {
@@ -35,6 +36,7 @@ class Home extends React.Component {
             Already registered? <Link to="/login">Login</Link>
           </p>
         </form>
+        <SayIt />
       </section>
     );
   }

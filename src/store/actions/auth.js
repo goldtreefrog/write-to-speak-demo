@@ -10,10 +10,8 @@ import {
   AUTH_REQUEST,
   AUTH_SUCCESS,
   AUTH_ERROR
-  // ADD_SNIPPET
 } from "./actionTypes.js";
 import { addSnippetSuccess } from "./snippets";
-// import { addSnippet } from "./snippets";
 
 export const setAuthToken = authToken => ({
   type: SET_AUTH_TOKEN,
@@ -44,11 +42,11 @@ const storeAuthInfo = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
   dispatch(setAuthToken(authToken));
   dispatch(authSuccess(decodedToken.user));
-  saveAuthToken(authToken);
+  saveAuthToken(authToken); // Saves in localStorage
+
   // Add snippets from user record to state. Redundant, actually, but expedient for now. Also gives you the potential to compare what was there when logged in with what is there at any time after, which may someday be useful.
   decodedToken.user.snippets.map(snippet => {
     return dispatch(addSnippetSuccess({ snippet }));
-    // return dispatch(addSnippet({ snippet }));
   });
 };
 

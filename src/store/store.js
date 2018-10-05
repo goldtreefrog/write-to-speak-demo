@@ -1,12 +1,13 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { reducer as formReducer } from "redux-form";
+import { loadAuthToken } from "./../local-storage.js";
+import { setAuthToken, refreshAuthToken } from "./actions";
 import snippetsReducer from "./reducers/snippets-reducer";
 import writingReducer from "./reducers/writing-reducer";
 import spellingReducer from "./reducers/spelling-reducer";
 import otherReducer from "./reducers/other-reducer";
 import authReducer from "./reducers/auth.js";
-// import protectedDataReducer from "./reducers/protected-data.js";
 
 const rootReducer = combineReducers({
   // you have to pass formReducer under 'form' key,
@@ -18,7 +19,6 @@ const rootReducer = combineReducers({
   spelling: spellingReducer,
   other: otherReducer,
   auth: authReducer
-  // protectedData: protectedDataReducer
 });
 
 // Use to make Redux dev tools work in Chrome. See https://github.com/zalmoxisus/redux-devtools-extension
@@ -27,11 +27,18 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION__()) ||
   compose;
 
-// const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 const store = createStore(
   rootReducer,
   composeEnhancers,
   applyMiddleware(thunk)
 );
+
+// Copy authToken from localStorage if it exists
+// Curiously, I found NO difference in behavior in Chrome on my local machine. I could leave out the following completely. If a browser cannot handle state, the program will not work anyway, so do we actually need this?
+const authToken = loadAuthToken();
+if (authToken) {
+  store.dispatch(setAuthToken(authToken));
+  store.dispatch(refreshAuthToken());
+}
 
 export default store;
