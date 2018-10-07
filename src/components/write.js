@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Aux from "./../hoc/_aux";
+import { giveFeedback, setWhatToSay } from "./../store/actions";
 import WritingArea from "./writing-area";
 // import SpellingArea from "./spelling-area";
 import Feedback from "./feedback";
@@ -10,7 +11,16 @@ import Feedback from "./feedback";
 export class Write extends Component {
   render() {
     if (!this.props.loggedIn) {
-      console.log("We need to add a user message asking to please log in.");
+      localStorage.setItem("showFeedbackFlag", "t");
+      let feedbackMsg = "Please sign in.";
+      this.props.dispatch(giveFeedback({ feedback: feedbackMsg }));
+      this.props.dispatch(
+        setWhatToSay({
+          whatToSay: feedbackMsg,
+          useVoice: "UK English Female"
+        })
+      );
+
       return <Redirect to="/login" />;
     }
 

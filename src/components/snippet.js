@@ -6,8 +6,8 @@ import "./styles/snippet.css";
 
 const Snippet = props => {
   let snippetText = "";
-  if (props.text && props.text.length > 25) {
-    snippetText = props.text.substring(0, 22) + "...";
+  if (props.text && props.text.length > 190) {
+    snippetText = props.text.substring(0, 187) + "...";
   } else {
     snippetText = props.text;
   }

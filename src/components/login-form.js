@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { reduxForm, Field, focus } from "redux-form";
 import { loginUser } from "./../store/actions";
 import Feedback from "./feedback";
+import SayIt from "./say-it";
 import "./styles/login-form.css";
 
 export class LoginForm extends React.Component {
@@ -41,6 +42,7 @@ export class LoginForm extends React.Component {
         <p>
           No account? <Link to="/register">Register</Link>
         </p>
+        <SayIt />
       </form>
     );
   }

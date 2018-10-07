@@ -1,6 +1,4 @@
 import jwtDecode from "jwt-decode";
-import { SubmissionError } from "redux-form";
-
 import { API_BASE_URL } from "./../../config.js";
 import { normalizeResponseErrors } from "./utils";
 import { saveAuthToken, clearAuthToken } from "./../../local-storage.js";
@@ -12,6 +10,7 @@ import {
   AUTH_ERROR
 } from "./actionTypes.js";
 import { addSnippetSuccess } from "./snippets";
+import { giveFeedback, setWhatToSay } from "./other";
 
 export const setAuthToken = authToken => ({
   type: SET_AUTH_TOKEN,
@@ -76,21 +75,16 @@ export const loginUser = (email, password) => dispatch => {
           //   message = "Bad, bad, bad request!";
           //   break;
           case 401:
-            message =
-              "Incorrect email or password. Try again. (This demo system lacks a password reset option. You can, however, register under another email address.)";
+            message = "Wrong email or password. Please try again.";
             break;
           default:
             message =
-              code +
-              ": Login function is temporarily down. Please try later. Sorry for the inconvenience.";
+              code + ": Login function is temporarily down. Please try later.";
         }
         dispatch(authError(err));
-        // Could not authenticate, so return a SubmissionError for Redux Form
-        console.log(err);
-        return Promise.reject(
-          new SubmissionError({
-            _error: message
-          })
+        dispatch(giveFeedback({ feedback: message }));
+        dispatch(
+          setWhatToSay({ whatToSay: message, useVoice: "UK English Female" })
         );
       })
   );

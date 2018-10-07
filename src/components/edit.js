@@ -14,7 +14,8 @@ import {
   writingAreaReset,
   setSnippetsAvailability,
   clearFeedback,
-  // setWhatToSay,
+  giveFeedback,
+  setWhatToSay,
   clearWhatToSay,
   deleteSnippet
 } from "./../store/actions";
@@ -48,20 +49,34 @@ export class Edit extends Component {
   deleteSnippetClicked = e => {
     e.preventDefault();
 
-    let whatSay = "Snippet deleted.";
-    let voice = "UK English Female";
-
     this.props.dispatch(
       deleteSnippet({
         userId: this.props.currentUser._id,
         snippetId: e.target.value
       })
     );
+
+    let feedbackMsg = "Snippet deleted.";
+    this.props.dispatch(giveFeedback({ feedback: feedbackMsg }));
+    this.props.dispatch(
+      setWhatToSay({
+        whatToSay: feedbackMsg,
+        useVoice: "UK English Female"
+      })
+    );
   };
 
   render() {
     if (!this.props.loggedIn) {
-      console.log("We need to add a user message asking to please log in.");
+      localStorage.setItem("showFeedbackFlag", "t");
+      let feedbackMsg = "Please sign in.";
+      this.props.dispatch(giveFeedback({ feedback: feedbackMsg }));
+      this.props.dispatch(
+        setWhatToSay({
+          whatToSay: feedbackMsg,
+          useVoice: "UK English Female"
+        })
+      );
       return <Redirect to="/login" />;
     }
 
