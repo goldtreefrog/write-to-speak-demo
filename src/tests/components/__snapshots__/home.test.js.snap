@@ -33,7 +33,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
       role="button"
       to="/register"
     >
-      Sign In/Register
+      Register
     </Link>
     <Link
       className="button-link"
@@ -43,6 +43,16 @@ exports[`renders without crashing and matches snapshot 1`] = `
     >
       Enter as Guest
     </Link>
+    <p>
+      Already registered? 
+      <Link
+        replace={false}
+        to="/login"
+      >
+        Login
+      </Link>
+    </p>
   </form>
+  <Connect(SayIt) />
 </section>
 `;

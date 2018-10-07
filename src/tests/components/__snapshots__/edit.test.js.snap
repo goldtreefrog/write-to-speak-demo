@@ -1,68 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing and matches snapshot 1`] = `
-<Aux>
-  <h2>
-    Edit
-  </h2>
-  <Connect(Feedback) />
-  <div>
-    <Connect(WritingArea)
-      buttonText={
-        Object {
-          "resetCancel": "Cancel Update",
-          "saveUpdate": "Update Snippet",
-        }
-      }
-      visible={true}
-    />
-  </div>
-  <section
-    id="edit"
-  >
-    <p>
-      The snippets below will become active again when you finish your update
-    </p>
-    <Snippet
-      click={[Function]}
-      disabled={true}
-      id={123}
-      key="123"
-      orderkey={0}
-      text="Hi there"
-    />
-    <Snippet
-      click={[Function]}
-      disabled={true}
-      id={312}
-      key="312"
-      orderkey={3}
-      text="Mom"
-    />
-    <Snippet
-      click={[Function]}
-      disabled={true}
-      id={666}
-      key="666"
-      orderkey={2}
-      text="Dad"
-    />
-    <Snippet
-      click={[Function]}
-      disabled={true}
-      id={427}
-      key="427"
-      orderkey={1}
-      text="come talk with me"
-    />
-    <Snippet
-      click={[Function]}
-      disabled={true}
-      id={555}
-      key="555"
-      orderkey={6}
-      text="Once upon a time, when it was a dark and stormy night, Sandy heard a tremendously loud 'boom!'"
-    />
-  </section>
-</Aux>
+<Redirect
+  push={false}
+  to="/login"
+/>
 `;

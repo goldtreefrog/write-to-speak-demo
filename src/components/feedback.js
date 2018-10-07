@@ -9,16 +9,13 @@ export class Feedback extends Component {
     // Also clear any speech message, because the logic for appearing on the next page is the same.
     switch (localStorage.getItem("showFeedbackFlag")) {
       case "f":
-        // alert("f", this.props.other.feedback);
         this.props.dispatch(clearFeedback());
         this.props.dispatch(clearWhatToSay());
         break;
       case "t":
-        // alert("t: ", this.props.other.feedback);
         localStorage.setItem("showFeedbackFlag", "f");
         break;
       case "o":
-        // alert("o: ", this.props.other.feedback);
         localStorage.setItem("showFeedbackFlag", "t");
         break;
       default:
@@ -27,14 +24,7 @@ export class Feedback extends Component {
   };
 
   render() {
-    return (
-      <div className="feedback">
-        {this.props.other.feedback}
-        {/* {this.props.other.feedback +
-            " feedbackFlag: " +
-            localStorage.getItem("showFeedbackFlag")} */}
-      </div>
-    );
+    return <div className="feedback">{this.props.other.feedback}</div>;
   }
 }
 

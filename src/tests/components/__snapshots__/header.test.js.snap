@@ -46,7 +46,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
         Edit
       </Link>
       <Link
-        onClick={[Function]}
         replace={false}
         to="/login"
       >
