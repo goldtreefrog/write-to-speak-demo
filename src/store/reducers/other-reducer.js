@@ -14,7 +14,6 @@ const initialState = {
 const otherReducer = (state = initialState, action) => {
   switch (action.type) {
     case GIVE_FEEDBACK: {
-      console.log("Inside GIVE_FEEDBACK with feedback: ", action.feedback);
       return Object.assign({}, state, {
         feedback: action.feedback
       });

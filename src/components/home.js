@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
-import LoginForm from "./login-form.js";
 import Feedback from "./feedback";
 import SayIt from "./say-it";
 import "./styles/home.css";

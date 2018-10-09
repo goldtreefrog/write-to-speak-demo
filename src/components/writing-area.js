@@ -147,11 +147,6 @@ export class WritingArea extends Component {
     determineAndSetVoice();
   };
 
-  doNothingYet = e => {
-    e.preventDefault();
-    console.log("This function needs more work.");
-  };
-
   render() {
     return (
       <section id="writing-area">
@@ -178,9 +173,6 @@ export class WritingArea extends Component {
             >
               Read Aloud
             </button>
-            {/* <button className="read" id="check-spelling" name="check-spelling" type="button" value="Check Spelling" onClick={this.doNothingYet}>
-              Check Spelling
-            </button> */}
             <button
               className="save-snippet"
               id="save-snippet"

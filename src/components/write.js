@@ -11,16 +11,6 @@ import Feedback from "./feedback";
 export class Write extends Component {
   render() {
     if (!this.props.loggedIn) {
-      localStorage.setItem("showFeedbackFlag", "t");
-      let feedbackMsg = "Please sign in.";
-      this.props.dispatch(giveFeedback({ feedback: feedbackMsg }));
-      this.props.dispatch(
-        setWhatToSay({
-          whatToSay: feedbackMsg,
-          useVoice: "UK English Female"
-        })
-      );
-
       return <Redirect to="/login" />;
     }
 

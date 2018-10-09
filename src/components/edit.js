@@ -5,7 +5,6 @@ import Aux from "./../hoc/_aux.js";
 import Snippet from "./snippet";
 import SnippetDelete from "./snippet-delete";
 import WritingArea from "./writing-area";
-// import SpellingArea from "./spelling-area";
 import Feedback from "./feedback";
 import SayIt from "./say-it";
 import "./styles/edit.css";
@@ -69,14 +68,6 @@ export class Edit extends Component {
   render() {
     if (!this.props.loggedIn) {
       localStorage.setItem("showFeedbackFlag", "t");
-      let feedbackMsg = "Please sign in.";
-      this.props.dispatch(giveFeedback({ feedback: feedbackMsg }));
-      this.props.dispatch(
-        setWhatToSay({
-          whatToSay: feedbackMsg,
-          useVoice: "UK English Female"
-        })
-      );
       return <Redirect to="/login" />;
     }
 
@@ -118,7 +109,6 @@ export class Edit extends Component {
                 text={snippet.snippetText}
                 id={snippet._id}
                 orderkey={snippet.orderkey}
-                // key={snippet._id}
                 disabled={!this.props.snippets.snippetsAvail}
               />
               <SnippetDelete
@@ -138,7 +128,6 @@ const mapStateToProps = state => {
   return {
     snippets: state.snippets,
     writing: state.writing,
-    // spellingArea: state.spelling.spellingArea,
     other: state.other,
     currentUser: state.auth.currentUser,
     loggedIn: state.auth.currentUser !== null
