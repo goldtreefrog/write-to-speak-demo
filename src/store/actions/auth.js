@@ -1,4 +1,5 @@
 import jwtDecode from "jwt-decode";
+import { SubmissionError } from "redux-form";
 import { API_BASE_URL } from "./../../config.js";
 import { normalizeResponseErrors } from "./utils";
 import { saveAuthToken, clearAuthToken } from "./../../local-storage.js";
@@ -71,21 +72,20 @@ export const loginUser = (email, password) => dispatch => {
         const { code } = err;
         let message;
         switch (code) {
-          // case 400:  // For testing. Otherwise, do not give clues why cannot login.
-          //   message = "Bad, bad, bad request!";
-          //   break;
           case 401:
             message = "Wrong email or password. Please try again.";
             break;
           default:
-            message =
-              code + ": Login function is temporarily down. Please try later.";
+            message = "Unexpected error. Please try later.";
         }
         dispatch(authError(err));
         dispatch(giveFeedback({ feedback: message }));
         dispatch(
           setWhatToSay({ whatToSay: message, useVoice: "UK English Female" })
         );
+        return {
+          error: message
+        };
       })
   );
 };

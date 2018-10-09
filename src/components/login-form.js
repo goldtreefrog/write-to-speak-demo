@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 import { reduxForm, Field, focus } from "redux-form";
 import { loginUser } from "./../store/actions";
+import Input from "./input";
+import { required, nonEmpty } from "../validators";
 import Feedback from "./feedback";
 import SayIt from "./say-it";
 import "./styles/login-form.css";
@@ -30,14 +31,23 @@ export class LoginForm extends React.Component {
         {error}
         <h2>Login</h2>
         <Feedback />
-        <div>
-          <label htmlFor="email">Email</label>
-          <Field name="email" component="input" type="email" />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <Field name="password" component="input" type="password" />
-        </div>
+        <Field
+          id="email"
+          name="email"
+          component={Input}
+          type="email"
+          validate={[required, nonEmpty]}
+          ref="email"
+          label="Email "
+        />
+        <Field
+          id="password"
+          name="password"
+          component={Input}
+          type="password"
+          validate={[required, nonEmpty]}
+          label="Password "
+        />
         <button type="submit">Submit</button>
         <p>
           No account? <Link to="/register">Register</Link>
@@ -50,7 +60,10 @@ export class LoginForm extends React.Component {
 
 LoginForm = reduxForm({
   // a unique name for the form
-  form: "login"
+  form: "login",
+  onSubmitFail: (errors, dispatch) => {
+    dispatch(focus("login", "Object.keys(errors)[0]")); // if it would work
+  }
 })(LoginForm);
 
 export default LoginForm;

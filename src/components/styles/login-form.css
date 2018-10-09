@@ -36,3 +36,58 @@ form.login button {
   display: block;
   margin: 2px auto;
 }
+
+.form-input {
+  display: block;
+}
+
+.form-input label {
+  display: block;
+}
+
+.form-input div {
+  display: inline;
+  color: #990033;
+  animation: blinkingText 20s infinite;
+}
+
+@keyframes blinkingText {
+  0% {
+    color: #ad00ff;
+  }
+  10% {
+    color: #aa0099;
+  }
+  20% {
+    color: #ee0000;
+  }
+  30% {
+    color: #ff4000;
+  }
+  40% {
+    color: #ff8000;
+  }
+  50% {
+    color: #999933;
+  }
+  60% {
+    color: #40dd00;
+  }
+  70% {
+    color: #00dddd;
+  }
+  80% {
+    color: #0080ff;
+  }
+  90% {
+    color: #4000ff;
+  }
+  100% {
+    color: #ad00ff;
+  }
+}
+
+.form-input input {
+  display: block;
+  clear: both;
+}

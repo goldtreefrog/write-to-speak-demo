@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { reduxForm, Field } from "redux-form";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import Input from "./input";
 import Feedback from "./feedback";
-import { required, nonEmpty } from "../validators";
+import { giveFeedback, setWhatToSay } from "./../store/actions";
+import { required, nonEmpty, matches, length } from "../validators";
 import { registerUser } from "./../store/actions/users.js";
 import { loginUser } from "./../store/actions/auth.js";
 import "./styles/register-form.css";
+
+const passwordLength = length({ min: 6, max: 72 });
+const matchesPassword = matches("password");
 
 export class RegisterForm extends React.Component {
   onSubmit(values) {
@@ -13,43 +20,68 @@ export class RegisterForm extends React.Component {
     const user = { email, password, firstName, lastName };
     return this.props
       .dispatch(registerUser(user))
-      .then(alert("Registration sucessful!!"))
-      .then(() => this.props.dispatch(loginUser(email, password)));
+      .then(() => this.props.dispatch(loginUser(email, password)))
+      .then(() => {
+        localStorage.setItem("showFeedbackFlag", "t");
+        let whatSay =
+          "You have registered. Write in the box below, then click a button.";
+        this.props.dispatch(giveFeedback({ feedback: whatSay }));
+        this.props.dispatch(
+          setWhatToSay({ whatToSay: whatSay, useVoice: "UK English Female" })
+        );
+      });
   }
+  // If user is logged in, redirect to the "Talk" page if the user has snippets.
   render() {
+    if (this.props.loggedIn) {
+      return <Redirect to="/write" />;
+    }
+
     return (
       <form
         className="login"
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
       >
         <h2>Register</h2>
-        <Feedback />
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <Field name="firstName" component="input" type="text" />
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <Field name="lastName" component="input" type="text" />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          {/* <Field name="email" component="input" type="email" /> */}
-          <Field
-            name="email"
-            type="email"
-            component="input"
-            validate={[required, nonEmpty]}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <Field name="password" component="input" type="password" />
-        </div>
-        <div>
-          <label htmlFor="repeatPassword">Repeat Password</label>
-          <Field name="repeatPassword" component="input" type="password" />
-        </div>
+
+        <Field
+          name="firstName"
+          component={Input}
+          type="text"
+          label="First Name "
+        />
+
+        <Field
+          name="lastName"
+          component={Input}
+          type="text"
+          label="Last Name "
+        />
+
+        <Field
+          name="email"
+          type="email"
+          component={Input}
+          validate={[required, nonEmpty]}
+          label="Email "
+        />
+
+        <Field
+          name="password"
+          component={Input}
+          type="password"
+          validate={[required, nonEmpty, passwordLength]}
+          label="Password "
+        />
+
+        <Field
+          name="repeatPassword"
+          component={Input}
+          type="password"
+          validate={[required, nonEmpty, matchesPassword]}
+          label="Repeat Password "
+        />
+
         <button type="submit">Submit</button>
         <p>
           Already registered? <Link to="/login">Login</Link>
@@ -64,4 +96,10 @@ RegisterForm = reduxForm({
   form: "register"
 })(RegisterForm);
 
-export default RegisterForm;
+// export default RegisterForm;
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(RegisterForm);
