@@ -28,9 +28,6 @@ class Home extends React.Component {
           <Link to="/register" className="button-link" role="button">
             Register
           </Link>
-          <Link to="/write" className="button-link" role="button">
-            Enter as Guest
-          </Link>
           <p>
             Already registered? <Link to="/login">Login</Link>
           </p>

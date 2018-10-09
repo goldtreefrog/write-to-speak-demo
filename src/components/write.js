@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Aux from "./../hoc/_aux";
-import { giveFeedback, setWhatToSay } from "./../store/actions";
 import WritingArea from "./writing-area";
-// import SpellingArea from "./spelling-area";
 import Feedback from "./feedback";
 
 // Use named export for unconnected component (for tests)

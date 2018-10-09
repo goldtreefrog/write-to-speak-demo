@@ -1,5 +1,4 @@
 import jwtDecode from "jwt-decode";
-import { SubmissionError } from "redux-form";
 import { API_BASE_URL } from "./../../config.js";
 import { normalizeResponseErrors } from "./utils";
 import { saveAuthToken, clearAuthToken } from "./../../local-storage.js";

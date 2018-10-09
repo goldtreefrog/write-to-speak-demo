@@ -8,7 +8,6 @@ import "./styles/talk.css";
 import {
   writingAreaReset,
   setSnippetsAvailability,
-  giveFeedback,
   setWhatToSay,
   clearFeedback
 } from "./../store/actions";

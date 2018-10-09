@@ -4,7 +4,6 @@ import { reduxForm, Field } from "redux-form";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Input from "./input";
-import Feedback from "./feedback";
 import { giveFeedback, setWhatToSay } from "./../store/actions";
 import { required, nonEmpty, matches, length } from "../validators";
 import { registerUser } from "./../store/actions/users.js";
