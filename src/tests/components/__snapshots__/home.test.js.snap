@@ -35,14 +35,6 @@ exports[`renders without crashing and matches snapshot 1`] = `
     >
       Register
     </Link>
-    <Link
-      className="button-link"
-      replace={false}
-      role="button"
-      to="/write"
-    >
-      Enter as Guest
-    </Link>
     <p>
       Already registered? 
       <Link
