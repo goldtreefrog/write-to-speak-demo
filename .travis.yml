@@ -1,21 +1,20 @@
-language:         node_js
+language:        node_js
 node_js:
-  - "8"
+- '8'
 cache:
   directories:
-    - node_modules
+  - node_modules
 script:
-  - npm test TZ=America/Los_Angeles
+- npm test TZ=America/Los_Angeles
 env:
-  - CI=true
-
+- CI=true
 before_deploy:
-  - npm install netlify-cli -g
-  - npm run build
-
+- npm run build
 deploy:
-  provider:       script
-  script:         netlify deploy -p ./build -t $NETLIFY_ACCESS_TOKEN -s $NETLIFY_SITE_ID
-  skip_cleanup:   true
+  provider:      heroku
+  skip_cleanup:  true
   on:
-    branch:       master
+    branch:      master
+  api_key:
+    secure:      T1Z9igBndZ8cgQ9F/fQwzn7Sa76ZD6xngVhFJn56ilGAO4Dn+VNluWw/TR9qdAh3mWr5VOhxHsz29TIoqFmY/fwBR2/kRU+huqMRNkqNWtXR6qIicZdSoqvmkxWnRMFzptItrgBl9fVaid+oveat1WEiJdrs78/oqnVdGM/Jbl0ijQXGFhWQQjEwmOSqc3QHdw3pWQduj0xuMZeVUYEodgKgmSbqYBD1OYcOGhelao2AsZe2oY0xfO9ONkz2IIosPH2kkSjtjuWYDXYz3HevUSwwRiGn7An/ac3kRBAildtNPSPIres0iXFOjV7/18bHFWOCHS2LPff9WM06Djmr2dmDG3ed/DJhMsz8zra+Dnkz2dGe75+s2hg9COPFJVlojCoHCJ/KBwRNYwlT5i2qFwIM8ConpOrzx3szIobFYOZ3/Xm2959y4LmfdzJ5wCQgSBLDMT6zwID/FKTUQ0pqn6l2Hxv7APkUP5fiam/9j1BTaqQ2mPf7lnUlD7xVpFyCzWwcnqk/L7jWSZC06LwchOAcvW4Dg6vAj3zxMLdIZAkENs0RAE7ym5Gylc01XHJPbNMFxZoXhbPwPG1j4jSFPf231WidnXh7KO1uAaPOsFD+/L0JAaXnZTpZmQDOw3NOwMk+dQGagofC2pTElPZlkSlrRUU+OF0jTcrolV4gTI4=
+  app:           boiling-gorge-25698
