@@ -22,15 +22,14 @@ const rootReducer = combineReducers({
 });
 
 // Use to make Redux dev tools work in Chrome. See https://github.com/zalmoxisus/redux-devtools-extension
-const composeEnhancers =
-  (window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__()) ||
-  compose;
+// See also https://github.com/zalmoxisus/redux-devtools-extension/issues/320 if this fixes Heroku problem.
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__
+  ? window.__REDUX_DEVTOOLS_EXTENSION__()
+  : f => f || compose;
 
 const store = createStore(
   rootReducer,
-  composeEnhancers,
-  applyMiddleware(thunk)
+  composeEnhancers(applyMiddleware(thunk))
 );
 
 // Copy authToken from localStorage if it exists
