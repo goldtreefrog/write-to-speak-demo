@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
-import { API_BASE_URL } from "./../../config.js";
-import { normalizeResponseErrors } from "./utils";
-import { saveAuthToken, clearAuthToken } from "./../../local-storage.js";
+import {API_BASE_URL} from "./../../config.js";
+import {normalizeResponseErrors} from "./utils";
+import {saveAuthToken, clearAuthToken} from "./../../local-storage.js";
 import {
   SET_AUTH_TOKEN,
   CLEAR_AUTH,
@@ -9,8 +9,8 @@ import {
   AUTH_SUCCESS,
   AUTH_ERROR
 } from "./actionTypes.js";
-import { addSnippetSuccess } from "./snippets";
-import { giveFeedback, setWhatToSay } from "./other";
+import {addSnippetSuccess} from "./snippets";
+import {giveFeedback, setWhatToSay} from "./other";
 
 export const setAuthToken = authToken => ({
   type: SET_AUTH_TOKEN,
@@ -45,7 +45,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 
   // Add snippets from user record to state. Redundant, actually, but expedient for now. Also gives you the potential to compare what was there when logged in with what is there at any time after, which may someday be useful.
   decodedToken.user.snippets.map(snippet => {
-    return dispatch(addSnippetSuccess({ snippet }));
+    return dispatch(addSnippetSuccess({snippet}));
   });
 };
 
@@ -66,9 +66,9 @@ export const loginUser = (email, password) => dispatch => {
       // errors which follow a consistent format
       .then(res => normalizeResponseErrors(res))
       .then(res => res.json())
-      .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
+      .then(({authToken}) => storeAuthInfo(authToken, dispatch))
       .catch(err => {
-        const { code } = err;
+        const {code} = err;
         let message;
         switch (code) {
           case 401:
@@ -78,9 +78,9 @@ export const loginUser = (email, password) => dispatch => {
             message = "Unexpected error. Please try later.";
         }
         dispatch(authError(err));
-        dispatch(giveFeedback({ feedback: message }));
+        dispatch(giveFeedback({feedback: message}));
         dispatch(
-          setWhatToSay({ whatToSay: message, useVoice: "UK English Female" })
+          setWhatToSay({whatToSay: message, useVoice: "UK English Female"})
         );
         return {
           error: message
@@ -92,7 +92,7 @@ export const loginUser = (email, password) => dispatch => {
 export const refreshAuthToken = () => (dispatch, getState) => {
   dispatch(authRequest());
   const authToken = getState().auth.authToken;
-  return fetch(`${API_BASE_URL}/auth/refresh`, {
+  return fetch(`${API_BASE_URL}/val/auth/refresh`, {
     method: "POST",
     headers: {
       // Provide our existing token as credentials to get a new one
@@ -101,7 +101,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
+    .then(({authToken}) => storeAuthInfo(authToken, dispatch))
     .catch(err => {
       // We couldn't get a refresh token because our current credentials
       // are invalid or expired, or something else went wrong, so clear
