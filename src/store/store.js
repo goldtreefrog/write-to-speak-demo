@@ -23,9 +23,11 @@ const rootReducer = combineReducers({
 
 // Use to make Redux dev tools work in Chrome. See https://github.com/zalmoxisus/redux-devtools-extension
 // See also https://github.com/zalmoxisus/redux-devtools-extension/issues/320 if this fixes Heroku problem.
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__
-  ? window.__REDUX_DEVTOOLS_EXTENSION__()
-  : f => f || compose;
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__
+// ? window.__REDUX_DEVTOOLS_EXTENSION__()
+// : f => f || compose;
+
+const composeEnhancers = window.REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
 
 const store = createStore(
   rootReducer,
