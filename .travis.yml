@@ -1,22 +1,12 @@
-language: node_js
-node_js:
-- '8'
+language:       node_js
+node_js:        node
 cache:
   directories:
   - node_modules
 env:
 - CI=true
-before_deploy:
-- npm run build
 deploy:
-  provider: heroku
-  skip_cleanup: true
-  branches:
-    only:
-    - master
-    - fix-20181024
-  on:
-    all_branches: true
+  provider:     heroku
   api_key:
-    secure: WtRSoVd5t1DScUQe5xcLc2bFy8obzO0dgR+0zV1PIpUin5FJvkUA0QcgrdiTfXq9XZXEYiS7A6I2ptBMfNtrjOD87v375Xud2McGnpSGRGv/rV40nfE9fa/K03aO9OLDzyLXGGTtyrFn5pqlXtPZQ8/BhF6+TFFD4ukIiY7sGomn4bDf4CgfO+7vm6sK5fSdcazBKuHYFJb9qMFC5Wbv/PbqcoZqGw+Uhq6rlU99La99m2MqA8U9qQxUek0LaVNTKF1Lk2xuWyXPqHUS3QpOv9Y9u0NYsJwM3zFYU/3fY9OAEAWoYcvUcql2Un7iOkWkX01/USEwUigXujiHtuBj3LGjQfoma0eIQIb6+++GXaTGTYaCqf88noPtUHrkjwUbQ3gYlIjvisAWyzB7/o3AwBBNBDxxHVTzmx3s3UBRtzh7ChiWhtAe9byeRip8vSNeJZPZCHF6TKxtx0BXeJaH/+4fwGUaz38UVtBmIKsISB6au8WKOGMpPUyeAwwQ7b6LLJO/eKS6cTozTiaKZWeJmJAUp0p4MU6Q3zP1claJ9AXF18WNdm84F00CwyumFjji9N/jWNZ2g8CGf4OeXJZ7NAB2iEaaTYUrCLsie+IqHWJ0tvQ7wnU8B3ZevUL41cBDs30p3c2CfXMuju3sJ8gUziHwhJ1Slb6uG++4dJruiAE=
-  app: boiling-gorge-25698
+    secure:     B3/uBGt96JT0eHYZb6qOI2DdtMEbTdzseDRSauiasMUdmkzaiEeD2nUnj5xGKGSdoVNribnZ8bde3LzVxgfF7KMl17kgBxGUOzwMTmL4fb7IzMg23wZjjte9qIrUCLsSWtolYHQYdK8VXVI4NHbj5O2mhRdh2dzBNVgdX2n3Br5C4l0CjtnG+Rzgeg9DWsqaGQtN2WCPIId9tjaRbn/5bUdqH8mLxL0cvIomCewz2Ie6DPeBvbhnV41XycIdRa1C4riBo0u/n+yo1j9lIlCjxfiKVuxEpPiR+CJl8ce2RW4hN5k9TE2sOTDQsk1Wd9VvHnWamZy+TcKGbfGdxWYXwlM4ozoWNk6/1OxWZHDaGoOi8Efs1HySc5IO+NzRZ+PgsBWqmI336aj7L3OBp1gDxX6qgjXCqOTxGj68vhipwuOjewi2Fvxm4VYsx1h5XHoDQh4StciaoNibxO7YOTJJGhIMwTr6daiwV6/Z6WQ3zwRV85IVspcvwTSS6Kq3RcIw67mDwYtt0qXxsfMhNyDwHj03icHUURE9OIPuYh+GiIPq8GKtiiYwCW4sP53DL5AlKLp8C8x9cZj/9XTtWtd2MMluPZ7t3vzgdK3+i2fPLM6akMRUO+OShI/sF3FVJt3hR8+NOsJP+KRf0yraGYoTVq2z0nvzN2i6hyLslahGyzk=
+  app:          boiling-gorge-25698
