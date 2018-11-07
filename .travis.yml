@@ -10,3 +10,4 @@ deploy:
   api_key:
     secure: a2e03a98-89e4-45cb-9d51-5d4789c1b860
   app: boiling-gorge-25698
+  skip_cleanup: true
