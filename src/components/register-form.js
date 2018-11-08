@@ -30,7 +30,7 @@ export class RegisterForm extends React.Component {
         );
       });
   }
-  // If user is logged in, redirect to the "Talk" page if the user has snippets.
+  // If or once user is logged in, redirect to the "Write" page.
   render() {
     if (this.props.loggedIn) {
       return <Redirect to="/write" />;

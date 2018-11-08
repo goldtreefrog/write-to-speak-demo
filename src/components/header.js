@@ -25,7 +25,6 @@ export class Header extends Component {
   };
 
   logout = msg => {
-    // alert("!!!!!!!!!!!!");
     localStorage.setItem("showFeedbackFlag", "t");
     let feedbackMsg = "You have logged out.";
     if (msg) {
