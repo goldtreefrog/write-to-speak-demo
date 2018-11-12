@@ -1,19 +1,67 @@
-section#snippets {
-  width: 98%;
-  margin: 5px auto;
+p.page-instructions {
+  text-align: left;
+  margin: 16px 12px 4px;
+  clear: both;
+}
+.snippet-talk {
+  margin: 0.5% 3px;
+  border-collapse: collapse;
+  width: 100%;
+  /* border-top: none;
+  border-bottom: none; */
 }
 
-section#snippets button {
-  width: 100%;
-  margin-top: 5px;
-  color: black;
+.page-snippets {
+  display: block;
+  width: 98.75%;
+  clear: both;
+}
+
+.snippet-talk {
   background-color: #cdf;
   background: linear-gradient(#def, #bcf);
 }
-
-section#snippets button:hover,
-section#snippets button:focus {
-  color: white;
-  background-color: #423e24;
-  background: linear-gradient(#423e24, #423e24);
+/* Tablet or small screen, not phone, 2 snippets across */
+@media only screen and (min-width: 440px) {
+  .page-snippets {
+    margin: 0 0.5%;
+    width: 100%;
+    display: block;
+    overflow: auto;
+  }
+  .snippet-talk {
+    margin: 2px 0.25%;
+    padding: 0;
+    width: 49%;
+    height: 4em;
+    overflow: hidden;
+    float: left;
+  }
+}
+@media only screen and (min-width: 540px) {
+  .page-snippets {
+    margin: 0 0.9%;
+  }
+  .snippet-talk {
+    margin: 2px 0.3%;
+    padding: 0;
+    width: 32.1%;
+    height: 4em;
+    overflow: hidden;
+    float: left;
+  }
+}
+/* Non-mobile, snippets  4 snippets across */
+@media only screen and (min-width: 640px) {
+  .page-snippets {
+    margin: 0 1%;
+  }
+  .snippet-talk {
+    margin: 3px 0.25%;
+    padding: 0;
+    width: 24%;
+    height: 4em;
+    overflow: hidden;
+    float: left;
+  }
 }

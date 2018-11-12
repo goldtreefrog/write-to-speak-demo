@@ -36,17 +36,19 @@ export class Talk extends Component {
       <section id="talk">
         <h2>Talk</h2>
         <Feedback />
-        <p>Click on a snippet to hear it:</p>
-        {this.props.snippets.snippets.map(snippet => (
-          <Snippet
-            className="snippet"
-            text={snippet.snippetText}
-            id={snippet.id}
-            orderkey={snippet.orderkey}
-            key={snippet._id}
-            click={e => this.speak("US English Female", e)}
-          />
-        ))}
+        <p class="page-instructions">Click on a snippet to hear it:</p>
+        <div class="page-snippets">
+          {this.props.snippets.snippets.map(snippet => (
+            <Snippet
+              className="snippet snippet-talk"
+              text={snippet.snippetText}
+              id={snippet.id}
+              orderkey={snippet.orderkey}
+              key={snippet._id}
+              click={e => this.speak("US English Female", e)}
+            />
+          ))}
+        </div>
         <SayIt />
       </section>
     );

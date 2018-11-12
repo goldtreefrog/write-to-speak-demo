@@ -2,6 +2,36 @@ footer {
   box-sizing: border-box;
   width: 100%;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 20px;
   padding: 5px;
+  clear: both;
+  background-color: #111;
+  color: #ff9;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 5px 2px 18px;
+}
+
+footer p:last-child {
+  margin-bottom: 2px;
+}
+
+footer p.rv {
+  font-size: 0.8rem;
+}
+
+.rv a,
+.rv a:link,
+.rv a:link:visited {
+  color: #debc0b;
+  text-decoration: none;
+}
+.rv a:hover,
+.rv a:focus {
+  color: #ffc;
+}
+.rv img {
+  vertical-align: middle;
 }

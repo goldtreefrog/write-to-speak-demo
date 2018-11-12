@@ -4,8 +4,12 @@ section#edit {
 }
 
 .snippet-line {
-  /* background-color: yellow; */
   position: relative;
   width: 100%;
   display: block;
+}
+
+.snippet-edit {
+  background-color: #af9;
+  background: linear-gradient(#af9, #9e8);
 }

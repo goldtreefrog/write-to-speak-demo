@@ -6,7 +6,7 @@ function Footer() {
   return (
     <Aux>
       <footer role="contentinfo">
-        <p>
+        <p class="rv">
           <a
             href="https://responsivevoice.org"
             target="_blank"
@@ -26,8 +26,16 @@ function Footer() {
               alt="95x15"
               width="95"
               height="15"
-            />
+            />{" "}
           </a>
+          (
+          <a
+            href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Creative Commons
+          </a>)
         </p>
 
         <p>

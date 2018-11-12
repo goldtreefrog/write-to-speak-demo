@@ -1,16 +1,14 @@
-button.snippet-edit {
+/* button.snippet-edit {
   text-align: left;
   background-color: red;
-}
+} */
 
 button.snippet {
   display: inline-block;
-  width: 100%;
-  min-width: 10em;
-  margin: 2.5px;
+  /* width: 100%; */
+  /* min-width: 10em; */
+  /* margin: 2.5px; */
   color: black;
-  background-color: #cdf;
-  background: linear-gradient(#def, #bcf);
   padding: 6px;
   border-radius: 3px;
 }
@@ -26,12 +24,6 @@ button.snippet:disabled {
   color: #666;
   background: none;
   background-color: #ccc;
-}
-
-@media only screen and (min-width: 550px) {
-  button.snippet {
-    max-width: 90%;
-  }
 }
 
 @media only screen and (min-width: 636px) {
