@@ -5,8 +5,12 @@ import "responsivevoice";
 export class SayIt extends Component {
   render() {
     window.cancel(); // In case user clicked again before finished talking
+    let useVoice;
+    if (!this.props.other.useVoice) {
+      useVoice = "UK English Female";
+    }
     this.props.other.whatToSay &&
-      window.speak(this.props.other.whatToSay, this.props.other.useVoice);
+      window.speak(this.props.other.whatToSay, useVoice);
 
     if (this.props.other.whatToSay) {
       if (!window.isPlaying()) {
