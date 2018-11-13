@@ -1,50 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders without crashing and matches snapshot 1`] = `
-<section
-  id="landing"
->
-  <h2>
-    Home
-  </h2>
-  <Connect(Feedback) />
-  <form
-    action=""
-  >
-    <h3>
-      Write and hear it read back to you.
-    </h3>
-    <p>
-      Anyone can do it - even if you are just learning to spell!
-    </p>
-    <p>
-      Not writing yet? You can still click words and phrases to make them talk, but only after someone helps you enter your words.
-    </p>
-    <p>
-      If you register, you can (theoretically) save your text to be read aloud next time you sign in. 
-      <strong>
-        However
-      </strong>
-      , this is only a demo and all data will be erased periodically.
-    </p>
-    <Link
-      className="button-link"
-      replace={false}
-      role="button"
-      to="/register"
-    >
-      Register
-    </Link>
-    <p>
-      Already registered? 
-      <Link
-        replace={false}
-        to="/login"
-      >
-        Login
-      </Link>
-    </p>
-  </form>
-  <Connect(SayIt) />
-</section>
+<Home
+  dispatch={[Function]}
+  loggedIn={false}
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
 `;

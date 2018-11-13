@@ -5,7 +5,9 @@ exports[`renders without crashing and matches snapshot 1`] = `
   <footer
     role="contentinfo"
   >
-    <p>
+    <p
+      class="rv"
+    >
       <a
         href="https://responsivevoice.org"
         rel="noopener noreferrer"
@@ -28,7 +30,17 @@ exports[`renders without crashing and matches snapshot 1`] = `
           title="ResponsiveVoice Text To Speech"
           width="95"
         />
+         
       </a>
+      (
+      <a
+        href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Creative Commons
+      </a>
+      )
     </p>
     <p>
       Website copyright ©2018

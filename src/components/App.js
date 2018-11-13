@@ -49,44 +49,46 @@ export class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
-          <Header />
-          <main>
-            <Switch>
-              <Route path="/" component={Home} exact />
-              <Route
-                exact
-                path="/write"
-                render={() =>
-                  this.props.writing.isEditing &&
-                  !this.props.writing.editingPage === "/write" ? (
-                    <Redirect to={this.props.writing.editingPage} />
-                  ) : (
-                    <Write />
-                  )
-                }
-              />
-              <Route path="/talk" component={Talk} exact />
-              <Route
-                exact
-                path="/edit"
-                render={() =>
-                  this.props.writing.isEditing &&
-                  !this.props.writing.editingPage === "/edit" ? (
-                    <Redirect to={this.props.writing.editingPage} />
-                  ) : (
-                    <Edit />
-                  )
-                }
-              />
-              <Route path="/login" component={LoginPage} exact />
-              <Route path="/register" component={RegisterForm} exact />
-              <Route path="/logout" component={Home} exact />
-              <Route component={NotFound} />
-            </Switch>
-          </main>
+        <React.Fragment>
+          <div className="App">
+            <Header />
+            <main>
+              <Switch>
+                <Route path="/" component={Home} exact />
+                <Route
+                  exact
+                  path="/write"
+                  render={() =>
+                    this.props.writing.isEditing &&
+                    !this.props.writing.editingPage === "/write" ? (
+                      <Redirect to={this.props.writing.editingPage} />
+                    ) : (
+                      <Write />
+                    )
+                  }
+                />
+                <Route path="/talk" component={Talk} exact />
+                <Route
+                  exact
+                  path="/edit"
+                  render={() =>
+                    this.props.writing.isEditing &&
+                    !this.props.writing.editingPage === "/edit" ? (
+                      <Redirect to={this.props.writing.editingPage} />
+                    ) : (
+                      <Edit />
+                    )
+                  }
+                />
+                <Route path="/login" component={LoginPage} exact />
+                <Route path="/register" component={RegisterForm} exact />
+                <Route path="/logout" component={Home} exact />
+                <Route component={NotFound} />
+              </Switch>
+            </main>
+          </div>
           <Footer />
-        </div>
+        </React.Fragment>
       </Router>
     );
   }
