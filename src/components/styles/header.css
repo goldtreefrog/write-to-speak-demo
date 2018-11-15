@@ -10,12 +10,16 @@ header.app-header h1 {
   font-size: 1.4rem;
 }
 
-header.app-header img {
-  display: inline-block;
+header.app-header .app-logo-container {
   margin: 0 0.75rem 0 0;
-  max-width: 10%;
+  width: 7%;
   height: auto;
+  display: inline-flex;
   vertical-align: middle;
+}
+header.app-header .app-logo-container img {
+  width: 100%;
+  height: 100%;
 }
 
 .title-area {
@@ -43,53 +47,28 @@ nav a {
 }
 
 nav a:hover,
-nav a:focus,
-.title-area:focus,
-.title-area:hover {
+nav a:focus {
   color: white;
   background-color: #8e8766;
   background: linear-gradient(#8e8766, #8e8766);
 }
-@media only screen and (min-width: 192px) {
-  header.app-header img {
-    /* display: inline-block; */
-    /* margin: 0 0.75rem 0 0; */
-    max-width: 11%;
-    /* height: auto;
-    vertical-align: middle; */
-  }
+@media only screen and (min-width: 183px) {
   .title-area {
-    height: 4.3em;
+    height: 1.6em;
+    background-color: #111;
+    padding-top: 20px;
+    display: inline-block;
+    /* margin-bottom: -4px; */
+  }
+  header.app-header .app-logo-container {
+    height: auto;
+    display: inline-flex;
   }
 }
-@media only screen and (min-width: 193px) {
-  header.app-header img {
-    max-width: 10%;
-  }
-  .title-area {
-    height: 3.5em;
-    /* display: block;
-    width: 17em;
-    margin: 0 auto 25px;
-    padding: 26px 0 0;
-    width: 100%; */
-  }
-}
+
 @media only screen and (min-width: 212px) {
-  .title-area {
-    height: 4em;
-    /* display: block;
-    width: 17em;
-    margin: 0 auto 25px;
-    padding: 26px 0 0;
-    width: 100%; */
-  }
-  header.app-header img {
-    /* display: inline-block;
-    margin: 0 0.75rem 0 0; */
-    height: 3rem;
-    /* max-width: none;
-    vertical-align: middle; */
+  header.app-header .app-logo-container {
+    width: 15px;
   }
 }
 @media only screen and (min-width: 370px) {
@@ -97,17 +76,20 @@ nav a:focus,
     display: none;
   }
   .title-area {
-    height: 3em;
-    /* width: 18em;
+    height: 2.2em;
+    /* width: 18em;*/
     margin: 0 auto 10px;
-    padding: 0 0; */
+    padding: 0 0;
+  }
+  header.app-header .app-logo-container {
+    width: 20px;
+    margin: 0 20px 0 0;
   }
   header.app-header h1 {
     font-size: 2rem;
   }
   header.app-header img {
     max-width: none;
-    height: 4rem;
     margin: 0 1.5rem 0 0;
   }
   header nav {
