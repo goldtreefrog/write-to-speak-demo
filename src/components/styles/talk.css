@@ -3,38 +3,34 @@ p.page-instructions {
   margin: 16px 12px 4px;
   clear: both;
 }
-.snippet-talk {
-  margin: 0.5% 3px;
-  border-collapse: collapse;
-  width: 100%;
-  /* border-top: none;
-  border-bottom: none; */
-}
 
 .page-snippets {
   display: block;
   width: 98.75%;
   clear: both;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .snippet-talk {
+  margin: 0.5% 3px;
+  border-collapse: collapse;
+  width: 100%;
   background-color: #cdf;
   background: linear-gradient(#def, #bcf);
 }
+
 /* Tablet or small screen, not phone, 2 snippets across */
 @media only screen and (min-width: 440px) {
   .page-snippets {
     margin: 0 0.5%;
     width: 100%;
     display: block;
-    overflow: auto;
   }
   .snippet-talk {
     margin: 2px 0.25%;
-    padding: 0;
     width: 49%;
     height: 4em;
-    overflow: hidden;
     float: left;
   }
 }
@@ -44,13 +40,11 @@ p.page-instructions {
   }
   .snippet-talk {
     margin: 2px 0.3%;
-    padding: 0;
     width: 32.1%;
-    height: 4em;
-    overflow: hidden;
     float: left;
   }
 }
+
 /* Non-mobile, snippets  4 snippets across */
 @media only screen and (min-width: 640px) {
   .page-snippets {
@@ -58,10 +52,7 @@ p.page-instructions {
   }
   .snippet-talk {
     margin: 3px 0.25%;
-    padding: 0;
     width: 24%;
-    height: 4em;
-    overflow: hidden;
     float: left;
   }
 }

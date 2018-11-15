@@ -19,10 +19,10 @@ export class Talk extends Component {
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
   };
 
-  speak = useVoice => e => {
-    e.target.value &&
+  speak = (useVoice, what) => {
+    what &&
       this.props.dispatch(
-        setWhatToSay({ whatToSay: e.target.value, useVoice: useVoice })
+        setWhatToSay({ whatToSay: what, useVoice: useVoice })
       );
     localStorage.setItem("showFeedbackFlag", "f");
     this.props.dispatch(clearFeedback());
@@ -36,7 +36,14 @@ export class Talk extends Component {
       <section id="talk">
         <h2>Talk</h2>
         <Feedback />
-        <p class="page-instructions">Click on a snippet to hear it:</p>
+        {this.props.snippets.snippetCount > 0 ? (
+          <p class="page-instructions">Click on a snippet to hear it:</p>
+        ) : (
+          <p class="page-instructions page-no-snippets">
+            Snippets will appear below. Go to the 'Write' page (link above) to
+            create them. Then return here and click them to make them speak.
+          </p>
+        )}
         <div class="page-snippets">
           {this.props.snippets.snippets.map(snippet => (
             <Snippet
@@ -45,7 +52,8 @@ export class Talk extends Component {
               id={snippet.id}
               orderkey={snippet.orderkey}
               key={snippet._id}
-              click={e => this.speak("US English Female", e)}
+              value={snippet.snippetText}
+              click={() => this.speak("US English Female", snippet.snippetText)}
             />
           ))}
         </div>
@@ -59,7 +67,6 @@ const mapStateToProps = state => {
   return {
     other: state.other,
     snippets: state.snippets,
-    // loggedIn: state.auth.loggedIn // Infinite loop. Do not do this.
     loggedIn: state.auth.currentUser !== null
   };
 };
