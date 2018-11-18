@@ -1,34 +1,71 @@
-/* button.snippet-edit {
-  text-align: left;
-  background-color: red;
-} */
-
-button.snippet {
+div.snippet {
   display: inline-block;
-  /* width: 100%; */
-  /* min-width: 10em; */
-  /* margin: 2.5px; */
   color: black;
-  padding: 6px;
-  border-radius: 3px;
+  border-radius: 5px;
+  border: solid 2px black;
+
+  /* hide text if it more than will fit  */
+  overflow: hidden;
+
+  /* needed to set '...' in absolute position */
+  position: relative;
+
+  line-height: 1.2em;
+  padding: 6px 1em;
+  text-align: left;
 }
 
-button.snippet:hover,
-button.snippet:focus {
+div.snippet div {
+  max-height: 2.8em;
+  overflow: hidden;
+}
+
+div.snippet:after {
+  /* elipsis at the end. Note that "text-overflow: ellipsis;" only works with a single line (as of Nov 17, 2018; hopefully this will change someday). That is why we have to use :after like this and then, if we are really clever, use JS to hide the elipsis if the content is short enough (which requires math and gets complicated with variable-width characters, e.g., "w" as opposed to "i", but we could come close enough with a little more work).  */
+  content: "...";
+
+  position: absolute;
+  /* set position to right bottom corner of block */
+  right: 4px;
+  bottom: 5px;
+  width: 1.2em;
+}
+
+div.snippet:hover,
+div.snippet:focus,
+div.snippet:focus-within {
   color: white;
+}
+div.snippet:hover {
+  background-color: #625e44;
+  background: linear-gradient(#625e44, #625e44);
+}
+
+div.snippet:focus,
+div.snippet:focus-within {
   background-color: #423e24;
   background: linear-gradient(#423e24, #423e24);
 }
 
-button.snippet:disabled {
+div.disabled,
+div.disabled:hover,
+div.disabled:after {
   color: #666;
   background: none;
   background-color: #ccc;
+  background: linear-gradient(#ccc, #ccc);
+  border-color: #aaa;
+}
+/* Make the ellipsis background change background color with everything else */
+div.snippet:hover:after,
+div.snippet:focus:after,
+div.snippet:focus-within:after {
+  background: inherit;
 }
 
 @media only screen and (min-width: 636px) {
-  button.snippet,
-  button.snippet-edit {
-    text-align: center;
+  div.snippet,
+  div.snippet-edit {
+    text-align: left;
   }
 }

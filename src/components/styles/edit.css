@@ -1,15 +1,76 @@
 section#edit {
   width: 98%;
-  margin: 5px auto;
 }
-
+section#edit p.page-instructions {
+  text-align: left;
+  margin: 16px 2% 8px;
+}
 .snippet-line {
-  position: relative;
-  width: 100%;
   display: block;
+  position: relative;
+  width: 98.75%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .snippet-edit {
   background-color: #af9;
-  background: linear-gradient(#af9, #9e8);
+  width: 100%;
+  margin-bottom: -6px;
+}
+div.snippet-edit:after {
+  background-color: #af9;
+}
+.snippet-line .snippet-buttons-container {
+  display: inline-block;
+  width: auto;
+  margin: 0 auto 10px;
+}
+button.snippet-button-talk,
+button.snippet-button-edit,
+button.snippet-delete {
+  display: inline-block;
+  position: relative;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 4em;
+  height: 1.5em;
+  color: black;
+  padding: 1px 5px;
+  border-radius: 8px;
+}
+
+/* Tablet or small screen, not phone, 2 snippets across */
+@media only screen and (min-width: 472px) {
+  /* NOTE: .snippet-line is similar to .page-snippets found in talk.css */
+  .snippet-line {
+    margin: 0 1%;
+    width: 48%;
+    display: inline-block;
+    position: relative;
+    float: left;
+    clear: none;
+  }
+  .snippet-edit {
+    width: 100%;
+    height: 3.5em;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 738px) {
+  .snippet-line {
+    width: 31.3%;
+  }
+}
+
+/* Non-mobile, snippets  4 snippets across */
+@media only screen and (min-width: 1000px) {
+  .snippet-line {
+    width: 23%;
+  }
+  .snippet-edit {
+  }
 }

@@ -48,7 +48,9 @@ export class LoginForm extends React.Component {
           validate={[required, nonEmpty]}
           label="Password "
         />
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit">
+          Submit
+        </button>
         <p>
           No account? <Link to="/register">Register</Link>
         </p>

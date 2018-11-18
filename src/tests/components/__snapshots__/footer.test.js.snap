@@ -6,7 +6,7 @@ exports[`renders without crashing and matches snapshot 1`] = `
     role="contentinfo"
   >
     <p
-      class="rv"
+      className="rv"
     >
       <a
         href="https://responsivevoice.org"

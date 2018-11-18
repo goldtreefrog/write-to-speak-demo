@@ -1,16 +1,7 @@
-button.snippet-delete {
-  position: absolute;
-  bottom: 2px;
-  right: 0;
-  width: auto;
-  min-width: 2em;
-  margin: 2px -2px 2px 0;
-  color: black;
-  /* background-color: #cdf;
-  background: linear-gradient(#def, #bcf); */
-  padding: 1px 4px;
-}
-
+button.snippet-delete:hover,
+button.snippet-delete:focus,
+button.snippet-button-edit:hover,
+button.snippet-button-edit:focus,
 button.snippet-delete:hover,
 button.snippet-delete:focus {
   color: white;
@@ -18,10 +9,14 @@ button.snippet-delete:focus {
   background: linear-gradient(#423e24, #423e24);
 }
 
+button.snippet-button-talk:disabled,
+button.snippet-button-edit:disabled,
 button.snippet-delete:disabled {
   color: #666;
+  font-weight: normal;
   background: none;
   background-color: #ccc;
+  border-color: #aaa;
 }
 
 @media only screen and (min-width: 636px) {

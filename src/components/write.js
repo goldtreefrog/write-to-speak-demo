@@ -25,7 +25,6 @@ export class Write extends Component {
           }}
           click={() => this.addSnippet}
         />
-        {/* <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} /> */}
       </Aux>
     );
   }

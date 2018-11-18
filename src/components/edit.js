@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import Aux from "./../hoc/_aux.js";
 import Snippet from "./snippet";
-import SnippetDelete from "./snippet-delete";
+import SnippetButton from "./snippet-button";
 import WritingArea from "./writing-area";
 import Feedback from "./feedback";
 import SayIt from "./say-it";
@@ -26,7 +26,16 @@ export class Edit extends Component {
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
   };
 
-  loadSnippetForUpdate = e => {
+  speak = (useVoice, what) => {
+    what &&
+      this.props.dispatch(
+        setWhatToSay({ whatToSay: what, useVoice: useVoice })
+      );
+    localStorage.setItem("showFeedbackFlag", "f");
+    this.props.dispatch(clearFeedback());
+  };
+
+  loadSnippetForUpdate = (targetId, targetValue) => {
     // Remove any previous feedback and text to speak
     this.props.dispatch(clearFeedback());
     this.props.dispatch(clearWhatToSay());
@@ -34,8 +43,8 @@ export class Edit extends Component {
     // Copy snippet text into writing textarea.
     this.props.dispatch(
       writingAreaPopulate({
-        activeSnippetId: e.target.id,
-        activeSnippetText: e.target.value
+        activeSnippetId: targetId,
+        activeSnippetText: targetValue
       })
     );
 
@@ -43,6 +52,16 @@ export class Edit extends Component {
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: false }));
 
     window.scrollTo(0, 0);
+  };
+
+  talkSnippetClicked = e => {
+    e.preventDefault();
+    this.speak("US English Female", e.target.value);
+  };
+
+  editSnippetClicked = e => {
+    e.preventDefault();
+    this.loadSnippetForUpdate(e.target.id, e.target.value);
   };
 
   deleteSnippetClicked = e => {
@@ -78,6 +97,7 @@ export class Edit extends Component {
       return "The snippets below will become active again when you finish your update";
     };
 
+    let classDisabled = this.props.snippets.snippetsAvail ? " " : "disabled ";
     return (
       <Aux>
         <h2>Edit</h2>
@@ -97,25 +117,56 @@ export class Edit extends Component {
           </div>
         )}
         <section id="edit">
-          <p>
+          <p className="page-instructions">
             {snippetInstructions()}
             {this.props.snippets.snippetsAvail && <SayIt />}
           </p>
           {this.props.snippets.snippets.map(snippet => (
-            <div className="snippet-line" key={"div" + snippet._id}>
+            <div
+              className="snippet-line"
+              key={"div" + snippet._id}
+              disabled={!this.props.snippets.snippetsAvail}
+              aria-disabled={!this.props.snippets.snippetsAvail}
+            >
               <Snippet
-                className="snippet snippet-edit"
-                click={() => this.loadSnippetForUpdate}
+                className={classDisabled + "snippet snippet-edit"}
+                click={() =>
+                  this.loadSnippetForUpdate(snippet._id, snippet.snippetText)
+                }
                 text={snippet.snippetText}
                 id={snippet._id}
                 orderkey={snippet.orderkey}
-                disabled={!this.props.snippets.snippetsAvail}
+                // disabled={!this.props.snippets.snippetsAvail} // Works for buttons, not for div. Try again.
+                snippetsAvail={this.props.snippets.snippetsAvail}
               />
-              <SnippetDelete
-                click={() => this.deleteSnippetClicked}
-                id={snippet._id}
-                ishidden={!this.props.snippets.snippetsAvail}
-              />
+              <div className="snippet-buttons-container">
+                <SnippetButton
+                  buttonText={"Talk"}
+                  key={"talkbtn" + snippet._id}
+                  click={() => this.talkSnippetClicked}
+                  value={snippet.snippetText}
+                  className="snippet-button-talk"
+                  snippetsAvail={this.props.snippets.snippetsAvail}
+                />
+                <SnippetButton
+                  click={() => this.editSnippetClicked}
+                  id={snippet._id}
+                  key={"editbtn" + snippet._id}
+                  buttonText="Edit"
+                  className="snippet-button-edit"
+                  value={snippet.snippetText}
+                  snippetsAvail={this.props.snippets.snippetsAvail}
+                />
+                <SnippetButton
+                  click={() => this.deleteSnippetClicked}
+                  id={snippet._id}
+                  key={"delbtn" + snippet._id}
+                  buttonText="Delete"
+                  className="snippet-delete"
+                  value={snippet._id}
+                  snippetsAvail={this.props.snippets.snippetsAvail}
+                />
+              </div>
             </div>
           ))}
         </section>

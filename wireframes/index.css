@@ -68,11 +68,9 @@ nav div {
   background-color: #aaa;
   font-weight: bold;
   width: 4em;
-  /* margin: 1px 5px 1px auto; */
 }
 
 #menu-full {
-  /* display: none; */
   background-color: #eee;
 }
 
@@ -143,11 +141,6 @@ form button {
 #snippets #lbl-text-box {
   margin-top: 15px;
 }
-
-/* #update-snippet {
-  color: white;
-  background-color: #333;
-} */
 
 #landing {
   text-align: center;

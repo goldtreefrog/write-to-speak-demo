@@ -6,7 +6,7 @@ function Footer() {
   return (
     <Aux>
       <footer role="contentinfo">
-        <p class="rv">
+        <p className="rv">
           <a
             href="https://responsivevoice.org"
             target="_blank"

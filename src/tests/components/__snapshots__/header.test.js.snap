@@ -16,55 +16,21 @@ exports[`renders without crashing and matches snapshot 1`] = `
     className="app-header"
     role="banner"
   >
-    <nav>
-      <HamburgerMenu
-        className="hamburger"
-      />
-      <Link
-        onClick={[Function]}
-        replace={false}
-        to="/"
-      >
-        Home
-      </Link>
-      <Link
-        onClick={[Function]}
-        replace={false}
-        to="/write"
-      >
-        Write
-      </Link>
-      <Link
-        onClick={[Function]}
-        replace={false}
-        to="/talk"
-      >
-        Talk
-      </Link>
-      <Link
-        onClick={[Function]}
-        replace={false}
-        to="/edit"
-      >
-        Edit
-      </Link>
-      <Link
-        replace={false}
-        to="/login"
-      >
-        Login
-      </Link>
-    </nav>
+    <Connect(TopMenu) />
     <Link
       className="title-area"
       replace={false}
       to="/"
     >
-      <img
-        alt="logo"
-        className="app-logo"
-        src="wts-pencil2.svg"
-      />
+      <div
+        className="app-logo-container"
+      >
+        <img
+          alt="logo"
+          className="app-logo"
+          src="wts-pencil2.svg"
+        />
+      </div>
       <h1
         className="app-title"
       >

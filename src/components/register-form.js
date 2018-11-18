@@ -81,7 +81,9 @@ export class RegisterForm extends React.Component {
           label="Repeat Password "
         />
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit">
+          Submit
+        </button>
         <p>
           Already registered? <Link to="/login">Login</Link>
         </p>

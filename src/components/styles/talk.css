@@ -1,58 +1,85 @@
 p.page-instructions {
   text-align: left;
-  margin: 16px 12px 4px;
+  margin: 16px 2% 4px;
   clear: both;
 }
 
 .page-snippets {
   display: block;
   width: 98.75%;
+  margin-left: auto;
+  margin-right: auto;
   clear: both;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .snippet-talk {
-  margin: 0.5% 3px;
   border-collapse: collapse;
   width: 100%;
   background-color: #cdf;
-  background: linear-gradient(#def, #bcf);
+}
+div.snippet:after {
+  background-color: #cdf;
 }
 
 /* Tablet or small screen, not phone, 2 snippets across */
 @media only screen and (min-width: 440px) {
+  section {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
   .page-snippets {
-    margin: 0 0.5%;
     width: 100%;
     display: block;
   }
   .snippet-talk {
-    margin: 2px 0.25%;
-    width: 49%;
-    height: 4em;
+    margin: 6px 1%;
+    width: 48%;
+    height: 3.5em;
     float: left;
+  }
+  .snippet-talk div {
+    height: 2.6em;
+  }
+  div.snippet:after {
+    bottom: 14;
   }
 }
 @media only screen and (min-width: 540px) {
+  section {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
   .page-snippets {
     margin: 0 0.9%;
   }
   .snippet-talk {
-    margin: 2px 0.3%;
-    width: 32.1%;
+    width: 31%;
     float: left;
+  }
+  div.snippet:after {
+    content: "...";
+
+    position: absolute;
+    /* set position to right bottom corner of block */
+    right: 4px;
+    bottom: 5px;
+    width: 1.2em;
   }
 }
 
 /* Non-mobile, snippets  4 snippets across */
 @media only screen and (min-width: 640px) {
+  section {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
   .page-snippets {
     margin: 0 1%;
   }
   .snippet-talk {
-    margin: 3px 0.25%;
-    width: 24%;
+    width: 22%;
     float: left;
   }
 }

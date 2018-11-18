@@ -1,6 +1,7 @@
 header.app-header {
-  margin: 0 auto;
+  margin: 0 auto 12px;
   background-color: #111;
+  padding-bottom: 4px;
 }
 
 header.app-header h1 {
@@ -11,8 +12,8 @@ header.app-header h1 {
 }
 
 header.app-header .app-logo-container {
-  margin: 0 0.75rem 0 0;
-  width: 7%;
+  margin: 0 0.75rem;
+  width: 9%; /*7%*/
   height: auto;
   display: inline-flex;
   vertical-align: middle;
@@ -26,7 +27,6 @@ header.app-header .app-logo-container img {
   height: 4em;
   display: block;
   width: 17em;
-  margin: 0 auto 25px;
   padding: 6px 0 0;
   width: 100%;
 }
@@ -58,7 +58,6 @@ nav a:focus {
     background-color: #111;
     padding-top: 20px;
     display: inline-block;
-    /* margin-bottom: -4px; */
   }
   header.app-header .app-logo-container {
     height: auto;
@@ -68,17 +67,20 @@ nav a:focus {
 
 @media only screen and (min-width: 212px) {
   header.app-header .app-logo-container {
-    width: 15px;
+    width: 17px; /*15px*/
   }
 }
 @media only screen and (min-width: 370px) {
   .hamburger-container {
     display: none;
   }
+
+  header.app-header {
+    padding-bottom: 0.5rem;
+  }
+
   .title-area {
     height: 2.2em;
-    /* width: 18em;*/
-    margin: 0 auto 10px;
     padding: 0 0;
   }
   header.app-header .app-logo-container {

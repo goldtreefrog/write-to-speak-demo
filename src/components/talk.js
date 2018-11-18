@@ -14,6 +14,10 @@ import {
 
 // Use named export for unconnected component (for tests)
 export class Talk extends Component {
+  // componentDidMount = () => {
+  //   window.responsiveVoice.cancel(); // In case something leftover from other page.
+  //   window.responsiveVoice.speak("Hissssss");
+  // };
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset());
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
@@ -37,14 +41,14 @@ export class Talk extends Component {
         <h2>Talk</h2>
         <Feedback />
         {this.props.snippets.snippetCount > 0 ? (
-          <p class="page-instructions">Click on a snippet to hear it:</p>
+          <p className="page-instructions">Click on a snippet to hear it:</p>
         ) : (
-          <p class="page-instructions page-no-snippets">
+          <p className="page-instructions page-no-snippets">
             Snippets will appear below. Go to the 'Write' page (link above) to
             create them. Then return here and click them to make them speak.
           </p>
         )}
-        <div class="page-snippets">
+        <div className="page-snippets">
           {this.props.snippets.snippets.map(snippet => (
             <Snippet
               className="snippet snippet-talk"
@@ -54,6 +58,7 @@ export class Talk extends Component {
               key={snippet._id}
               value={snippet.snippetText}
               click={() => this.speak("US English Female", snippet.snippetText)}
+              snippetsAvail={this.props.snippets.snippetsAvail}
             />
           ))}
         </div>

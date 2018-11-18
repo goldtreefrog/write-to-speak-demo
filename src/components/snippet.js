@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles/snippet.css";
 
-// We will have registeredUser, which has the snippets: [].
+// We have registeredUser, which has the snippets: [].
 // This is a single snippet, so it has its own snippet._id.
-
 const Snippet = props => {
   let snippetText = "";
   if (props.text && props.text.length > 190) {
@@ -11,21 +11,27 @@ const Snippet = props => {
   } else {
     snippetText = props.text;
   }
+
   const snippetHtml = (
-    // Ultimately we will look up id and text in db.
-    <button
+    <div
       id={props.id}
-      // className="snippet"
       className={props.className}
-      onClick={props.click()}
+      onClick={
+        (props.snippetsAvail && (() => props.click())) ||
+        (() => {
+          return; // Do nothing if not supposed to be available
+        })
+      }
+      onKeyPress={() => props.click()}
       orderkey={props.orderkey}
       value={props.text}
-      disabled={props.disabled}
       key={props.id}
       title={props.text}
+      tabIndex={(props.snippetsAvail && "0") || ""}
+      disabled={!props.snippetsAvail}
     >
-      {snippetText}
-    </button>
+      <div>{snippetText}</div>
+    </div>
   );
   return snippetHtml;
 };

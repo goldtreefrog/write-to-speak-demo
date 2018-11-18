@@ -98,7 +98,6 @@ const mapStateToProps = state => {
   return {
     snippets: state.snippets,
     writing: state.writing,
-    // spellingArea: state.spellingArea
     hasAuthToken: state.auth.authToken !== null,
     loggedIn: state.auth.currentUser !== null
   };
