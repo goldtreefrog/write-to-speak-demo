@@ -17,7 +17,6 @@ export class Write extends Component {
         <h2>Write</h2>
         <Feedback />
         <WritingArea
-          // misspelledWords={this.props.spellingArea.misspelledWords}
           visible={true}
           buttonText={{
             saveUpdate: "Save as Snippet",
@@ -33,7 +32,6 @@ export class Write extends Component {
 const mapStateToProps = state => {
   return {
     writing: state.writing,
-    // spellingArea: state.spelling.spellingArea
     // loggedIn: state.auth.loggedIn // Potential for infinite loop. Do not do this.
     loggedIn: state.auth.currentUser !== null
   };

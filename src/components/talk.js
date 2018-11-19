@@ -14,10 +14,10 @@ import {
 
 // Use named export for unconnected component (for tests)
 export class Talk extends Component {
-  // componentDidMount = () => {
-  //   window.responsiveVoice.cancel(); // In case something leftover from other page.
-  //   window.responsiveVoice.speak("Hissssss");
-  // };
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
+
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset());
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./styles/top-menu.css";
 import HamburgerMenuButton from "./hamburger-menu-button";
+import HamburgerXButton from "./hamburger-x-button";
 import {
   clearAuth,
   isEditing,
@@ -18,6 +19,18 @@ import {
 import { clearAuthToken } from "./../local-storage";
 
 export class TopMenu extends Component {
+  state = {
+    menuIconOpen: false
+  };
+  showHideMenu = e => {
+    this.setState(prevState => {
+      return { menuIconOpen: !prevState.menuIconOpen };
+    });
+  };
+  getShowHideMenuClass = () => {
+    return this.state.menuIconOpen ? "show-menu" : "hide-menu";
+  };
+
   logout = msg => {
     localStorage.setItem("showFeedbackFlag", "t");
     let feedbackMsg = "You have logged out.";
@@ -76,31 +89,51 @@ export class TopMenu extends Component {
     return;
   }
   render() {
-    // let topMenu = <nav>Hi</nav>;
     let topMenu = (
       <nav>
-        <HamburgerMenuButton className="hamburger-button" />
-        <Link to="/" onClick={e => this.checkUpdateStatus(e, this.props)}>
-          Home
-        </Link>
-        <Link to="/write" onClick={e => this.checkUpdateStatus(e, this.props)}>
-          Write
-        </Link>
-        <Link to="/talk" onClick={e => this.checkUpdateStatus(e, this.props)}>
-          Talk
-        </Link>
-        <Link to="/edit" onClick={e => this.checkUpdateStatus(e, this.props)}>
-          Edit
-        </Link>
-        {!this.props.loggedIn && <Link to="/login">Login</Link>}
-        {this.props.loggedIn && (
+        {!this.state.menuIconOpen && (
+          <HamburgerMenuButton
+            className="hamburger-button"
+            onClick={e => this.showHideMenu(e)}
+            tabIndex={"0"}
+          />
+        )}
+        {this.state.menuIconOpen && (
+          <HamburgerXButton
+            className="hamburger-button"
+            onClick={e => this.showHideMenu(e)}
+            tabIndex={"0"}
+          />
+        )}
+        <div
+          className={"nav-links " + this.getShowHideMenuClass()}
+          onClick={e => this.showHideMenu(e)}
+        >
+          <Link to="/" onClick={e => this.checkUpdateStatus(e, this.props)}>
+            Home
+          </Link>
           <Link
-            to="/logout"
+            to="/write"
             onClick={e => this.checkUpdateStatus(e, this.props)}
           >
-            Logout
+            Write
           </Link>
-        )}
+          <Link to="/talk" onClick={e => this.checkUpdateStatus(e, this.props)}>
+            Talk
+          </Link>
+          <Link to="/edit" onClick={e => this.checkUpdateStatus(e, this.props)}>
+            Edit
+          </Link>
+          {!this.props.loggedIn && <Link to="/login">Login</Link>}
+          {this.props.loggedIn && (
+            <Link
+              to="/logout"
+              onClick={e => this.checkUpdateStatus(e, this.props)}
+            >
+              Logout
+            </Link>
+          )}
+        </div>
       </nav>
     );
     return topMenu;
@@ -111,7 +144,6 @@ const mapStateToProps = state => {
   return {
     snippets: state.snippets,
     writing: state.writing,
-    // spellingArea: state.spelling.spellingArea,
     other: state.other,
     loggedIn: state.auth.currentUser != null
   };

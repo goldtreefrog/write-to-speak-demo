@@ -56,12 +56,8 @@ export class WritingArea extends Component {
 
       whatSay = "Snippet added. Click Talk or Edit (above) to see it.";
       let orderFromDate = new Date().getTime();
-      // let orderFromDate = calcDate.getTime();
-
-      // calcDate.getFullYear() + calcDate.getMonth() + calcDate.getDate() +
       this.props.dispatch(
         addSnippet({
-          // _id: calcDate.toISOString(),
           userId: this.props.currentUser._id,
           category: "general", // Until we add user choice of category, we only have this one.
           snippetText: this.props.writing.activeSnippetText,

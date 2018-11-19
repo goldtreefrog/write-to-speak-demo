@@ -1,8 +1,8 @@
 div.snippet {
   display: inline-block;
   color: black;
-  border-radius: 5px;
-  border: solid 2px black;
+  /* border-radius: 5px;
+  border: solid 2px black; */
 
   /* hide text if it more than will fit  */
   overflow: hidden;
@@ -16,7 +16,7 @@ div.snippet {
 }
 
 div.snippet div {
-  max-height: 2.8em;
+  max-height: 2.5em;
   overflow: hidden;
 }
 

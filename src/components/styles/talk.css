@@ -18,6 +18,8 @@ p.page-instructions {
   border-collapse: collapse;
   width: 100%;
   background-color: #cdf;
+  border-radius: 5px;
+  border: solid 1px #111;
 }
 div.snippet:after {
   background-color: #cdf;

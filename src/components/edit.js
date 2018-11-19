@@ -21,6 +21,10 @@ import {
 
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
+
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset());
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
@@ -113,7 +117,6 @@ export class Edit extends Component {
                 resetCancel: "Cancel Update"
               }}
             />
-            {/* <SpellingArea spellData={this.props.spellingArea} visible={this.props.spellingArea.visible} /> */}
           </div>
         )}
         <section id="edit">
@@ -136,7 +139,7 @@ export class Edit extends Component {
                 text={snippet.snippetText}
                 id={snippet._id}
                 orderkey={snippet.orderkey}
-                // disabled={!this.props.snippets.snippetsAvail} // Works for buttons, not for div. Try again.
+                // disabled={!this.props.snippets.snippetsAvail} // Works for buttons, not for div.
                 snippetsAvail={this.props.snippets.snippetsAvail}
               />
               <div className="snippet-buttons-container">

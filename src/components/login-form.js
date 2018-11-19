@@ -64,7 +64,7 @@ LoginForm = reduxForm({
   // a unique name for the form
   form: "login",
   onSubmitFail: (errors, dispatch) => {
-    dispatch(focus("login", "Object.keys(errors)[0]")); // if it would work
+    dispatch(focus("login", "Object.keys(errors)[0]"));
   }
 })(LoginForm);
 

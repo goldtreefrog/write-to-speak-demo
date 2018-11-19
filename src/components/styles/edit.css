@@ -9,25 +9,30 @@ section#edit p.page-instructions {
   display: block;
   position: relative;
   width: 98.75%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 12px;
   overflow: hidden;
   text-overflow: ellipsis;
+  background-color: #81f986;
+  height: auto;
+  border-radius: 5px;
+  border: solid 1px #111;
 }
 
 .snippet-edit {
-  background-color: #af9;
+  background-color: #81f986;
   width: 100%;
   margin-bottom: -6px;
+  border: none;
 }
 div.snippet-edit:after {
-  background-color: #af9;
+  background-color: #81f986;
 }
 .snippet-line .snippet-buttons-container {
   display: inline-block;
   width: auto;
-  margin: 0 auto 10px;
+  margin: 0 auto;
 }
+
 button.snippet-button-talk,
 button.snippet-button-edit,
 button.snippet-delete {
@@ -46,7 +51,7 @@ button.snippet-delete {
 @media only screen and (min-width: 472px) {
   /* NOTE: .snippet-line is similar to .page-snippets found in talk.css */
   .snippet-line {
-    margin: 0 1%;
+    margin: 0 1% 12px;
     width: 48%;
     display: inline-block;
     position: relative;

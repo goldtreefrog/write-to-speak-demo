@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles/hamburger-menu.css";
 
-function HamburgerMenu() {
+function HamburgerMenu(props) {
   return (
-    <div class="hamburger-container">
+    <div tabIndex="0" className="hamburger-container" onClick={props.onClick}>
       <hr />
       <hr />
       <hr />
