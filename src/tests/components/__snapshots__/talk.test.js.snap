@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`renders Talk page with snippets 1`] = `
-<Redirect
-  push={false}
-  to="/login"
-/>
-`;
