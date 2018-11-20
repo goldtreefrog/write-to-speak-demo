@@ -1,8 +1,8 @@
 "option explicit";
 export { loginUser, setAuthToken, refreshAuthToken, clearAuth } from "./auth";
 export {
-  resetFeedbackFlag,
-  setFeedbackFlag,
+  // resetFeedbackFlag,
+  // setFeedbackFlag,
   clearAllFeedback,
   clearFeedback,
   giveFeedback,
@@ -23,5 +23,5 @@ export {
   writingAreaHidden,
   writingAreaPopulate,
   writingAreaReset,
-  ritingAreaVisible
+  writingAreaVisible
 } from "./writing";

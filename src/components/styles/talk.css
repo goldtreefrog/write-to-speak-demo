@@ -19,7 +19,7 @@ p.page-instructions {
   width: 100%;
   background-color: #cdf;
   border-radius: 5px;
-  border: solid 1px #111;
+  border: solid 2px #111;
 }
 div.snippet:after {
   background-color: #cdf;

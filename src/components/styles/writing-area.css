@@ -2,12 +2,12 @@ section#writing-area {
   margin: 0;
 }
 
-section#writing-area form#writing {
+form#writing {
   width: 100%;
   padding: 0;
 }
 
-section#writing-area form#writing fieldset {
+form#writing fieldset {
   display: block;
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ section#writing-area form#writing fieldset {
   border: none;
 }
 
-section#writing-area form#writing fieldset#write-box {
+form#writing fieldset#write-box {
   display: inline-block;
   margin: 0 0 0.5rem;
   padding: 0;
@@ -23,13 +23,13 @@ section#writing-area form#writing fieldset#write-box {
   height: 11rem;
 }
 
-fieldset#write-box label {
+form#writing fieldset#write-box label {
   text-align: left;
   display: block;
   margin-left: 1.5%;
 }
 
-section#writing-area form#writing fieldset#write-box textarea {
+form#writing fieldset#write-box textarea {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 2px 5px;
@@ -40,18 +40,18 @@ section#writing-area form#writing fieldset#write-box textarea {
   resize: none;
 }
 
-section#writing-area form#writing fieldset#write-box textarea:hover,
-section#writing-area form#writing fieldset#write-box textarea:focus {
+form#writing fieldset#write-box textarea:hover,
+form#writing fieldset#write-box textarea:focus {
   outline: none !important;
   border: dashed 2px #999999;
   background-color: white;
 }
 
-section#writing-area form#writing fieldset#box-buttons {
+fieldset#box-buttons {
   margin: 0;
 }
 
-section#writing-area form#writing fieldset#box-buttons button {
+fieldset#box-buttons button {
   margin: 4px auto 0;
   width: 97%;
   padding: 6px;
@@ -59,12 +59,63 @@ section#writing-area form#writing fieldset#box-buttons button {
   clear: both;
 }
 
-section#writing-area form#writing fieldset#box-buttons button:hover,
-section#writing-area form#writing fieldset#box-buttons button:focus {
+fieldset#box-buttons button:hover,
+fieldset#box-buttons button:focus {
   color: white;
   background-color: #423e24;
 }
 
-section#writing-area form#writing fieldset#box-buttons :first-child {
+fieldset#box-buttons :first-child {
   margin-top: 0;
+}
+
+@media only screen and (min-width: 370px) {
+  section#writing-area {
+    width: 95%;
+    float: left;
+  }
+
+  main#write button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  main#write form#writing {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  form#writing fieldset {
+    display: inline-block;
+    width: 70%;
+    margin: 1.5rem 0;
+  }
+
+  /* form#writing fieldset#write-box {
+    display: inline-block;
+    width: 70%;
+    margin: 1.5rem 0;
+  } */
+
+  fieldset#box-buttons {
+    display: inline-block;
+    margin: 3rem 0 0 0;
+    height: inherit;
+    clear: none;
+    width: 27%;
+    float: left;
+    with: 5px;
+  }
+}
+@media only screen and (min-width: 773px) {
+  section#writing-area {
+    width: 80%;
+  }
+
+  nav li {
+    width: 85%;
+  }
+
+  header#intro img {
+    width: 90%;
+  }
 }

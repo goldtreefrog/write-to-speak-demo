@@ -12,6 +12,12 @@ const Snippet = props => {
     snippetText = props.text;
   }
 
+  const handleKeyPress = e => {
+    if (e.key === "Enter") {
+      props.click();
+    }
+  };
+
   const snippetHtml = (
     <div
       id={props.id}
@@ -22,12 +28,17 @@ const Snippet = props => {
           return; // Do nothing if not supposed to be available
         })
       }
-      onKeyPress={() => props.click()}
+      onKeyPress={e => handleKeyPress(e)}
       orderkey={props.orderkey}
       value={props.text}
       key={props.id}
       title={props.text}
-      tabIndex={(props.snippetsAvail && "0") || ""}
+      tabIndex={
+        (props.snippetsAvail &&
+          props.className.includes("snippet-talk") &&
+          "0") ||
+        ""
+      }
       disabled={!props.snippetsAvail}
     >
       <div>{snippetText}</div>

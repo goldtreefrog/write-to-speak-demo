@@ -47,12 +47,13 @@ header.app-header .app-logo-container img {
 
 .show-menu {
   display: block;
-  position: fixed;
+  position: absolute;
   top: 30px;
   left: 0px;
   width: 100%;
   z-index: 100;
   background-color: #111;
+  /* overflow: scroll; */
 }
 
 .hide-menu {
@@ -68,13 +69,15 @@ header.app-header .app-logo-container img {
 
 @media only screen and (min-width: 183px) {
   header .nav-links {
-    position: fixed;
+    position: absolute;
     top: -10px;
     left: 0;
     padding: 0;
     margin: 0;
     width: 100%;
     background-color: #111;
+    z-index: 100;
+    /* overflow: scroll; */
   }
 
   .title-area {
@@ -96,6 +99,16 @@ header.app-header .app-logo-container img {
   }
 }
 @media only screen and (min-width: 370px) {
+  header .nav-links {
+    position: fixed;
+    top: -10px;
+    left: 0;
+    padding: 0;
+    /* margin: 0;
+    width: 100%;
+    background-color: #111; */
+  }
+
   .hamburger-container {
     display: none;
   }
