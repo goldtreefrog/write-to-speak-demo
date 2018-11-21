@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "ajv": "^6.5.1",
-    "jest": "^23.6.0",
     "jwt-decode": "^2.2.0",
     "normalize.css": "^8.0.0",
     "react": "^16.4.0",
@@ -21,8 +20,7 @@
     "redux-form": "^7.3.0",
     "redux-form-validators": "^2.7.1",
     "redux-thunk": "^2.3.0",
-    "responsivevoice": "^0.4.1",
-    "webpack": "^4.19.1"
+    "responsivevoice": "^0.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,11 +34,5 @@
     "enzyme-to-json": "^3.3.4",
     "jest-enzyme": "^6.0.2",
     "react-test-renderer": "^16.4.0"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }
