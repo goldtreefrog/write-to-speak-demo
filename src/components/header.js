@@ -8,10 +8,6 @@ import logo from "./images/wts-pencil2.svg";
 
 // Use named export for unconnected component (for tests)
 export class Header extends Component {
-  componentDidMount = () => {
-    window.scrollTo(0, 0);
-  };
-
   render() {
     let headerHtml = (
       <Provider store={store}>

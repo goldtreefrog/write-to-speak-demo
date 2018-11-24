@@ -27,7 +27,6 @@ header.app-header .app-logo-container img {
   height: 4em;
   display: block;
   width: 17em;
-  /* padding: 6px 0 0; */
   width: 100%;
 }
 .nav-links a {
@@ -53,7 +52,6 @@ header.app-header .app-logo-container img {
   width: 100%;
   z-index: 100;
   background-color: #111;
-  /* overflow: scroll; */
 }
 
 .hide-menu {
@@ -70,20 +68,18 @@ header.app-header .app-logo-container img {
 @media only screen and (min-width: 183px) {
   header .nav-links {
     position: fixed;
-    top: -10px;
+    top: 0;
     left: 0;
     padding: 0;
     margin: 0;
     width: 100%;
     background-color: #111;
     z-index: 100;
-    /* overflow: scroll; */
   }
 
   .title-area {
     height: 1.6em;
     background-color: #111;
-    /* padding-top: 200px; */
     margin-top: 45px;
     display: inline-block;
   }
@@ -95,18 +91,14 @@ header.app-header .app-logo-container img {
 
 @media only screen and (min-width: 212px) {
   header.app-header .app-logo-container {
-    width: 17px; /*15px*/
+    width: 17px;
   }
 }
 @media only screen and (min-width: 370px) {
   header .nav-links {
     position: fixed;
-    top: -10px;
     left: 0;
     padding: 0;
-    /* margin: 0;
-    width: 100%;
-    background-color: #111; */
   }
 
   .hamburger-container {
@@ -134,7 +126,8 @@ header.app-header .app-logo-container img {
   }
   header .nav-links {
     display: block;
-    padding-top: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
   }
   header .nav-links a {
     display: inline;

@@ -20,7 +20,7 @@ form#writing fieldset#write-box {
   margin: 0 0 0.5rem;
   padding: 0;
   width: 100%;
-  height: 11rem;
+  height: 140px;
 }
 
 form#writing fieldset#write-box label {
@@ -33,7 +33,7 @@ form#writing fieldset#write-box textarea {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 2px 5px;
-  height: 10rem;
+  height: 110px;
   width: 98%;
   border: solid 2px #999999;
   font-size: 1.2rem;
@@ -70,45 +70,47 @@ fieldset#box-buttons :first-child {
 }
 
 @media only screen and (min-width: 370px) {
-  section#writing-area {
-    width: 95%;
-    float: left;
-  }
-
-  main#write button {
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
-  main#write form#writing {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-  form#writing fieldset {
-    display: inline-block;
-    width: 70%;
-    margin: 1.5rem 0;
-  }
-
-  /* form#writing fieldset#write-box {
-    display: inline-block;
-    width: 70%;
-    margin: 1.5rem 0;
-  } */
-
   fieldset#box-buttons {
-    display: inline-block;
-    margin: 3rem 0 0 0;
-    height: inherit;
-    clear: none;
-    width: 27%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media only screen and (min-width: 400px) {
+  section#writing-area {
+    width: 100%;
+  }
+  section#writing-area fieldset#write-box {
+    width: 61%;
+    padding-left: 2%;
     float: left;
-    with: 5px;
+    clear: none;
+    display: inline-block;
+  }
+  form#writing fieldset#box-buttons {
+    height: 110px;
+    width: 39%;
+    float: left;
+    display: block;
+    margin-top: 21px;
+    padding-top: 3px;
+  }
+  fieldset#box-buttons button {
+    width: 90%;
+    clear: none;
+    display: block;
   }
 }
 @media only screen and (min-width: 773px) {
   section#writing-area {
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  section#writing-area fieldset#write-box {
+    width: 65%;
+  }
+  form#writing fieldset#box-buttons {
+    width: 34.5%;
   }
 
   nav li {
@@ -117,5 +119,13 @@ fieldset#box-buttons :first-child {
 
   header#intro img {
     width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  section#writing-area {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

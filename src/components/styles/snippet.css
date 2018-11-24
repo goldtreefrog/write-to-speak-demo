@@ -36,6 +36,7 @@ div.snippet:focus,
 div.snippet:focus-within {
   color: white;
 }
+/* div.snippet-line:hover, */
 div.snippet:hover {
   background-color: #625e44;
   background: linear-gradient(#625e44, #625e44);
@@ -45,22 +46,6 @@ div.snippet:focus,
 div.snippet:focus-within {
   background-color: #423e24;
   background: linear-gradient(#423e24, #423e24);
-}
-
-div.disabled,
-div.disabled:hover,
-div.disabled:after {
-  color: #666;
-  background: none;
-  background-color: #ccc;
-  background: linear-gradient(#ccc, #ccc);
-  border-color: #aaa;
-}
-/* Make the ellipsis background change background color with everything else */
-div.snippet:hover:after,
-div.snippet:focus:after,
-div.snippet:focus-within:after {
-  background: inherit;
 }
 
 @media only screen and (min-width: 636px) {

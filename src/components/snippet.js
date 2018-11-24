@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./styles/snippet.css";
 
 // We have registeredUser, which has the snippets: [].

@@ -22,7 +22,12 @@ import {
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
   componentDidMount = () => {
-    window.scrollTo(0, 0);
+    // "if" below is needed for test, which otherwise gets:
+    // console.error node_modules/jest-environment-jsdom/node_modules/jsdom/lib/jsdom/virtual-console.js:29
+    // I think this relates to jsdom getting depricated but for now this will do.
+    if (this._h2) {
+      this._h2.scrollTop = 0 || window.scrollTo(0, 0);
+    }
   };
 
   componentWillUnmount = () => {
@@ -55,7 +60,8 @@ export class Edit extends Component {
     // Make all snippets disabled and grayed out, except for the one we are updating, which we give a different color scheme.
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: false }));
 
-    window.scrollTo(0, 0);
+    // Scroll to write area
+    window.scrollTo(0, 62);
   };
 
   talkSnippetClicked = e => {
@@ -104,7 +110,7 @@ export class Edit extends Component {
     let classDisabled = this.props.snippets.snippetsAvail ? " " : "disabled ";
     return (
       <Aux>
-        <h2>Edit</h2>
+        <h2 ref={ref => (this._h2 = ref)}>Edit</h2>
         <Feedback />
         {this.props.writing.visible && (
           <div>
@@ -126,9 +132,8 @@ export class Edit extends Component {
           </p>
           {this.props.snippets.snippets.map(snippet => (
             <div
-              className="snippet-line"
+              className={classDisabled + "snippet-line"}
               key={"div" + snippet._id}
-              disabled={!this.props.snippets.snippetsAvail}
               aria-disabled={!this.props.snippets.snippetsAvail}
             >
               <Snippet

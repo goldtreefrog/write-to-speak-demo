@@ -16,10 +16,6 @@ import SayIt from "./say-it";
 import "./styles/writing-area.css";
 
 export class WritingArea extends Component {
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-
   addUpdateSnippet = e => {
     e.preventDefault();
 
@@ -50,7 +46,6 @@ export class WritingArea extends Component {
           setWhatToSay({ whatToSay: whatSay, useVoice: voice })
         );
 
-        window.scrollTo(0, 0);
         return;
       }
 
@@ -80,8 +75,6 @@ export class WritingArea extends Component {
         isEditing: false
       })
     );
-
-    window.scrollTo(0, 0);
   };
 
   handleTextChange = e => {
@@ -115,7 +108,6 @@ export class WritingArea extends Component {
 
     this.props.dispatch(giveFeedback({ feedback: whatSay }));
     this.props.dispatch(setWhatToSay({ whatToSay: whatSay, useVoice: voice }));
-    window.scrollTo(0, 0);
   };
 
   readOnClick = useVoice => {
@@ -149,7 +141,11 @@ export class WritingArea extends Component {
         <p id="instructions" />
         <form action="#" id="writing" method="get" name="writing">
           <fieldset id="write-box">
-            <label htmlFor="text-box">Write in the box:</label>
+            <label htmlFor="text-box">
+              {this.props.activeSnippetId
+                ? "Update snippet:"
+                : "Write in the box:"}
+            </label>
             <textarea
               id="text-box"
               name="text-box"

@@ -7,6 +7,13 @@ import Feedback from "./feedback";
 
 // Use named export for unconnected component (for tests)
 export class Write extends Component {
+  componentDidMount = () => {
+    // See comments in talk.js and edit.js regarding testing problem that the if below solves.
+    if (this._h2) {
+      window.scrollTo(0, 0);
+    }
+  };
+
   render() {
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
@@ -14,7 +21,7 @@ export class Write extends Component {
 
     return (
       <Aux>
-        <h2>Write</h2>
+        <h2 ref={ref => (this._h2 = ref)}>Write</h2>
         <Feedback />
         <WritingArea
           visible={true}

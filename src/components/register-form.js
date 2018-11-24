@@ -97,8 +97,6 @@ RegisterForm = reduxForm({
   form: "register"
 })(RegisterForm);
 
-// export default RegisterForm;
-
 const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null
 });

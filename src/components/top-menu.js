@@ -22,11 +22,13 @@ export class TopMenu extends Component {
   state = {
     menuIconOpen: false
   };
+
   showHideMenu = e => {
     this.setState(prevState => {
       return { menuIconOpen: !prevState.menuIconOpen };
     });
   };
+
   getShowHideMenuClass = () => {
     return this.state.menuIconOpen ? "show-menu" : "hide-menu";
   };
@@ -90,7 +92,7 @@ export class TopMenu extends Component {
   }
   render() {
     let topMenu = (
-      <nav>
+      <nav ref={this.myRef}>
         {!this.state.menuIconOpen && (
           <HamburgerMenuButton
             className="hamburger-button"

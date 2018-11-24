@@ -15,7 +15,12 @@ import {
 // Use named export for unconnected component (for tests)
 export class Talk extends Component {
   componentDidMount = () => {
-    window.scrollTo(0, 0);
+    // "if" below is needed for testing, which otherwise gets:
+    // console.error node_modules/jest-environment-jsdom/node_modules/jsdom/lib/jsdom/virtual-console.js:29
+    // In edit.js, sometimes I scroll to h2, but never here. However, the if statement does what I need it to. I tried all sorts of other ways, none of which worked.
+    if (this._h2) {
+      window.scrollTo(0, 0);
+    }
   };
 
   componentWillUnmount = () => {
@@ -38,7 +43,7 @@ export class Talk extends Component {
     }
     return (
       <section id="talk">
-        <h2>Talk</h2>
+        <h2 ref={ref => (this._h2 = ref)}>Talk</h2>
         <Feedback />
         {this.props.snippets.snippetCount > 0 ? (
           <p className="page-instructions">Click on a snippet to hear it:</p>

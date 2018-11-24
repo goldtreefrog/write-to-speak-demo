@@ -9,6 +9,10 @@ import {
 import { snippets } from "./../fixtures/snippet-data.js";
 import { feedback } from "./../fixtures/feedback-data.js";
 
+// it("renders without crashing", () => {
+//   shallow(<Edit />);
+// });
+
 it("renders without crashing and matches snapshot", () => {
   const wrapper = shallow(
     <Edit
