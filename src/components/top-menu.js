@@ -107,34 +107,39 @@ export class TopMenu extends Component {
             tabIndex={"0"}
           />
         )}
-        <div
-          className={"nav-links " + this.getShowHideMenuClass()}
-          onClick={e => this.showHideMenu(e)}
-        >
-          <Link to="/" onClick={e => this.checkUpdateStatus(e, this.props)}>
-            Home
-          </Link>
-          <Link
-            to="/write"
-            onClick={e => this.checkUpdateStatus(e, this.props)}
-          >
-            Write
-          </Link>
-          <Link to="/talk" onClick={e => this.checkUpdateStatus(e, this.props)}>
-            Talk
-          </Link>
-          <Link to="/edit" onClick={e => this.checkUpdateStatus(e, this.props)}>
-            Edit
-          </Link>
-          {!this.props.loggedIn && <Link to="/login">Login</Link>}
-          {this.props.loggedIn && (
+        <div className={this.getShowHideMenuClass()}>
+          <div className={"nav-links"} onClick={e => this.showHideMenu(e)}>
+            <Link to="/" onClick={e => this.checkUpdateStatus(e, this.props)}>
+              Home
+            </Link>
             <Link
-              to="/logout"
+              to="/write"
               onClick={e => this.checkUpdateStatus(e, this.props)}
             >
-              Logout
+              Write
             </Link>
-          )}
+            <Link
+              to="/talk"
+              onClick={e => this.checkUpdateStatus(e, this.props)}
+            >
+              Talk
+            </Link>
+            <Link
+              to="/edit"
+              onClick={e => this.checkUpdateStatus(e, this.props)}
+            >
+              Edit
+            </Link>
+            {!this.props.loggedIn && <Link to="/login">Login</Link>}
+            {this.props.loggedIn && (
+              <Link
+                to="/logout"
+                onClick={e => this.checkUpdateStatus(e, this.props)}
+              >
+                Logout
+              </Link>
+            )}
+          </div>
         </div>
       </nav>
     );

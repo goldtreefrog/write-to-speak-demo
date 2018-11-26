@@ -26,57 +26,9 @@ header.app-header .app-logo-container img {
 .title-area {
   height: 4em;
   display: block;
-  width: 17em;
   width: 100%;
 }
-.nav-links a {
-  display: block;
-  width: 100%;
-  border-right: none;
-  height: 2.5em;
-  text-decoration: none;
-  padding-top: 1em;
-  padding-bottom: 2em;
-  margin-bottom: 2px;
-  color: black;
-  font-weight: bold;
-  background-color: #c7ba6b;
-  background: linear-gradient(#f5e882, #c7ba6b);
-}
-
-.show-menu {
-  display: block;
-  position: fixed;
-  top: 30px;
-  left: 0px;
-  width: 100%;
-  z-index: 100;
-  background-color: #111;
-}
-
-.hide-menu {
-  display: none;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  color: white;
-  background-color: #8e8766;
-  background: linear-gradient(#8e8766, #8e8766);
-}
-
-@media only screen and (min-width: 183px) {
-  header .nav-links {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    background-color: #111;
-    z-index: 100;
-  }
-
+@media only screen and (min-width: 200px) {
   .title-area {
     height: 1.6em;
     background-color: #111;
@@ -86,6 +38,9 @@ header.app-header .app-logo-container img {
   header.app-header .app-logo-container {
     height: auto;
     display: inline-flex;
+  }
+  header.app-header h1 {
+    font-size: 1.3rem;
   }
 }
 
