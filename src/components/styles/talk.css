@@ -6,12 +6,12 @@ p.page-instructions {
 
 .page-snippets {
   display: block;
-  width: 98.75%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   clear: both;
   overflow: hidden;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
 }
 
 .snippet-talk {
@@ -20,11 +20,89 @@ p.page-instructions {
   background-color: #cdf;
   border-radius: 5px;
   border: solid 2px #111;
+  margin-top: 5px;
+  margin-bottom: -20px;
+  z-index: 0;
+  position: relative;
 }
-div.snippet:after {
-  background-color: #cdf;
+.snippet-talk div {
+  z-index: 0;
+  position: relative;
+}
+.seb-container {
+  width: 100%;
+}
+.snippet-expand-button {
+  z-index: 1;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  position: relative;
+  margin-right: 1%;
+  margin-left: auto;
+  display: block;
+}
+.snippet-expand-button:focus,
+.snippet-expand-button:hover {
+  background: none;
+  background-color: white;
+  color: #111;
+}
+div.snippet-expanded div {
+  /* height: 5vh; */
+  overflow: visible;
+  z-index: 1;
+  background-color: none;
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+}
+div.snippet-expanded {
+  height: 80vh;
+  overflow-y: auto;
+  z-index: 1;
+  background-color: #eee;
+  position: fixed;
+  top: 13vh;
+  left: 1%;
+  width: 97.5%;
+}
+button.snippet-expanded {
+  position: fixed;
+  top: 87%;
+  right: 5px;
+  font-size: 150%;
+  background-color: #aaa;
 }
 
+.snippet-faded {
+  visibility: hidden;
+}
+@media only screen and (min-width: 183px) {
+  div.snippet-expanded {
+    height: 84vh;
+    position: fixed;
+    top: 10vh;
+  }
+  button.snippet-expanded {
+    top: 88%;
+    right: 11px;
+    font-size: 150%;
+  }
+}
+@media only screen and (min-width: 370px) {
+  div.snippet-expanded {
+    height: 80vh;
+    position: fixed;
+    top: 15vh;
+  }
+  button.snippet-expanded {
+    top: 89%;
+    right: 17px;
+  }
+}
 /* Tablet or small screen, not phone, 2 snippets across */
 @media only screen and (min-width: 440px) {
   section {
@@ -35,17 +113,39 @@ div.snippet:after {
     width: 100%;
     display: block;
   }
-  .snippet-talk {
+  .snippet-talk-line {
     margin: 6px 1%;
     width: 48%;
     height: 3.5em;
     float: left;
   }
+  .snippet-talk {
+    /* margin: 6px 1%;
+    width: 48%; */
+    height: 3.5em;
+    /* float: left; */
+  }
   .snippet-talk div {
     height: 2.6em;
   }
-  div.snippet:after {
+  /* div.snippet:after {
     bottom: 14;
+  } */
+  /* .seb-container {
+    width: 47%;
+    float: left;
+    display: inline-block;
+    clear: left;
+    position: relative;
+  } */
+  div.snippet-expanded {
+    width: 96%;
+    top: 16vh;
+    height: 78vh;
+  }
+  button.snippet-expanded {
+    top: 87%;
+    right: 23px;
   }
 }
 @media only screen and (min-width: 540px) {
@@ -56,18 +156,31 @@ div.snippet:after {
   .page-snippets {
     margin: 0 0.9%;
   }
-  .snippet-talk {
+  /* .snippet-talk { */
+  .snippet-talk-line {
     width: 31%;
     float: left;
   }
-  div.snippet:after {
+  /* div.snippet:after {
     content: "...";
 
     position: absolute;
     /* set position to right bottom corner of block */
-    right: 4px;
+  /*    right: 4px;
     bottom: 5px;
     width: 1.2em;
+  } */
+  div.snippet-expanded {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    top: 10vh;
+    height: 84vh;
+    display: block;
+  }
+  button.snippet-expanded {
+    top: 88%;
+    right: 10%;
   }
 }
 
@@ -80,7 +193,8 @@ div.snippet:after {
   .page-snippets {
     margin: 0 1%;
   }
-  .snippet-talk {
+  /* .snippet-talk { */
+  .snippet-talk-line {
     width: 22%;
     float: left;
   }

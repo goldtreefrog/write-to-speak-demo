@@ -20,16 +20,16 @@ div.snippet div {
   overflow: hidden;
 }
 
-div.snippet:after {
+/* div.snippet:after {
   /* elipsis at the end. Note that "text-overflow: ellipsis;" only works with a single line (as of Nov 17, 2018; hopefully this will change someday). That is why we have to use :after like this and then, if we are really clever, use JS to hide the elipsis if the content is short enough (which requires math and gets complicated with variable-width characters, e.g., "w" as opposed to "i", but we could come close enough with a little more work).  */
-  content: "...";
+/* content: "...";
 
-  position: absolute;
-  /* set position to right bottom corner of block */
-  right: 4px;
+  position: absolute; */
+/* set position to right bottom corner of block */
+/* right: 4px;
   bottom: 5px;
-  width: 1.2em;
-}
+  width: 1.2em; */
+/* } */
 
 div.snippet:hover,
 div.snippet:focus,

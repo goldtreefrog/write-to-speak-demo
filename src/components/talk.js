@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import Snippet from "./snippet";
 import { connect } from "react-redux";
+import Snippet from "./snippet";
+import ShowMoreButton from "./show-more-button";
 import Feedback from "./feedback";
 import SayIt from "./say-it";
 import "./styles/talk.css";
@@ -14,6 +15,11 @@ import {
 
 // Use named export for unconnected component (for tests)
 export class Talk extends Component {
+  state = {
+    expandedSnippet: false,
+    expandedSnippetId: ""
+    // expandedSnippetText: ""
+  };
   componentDidMount = () => {
     // "if" below is needed for testing, which otherwise gets:
     // console.error node_modules/jest-environment-jsdom/node_modules/jsdom/lib/jsdom/virtual-console.js:29
@@ -26,6 +32,18 @@ export class Talk extends Component {
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset());
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
+  };
+
+  expandSnippet = snippetId => {
+    let expandedSnippet = true;
+    if (this.state.expandedSnippetId === snippetId) {
+      expandedSnippet = false;
+      snippetId = "";
+    }
+    this.setState({
+      expandedSnippet: expandedSnippet,
+      expandedSnippetId: snippetId
+    });
   };
 
   speak = (useVoice, what) => {
@@ -41,6 +59,7 @@ export class Talk extends Component {
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     }
+
     return (
       <section id="talk">
         <h2 ref={ref => (this._h2 = ref)}>Talk</h2>
@@ -54,18 +73,51 @@ export class Talk extends Component {
           </p>
         )}
         <div className="page-snippets">
-          {this.props.snippets.snippets.map(snippet => (
-            <Snippet
-              className="snippet snippet-talk"
-              text={snippet.snippetText}
-              id={snippet.id}
-              orderkey={snippet.orderkey}
-              key={snippet._id}
-              value={snippet.snippetText}
-              click={() => this.speak("US English Female", snippet.snippetText)}
-              snippetsAvail={this.props.snippets.snippetsAvail}
-            />
-          ))}
+          {this.props.snippets.snippets.map(snippet => {
+            let snippetClass = "snippet snippet-talk";
+            let sebClass = "snippet-expand-button";
+            let sebText = String.fromCharCode(9662); // down triangle
+            if (this.state.expandedSnippet) {
+              if (snippet._id === this.state.expandedSnippetId) {
+                snippetClass += " snippet-expanded";
+                sebClass += " snippet-expanded";
+                sebText = String.fromCharCode(9652); // up triangle
+              } else {
+                snippetClass += " snippet-faded";
+                sebClass += " snippet-faded";
+              }
+            }
+            return (
+              // <React.Fragment key={"frag" + snippet._id}>
+              <div className="snippet-talk-line">
+                <Snippet
+                  className={snippetClass}
+                  text={snippet.snippetText}
+                  id={snippet._id}
+                  orderkey={snippet.orderkey}
+                  key={snippet._id}
+                  value={snippet.snippetText}
+                  click={() =>
+                    this.speak("US English Female", snippet.snippetText)
+                  }
+                  snippetsAvail={this.props.snippets.snippetsAvail}
+                />
+                <div className="seb-container">
+                  <ShowMoreButton
+                    id={"exp" + snippet._id}
+                    className={sebClass}
+                    click={() => this.expandSnippet(snippet._id)}
+                    value={snippet.snippetText}
+                    key={"exp" + snippet._id}
+                    buttonText={sebText}
+                  >
+                    Expand
+                  </ShowMoreButton>
+                </div>
+              </div>
+              // </React.Fragment>
+            );
+          })}
         </div>
         <SayIt />
       </section>
