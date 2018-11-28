@@ -11,6 +11,7 @@ export {
 } from "./other";
 export {
   addSnippet,
+  addSnippetSuccess,
   deleteSnippet,
   updateSnippet,
   clearSnippets,

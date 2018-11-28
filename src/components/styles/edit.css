@@ -16,10 +16,9 @@ section#edit p.page-instructions {
   height: auto;
   border-radius: 5px;
   border: solid 2px #111;
+  padding-bottom: 3px;
 }
-div.snippet-line:disabled {
-  background-color: yellow;
-}
+
 .snippet-edit {
   background-color: #81f986;
   width: 100%;
@@ -32,8 +31,7 @@ div.snippet-edit:after {
 .snippet-line .snippet-buttons-container {
   display: inline-block;
   width: auto;
-  /* margin: 0 auto; */
-  padding: 0 auto;
+  padding: 0;
 }
 
 button.snippet-button-talk,
@@ -48,6 +46,7 @@ button.snippet-delete {
   color: black;
   padding: 1px 5px;
   border-radius: 8px;
+  font-size: 0.9rem;
 }
 
 section#edit .disabled,
@@ -63,8 +62,7 @@ div.disabled:after {
 }
 /* Make the ellipsis background change background color with everything else */
 div.snippet:hover:after,
-div.snippet:focus:after,
-div.snippet:focus-within:after {
+div.snippet:focus:after {
   background: inherit;
 }
 

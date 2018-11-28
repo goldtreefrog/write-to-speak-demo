@@ -49,7 +49,7 @@ export class WritingArea extends Component {
         return;
       }
 
-      whatSay = "Snippet added. Click Talk or Edit (above) to see it.";
+      whatSay = "Snippet added. Click Talk or Edit (menu above) to see it.";
       let orderFromDate = new Date().getTime();
       this.props.dispatch(
         addSnippet({

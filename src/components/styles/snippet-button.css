@@ -11,7 +11,6 @@ button.snippet-delete:focus {
 
 sections#edit div.snippet-buttons-container:disabled,
 sections#edit div.snippet-line:disabled,
-sections#edit div.snippet-line:aria-disabled,
 sections#edit div.snippet-line div:disabled {
   color: green;
   background-color: red;
