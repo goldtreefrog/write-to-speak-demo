@@ -59,12 +59,11 @@ export class Talk extends Component {
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     }
-
     return (
       <section id="talk">
         <h2 ref={ref => (this._h2 = ref)}>Talk</h2>
         <Feedback />
-        {this.props.snippets.snippetCount > 0 ? (
+        {this.props.snippets.snippets[0] ? (
           <p className="page-instructions">Click on a snippet to hear it:</p>
         ) : (
           <p className="page-instructions page-no-snippets">
@@ -89,7 +88,7 @@ export class Talk extends Component {
             }
             return (
               // <React.Fragment key={"frag" + snippet._id}>
-              <div className="snippet-talk-line">
+              <div className="snippet-talk-line" key={"outerDiv" + snippet._id}>
                 <Snippet
                   className={snippetClass}
                   text={snippet.snippetText}

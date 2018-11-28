@@ -11,17 +11,16 @@ p.page-instructions {
   margin-right: auto;
   clear: both;
   overflow: hidden;
-  /* text-overflow: ellipsis; */
 }
 
 .snippet-talk {
   border-collapse: collapse;
-  width: 100%;
+  width: 98%;
   background-color: #cdf;
   border-radius: 5px;
   border: solid 2px #111;
-  margin-top: 5px;
-  margin-bottom: -20px;
+  margin-top: 10px;
+  margin-bottom: -25px;
   z-index: 0;
   position: relative;
 }
@@ -39,7 +38,7 @@ p.page-instructions {
   background: none;
   font-size: 1rem;
   position: relative;
-  margin-right: 1%;
+  margin-right: 6px;
   margin-left: auto;
   display: block;
 }
@@ -50,10 +49,9 @@ p.page-instructions {
   color: #111;
 }
 div.snippet-expanded div {
-  /* height: 5vh; */
   overflow: visible;
   z-index: 1;
-  background-color: none;
+  background-color: transparent;
   display: block;
   position: absolute;
   top: 6px;
@@ -120,24 +118,12 @@ button.snippet-expanded {
     float: left;
   }
   .snippet-talk {
-    /* margin: 6px 1%;
-    width: 48%; */
     height: 3.5em;
-    /* float: left; */
   }
   .snippet-talk div {
     height: 2.6em;
   }
-  /* div.snippet:after {
-    bottom: 14;
-  } */
-  /* .seb-container {
-    width: 47%;
-    float: left;
-    display: inline-block;
-    clear: left;
-    position: relative;
-  } */
+
   div.snippet-expanded {
     width: 96%;
     top: 16vh;
@@ -156,20 +142,11 @@ button.snippet-expanded {
   .page-snippets {
     margin: 0 0.9%;
   }
-  /* .snippet-talk { */
   .snippet-talk-line {
     width: 31%;
     float: left;
   }
-  /* div.snippet:after {
-    content: "...";
 
-    position: absolute;
-    /* set position to right bottom corner of block */
-  /*    right: 4px;
-    bottom: 5px;
-    width: 1.2em;
-  } */
   div.snippet-expanded {
     width: 80%;
     margin-left: 10%;
@@ -193,7 +170,6 @@ button.snippet-expanded {
   .page-snippets {
     margin: 0 1%;
   }
-  /* .snippet-talk { */
   .snippet-talk-line {
     width: 22%;
     float: left;
