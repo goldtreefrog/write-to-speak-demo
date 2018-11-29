@@ -43,14 +43,6 @@ class Home extends React.Component {
           aloud next time you sign in. <strong>However</strong>, this is only a
           demo and all data will be erased periodically.
         </p>
-        // {!this.props.loggedIn && (
-        //   <p>
-        //     You can also <Link to="/register">use as a guest</Link> without
-        //     logging in. Sample snippets will appear automatically and you can
-        //     add your own, but they will be erased when you close or refresh the
-        //     screen.
-        //   </p>
-        // )}
         <form action="">{loginLinks}</form>
         <SayIt />
       </section>
