@@ -3,7 +3,7 @@ section#landing p,
 section#landing h3 {
   width: 100%;
   max-width: 25rem;
-  padding: 0 1%;
+  padding: 0 3%;
 }
 section#landing form {
   margin: 2rem auto;
@@ -15,6 +15,7 @@ section#landing p {
 section#landing h3 {
   margin: 0 auto;
   display: block;
+  height: auto;
 }
 
 section#landing .button-link {
@@ -40,4 +41,33 @@ section#landing form .button-link {
   margin: 5px;
   max-width: 17em;
   display: inline-block;
+}
+@media only screen and (min-width: 370px) {
+  section#landing form,
+  section#landing p,
+  section#landing h3 {
+    width: 90%;
+    max-width: 100%;
+  }
+}
+@media only screen and (min-width: 440px) {
+  section#landing form,
+  section#landing p,
+  section#landing h3 {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 540px) {
+  section#landing form,
+  section#landing p,
+  section#landing h3 {
+    width: 70%;
+  }
+}
+@media only screen and (min-width: 740px) {
+  section#landing form,
+  section#landing p,
+  section#landing h3 {
+    width: 31em;
+  }
 }

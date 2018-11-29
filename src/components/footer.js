@@ -1,10 +1,9 @@
-import React from "react";
-import Aux from "./../hoc/_aux.js";
+import React, { Fragment } from "react";
 import "./styles/footer.css";
 
 function Footer() {
   return (
-    <Aux>
+    <Fragment>
       <footer role="contentinfo">
         <p className="rv">
           <a
@@ -35,11 +34,13 @@ function Footer() {
             rel="noopener noreferrer"
           >
             Creative Commons
-          </a>)
+          </a>
+          )
         </p>
 
         <p>
-          Website copyright &copy;2018{Date().substr(11, 4) > "2018" ? (
+          Website copyright &copy;2018
+          {Date().substr(11, 4) > "2018" ? (
             <span>-{Date().substr(11, 4)}</span>
           ) : (
             <span> </span>
@@ -47,7 +48,7 @@ function Footer() {
           by Margaret Blauvelt
         </p>
       </footer>
-    </Aux>
+    </Fragment>
   );
 }
 

@@ -5,6 +5,10 @@ import { giveFeedback, setWhatToSay } from "./../store/actions";
 import LoginForm from "./login-form";
 
 export class LoginPage extends Component {
+  componentDidMount = () => {
+    document.title = "Login | Write to Speak Demo";
+    window.scrollTo(0, 0);
+  };
   componentWillUnmount = () => {
     if (this.props.loggedIn) {
       let whatSay = "You have successfully logged in.";

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Snippet from "./snippet";
@@ -18,9 +18,9 @@ export class Talk extends Component {
   state = {
     expandedSnippet: false,
     expandedSnippetId: ""
-    // expandedSnippetText: ""
   };
   componentDidMount = () => {
+    document.title = "Talk | Write to Speak Demo";
     // "if" below is needed for testing, which otherwise gets:
     // console.error node_modules/jest-environment-jsdom/node_modules/jsdom/lib/jsdom/virtual-console.js:29
     // In edit.js, sometimes I scroll to h2, but never here. However, the if statement does what I need it to. I tried all sorts of other ways, none of which worked.
@@ -87,7 +87,6 @@ export class Talk extends Component {
               }
             }
             return (
-              // <React.Fragment key={"frag" + snippet._id}>
               <div className="snippet-talk-line" key={"outerDiv" + snippet._id}>
                 <Snippet
                   className={snippetClass}
@@ -114,7 +113,6 @@ export class Talk extends Component {
                   </ShowMoreButton>
                 </div>
               </div>
-              // </React.Fragment>
             );
           })}
         </div>

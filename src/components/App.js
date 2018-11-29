@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -49,7 +49,7 @@ export class App extends Component {
   render() {
     return (
       <Router>
-        <React.Fragment>
+        <Fragment>
           <div className="App">
             <Header />
             <main>
@@ -88,7 +88,7 @@ export class App extends Component {
             </main>
           </div>
           <Footer />
-        </React.Fragment>
+        </Fragment>
       </Router>
     );
   }

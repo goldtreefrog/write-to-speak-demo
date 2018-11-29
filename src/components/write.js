@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import Aux from "./../hoc/_aux";
 import WritingArea from "./writing-area";
 import Feedback from "./feedback";
 
 // Use named export for unconnected component (for tests)
 export class Write extends Component {
   componentDidMount = () => {
+    document.title = "Write | Write to Speak Demo";
     // See comments in talk.js and edit.js regarding testing problem that the if below solves.
     if (this._h2) {
       window.scrollTo(0, 0);
@@ -20,7 +20,7 @@ export class Write extends Component {
     }
 
     return (
-      <Aux>
+      <Fragment>
         <h2 ref={ref => (this._h2 = ref)}>Write</h2>
         <Feedback />
         <WritingArea
@@ -31,7 +31,7 @@ export class Write extends Component {
           }}
           click={() => this.addSnippet}
         />
-      </Aux>
+      </Fragment>
     );
   }
 }

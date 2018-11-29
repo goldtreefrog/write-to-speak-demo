@@ -14,6 +14,7 @@ function HamburgerXButton(props) {
       tabIndex="0"
       onClick={props.onClick}
       onKeyPress={e => handleKeyPress(e)}
+      ref={hamB => hamB && hamB.focus()}
     >
       <h2>X</h2>
     </div>

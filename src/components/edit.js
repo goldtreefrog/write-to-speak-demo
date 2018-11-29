@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import Aux from "./../hoc/_aux.js";
 import Snippet from "./snippet";
 import SnippetButton from "./snippet-button";
 import WritingArea from "./writing-area";
@@ -22,6 +21,7 @@ import {
 // Use named export for unconnected component (for tests)
 export class Edit extends Component {
   componentDidMount = () => {
+    document.title = "Edit | Write to Speak Demo";
     // "if" below is needed for test, which otherwise gets:
     // console.error node_modules/jest-environment-jsdom/node_modules/jsdom/lib/jsdom/virtual-console.js:29
     // I think this relates to jsdom getting depricated but for now this will do.
@@ -109,7 +109,7 @@ export class Edit extends Component {
 
     let classDisabled = this.props.snippets.snippetsAvail ? " " : "disabled ";
     return (
-      <Aux>
+      <Fragment>
         <h2 ref={ref => (this._h2 = ref)}>Edit</h2>
         <Feedback />
         {this.props.writing.visible && (
@@ -144,7 +144,6 @@ export class Edit extends Component {
                 text={snippet.snippetText}
                 id={snippet._id}
                 orderkey={snippet.orderkey}
-                // disabled={!this.props.snippets.snippetsAvail} // Works for buttons, not for div.
                 snippetsAvail={this.props.snippets.snippetsAvail}
               />
               <div className="snippet-buttons-container">
@@ -178,7 +177,7 @@ export class Edit extends Component {
             </div>
           ))}
         </section>
-      </Aux>
+      </Fragment>
     );
   }
 }

@@ -14,6 +14,7 @@ function HamburgerMenu(props) {
       className="hamburger-container"
       onClick={props.onClick}
       onKeyPress={e => handleKeyPress(e)}
+      ref={hamB => hamB && hamB.focus()}
     >
       <hr />
       <hr />

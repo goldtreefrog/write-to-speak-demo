@@ -97,14 +97,14 @@ export class TopMenu extends Component {
           <HamburgerMenuButton
             className="hamburger-button"
             onClick={e => this.showHideMenu(e)}
-            tabIndex={"0"}
+            tabIndex="0"
           />
         )}
         {this.state.menuIconOpen && (
           <HamburgerXButton
             className="hamburger-button"
             onClick={e => this.showHideMenu(e)}
-            tabIndex={"0"}
+            tabIndex="0"
           />
         )}
         <div className={this.getShowHideMenuClass()}>

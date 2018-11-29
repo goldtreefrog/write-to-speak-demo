@@ -14,6 +14,10 @@ const passwordLength = length({ min: 6, max: 72 });
 const matchesPassword = matches("password");
 
 export class RegisterForm extends React.Component {
+  componentDidMount = () => {
+    document.title = "Register | Write to Speak Demo";
+    window.scrollTo(0, 0);
+  };
   onSubmit(values) {
     const { email, password, firstName, lastName } = values;
     const user = { email, password, firstName, lastName };
