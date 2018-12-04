@@ -12,10 +12,12 @@ import {
 import { addSnippetSuccess } from "./snippets";
 import { giveFeedback, setWhatToSay } from "./other";
 
-export const setAuthToken = authToken => ({
-  type: SET_AUTH_TOKEN,
-  authToken
-});
+export const setAuthToken = authToken => {
+  return {
+    type: SET_AUTH_TOKEN,
+    authToken
+  };
+};
 
 export const clearAuth = () => ({
   type: CLEAR_AUTH

@@ -1,8 +1,13 @@
 "option explicit";
-export { loginUser, setAuthToken, refreshAuthToken, clearAuth } from "./auth";
 export {
-  // resetFeedbackFlag,
-  // setFeedbackFlag,
+  loginUser,
+  setAuthToken,
+  refreshAuthToken,
+  authSuccess,
+  clearAuth,
+  authRequest
+} from "./auth";
+export {
   clearAllFeedback,
   clearFeedback,
   giveFeedback,

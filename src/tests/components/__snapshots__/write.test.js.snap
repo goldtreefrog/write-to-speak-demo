@@ -1,8 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing and matches snapshot 1`] = `
-<Redirect
-  push={false}
-  to="/login"
-/>
+exports[`<Write /> renders without crashing while logged in and matches snapshot 1`] = `
+<Fragment>
+  <h2>
+    Write
+  </h2>
+  <Connect(Feedback) />
+  <Connect(WritingArea)
+    buttonText={
+      Object {
+        "resetCancel": "Reset (Delete)",
+        "saveUpdate": "Save as Snippet",
+      }
+    }
+    click={[Function]}
+    visible={true}
+  />
+</Fragment>
 `;
