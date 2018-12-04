@@ -112,9 +112,8 @@ button.snippet-expanded {
     display: block;
   }
   .snippet-talk-line {
-    margin: 6px 1%;
+    margin: 3px 1%;
     width: 48%;
-    height: 3.5em;
     float: left;
   }
   .snippet-talk {
