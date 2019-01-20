@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { snippetCountLocal } from "./../local-storage.js";
 import Snippet from "./snippet";
 import ShowMoreButton from "./show-more-button";
 import Feedback from "./feedback";
@@ -10,7 +11,8 @@ import {
   writingAreaReset,
   setSnippetsAvailability,
   setWhatToSay,
-  clearFeedback
+  clearFeedback,
+  retrieveSnippets
 } from "./../store/actions";
 
 // Use named export for unconnected component (for tests)
@@ -20,18 +22,56 @@ export class Talk extends Component {
     expandedSnippetId: ""
   };
   componentDidMount = () => {
-    document.title = "Talk | Write to Speak Demo";
     // "if" below is needed for testing, which otherwise gets:
     // console.error node_modules/jest-environment-jsdom/node_modules/jsdom/lib/jsdom/virtual-console.js:29
     // In edit.js, sometimes I scroll to h2, but never here. However, the if statement does what I need it to. I tried all sorts of other ways, none of which worked.
+    document.title = "Talk | Write to Speak Demo";
     if (this._h2) {
       window.scrollTo(0, 0);
+    }
+    console.log("Talk page mounted");
+  };
+
+  getDerivedStatefromProps = () => {
+    const getSnippets = () => this.needSnippets;
+    console.log("getSnippets", getSnippets);
+    if (getSnippets) {
+      this.props.dispatch(retrieveSnippets(this.props.currentUser));
     }
   };
 
   componentWillUnmount = () => {
     this.props.dispatch(writingAreaReset());
     this.props.dispatch(setSnippetsAvailability({ snippetsAvail: true }));
+  };
+
+  needSnippets = () => {
+    // if (snippetCountLocal() > 0 && !this.props.snippetCount) {
+    let goGetSnippets = false;
+    console.log(
+      "this.props.snippets.snippets ----------: ",
+      this.props.snippets.snippets
+    );
+
+    if (
+      !this.props.snippets.snippets ||
+      (snippetCountLocal() > 0 && this.props.snippets.snippets.length === 0)
+      // !(snippetCountLocal() === this.props.snippets.snippets.length))
+    ) {
+      console.log(
+        "Made it! go retrieve those snippets !!!!!",
+        this.props.snippets.snippets.length
+      );
+      let goGetSnippets = true;
+      // this.props.dispatch(retrieveSnippets(this.props.currentUser));
+      // } else {
+      //   console.log(
+      //     "this.props.snippets.snippets.length",
+      //     this.props.snippets.snippets.length
+      //   );
+      //   console.log("snippettydodas: ", this.props.snippets.snippets);
+    }
+    return goGetSnippets;
   };
 
   expandSnippet = snippetId => {
@@ -56,6 +96,7 @@ export class Talk extends Component {
   };
 
   render() {
+    console.log("and finally, let us render! !!!! !! !!!! !! %%%");
     if (!this.props.loggedIn) {
       return <Redirect to="/login" />;
     }
@@ -126,7 +167,8 @@ const mapStateToProps = state => {
   return {
     other: state.other,
     snippets: state.snippets,
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    currentUser: state.auth.currentUser
   };
 };
 

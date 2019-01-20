@@ -21,7 +21,7 @@ export class LoginPage extends Component {
     }
   };
   render() {
-    // If we are logged in, redirect to the "Talk" page if the user has snippets.
+    // If we are logged in, redirect to the "Talk" page.
     if (this.props.loggedIn) {
       return <Redirect to="/talk" />;
     }

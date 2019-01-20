@@ -7,12 +7,51 @@ import {
   UPDATE_SNIPPET_SUCCESS,
   DELETE_SNIPPET_SUCCESS,
   CLEAR_SNIPPETS,
-  SET_SNIPPETS_AVAILABILITY
+  SET_SNIPPETS_AVAILABILITY,
+  RETRIEVE_SNIPPETS
 } from "./actionTypes";
 import { normalizeResponseErrors } from "./utils";
 
+export const retrieveSnippets = _userId => {
+  // if (!_userId) {
+  //   console.log("Oh no! No userId!!!!");
+  // }
+  // console.log("Hey ya _userId: ", _userId);
+  const userId = _userId;
+  return (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    // console.log("authtoken: ", authToken);
+    dispatch(snippetRequest());
+    // const userId = { userId: _userId };
+    console.log("howdy user: ", userId);
+    return (
+      fetch(`${API_BASE_URL}/snippets/user-snippets`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`
+        }
+      })
+        // .then(res => console.log(res))
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(res => {
+          // Add snippets from user record to state.
+          console.log(res);
+          res.snippets.map(snippet => {
+            console.log(snippet);
+            return dispatch(addSnippetSuccess({ snippet }));
+          });
+        })
+        // .then(res => console.log("res.body2: ", res))
+        .catch(err => dispatch(snippetError(err)))
+    );
+  };
+};
+
 export const addSnippet = _snippet => {
   const snippet = _snippet;
+  console.log("My snippet I will add is like this: ", snippet);
   return (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(snippetRequest());
@@ -44,6 +83,7 @@ export const addSnippet = _snippet => {
 
 export const updateSnippet = _userSnippet => {
   const userSnippet = _userSnippet;
+  console.log("In updateSnippet, want to make it like: ", userSnippet);
   return (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch(snippetRequest());

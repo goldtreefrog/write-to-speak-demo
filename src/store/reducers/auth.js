@@ -33,6 +33,7 @@ export default function reducer(state = initialState, action) {
       });
 
     case AUTH_SUCCESS:
+      console.log("reducers action.currentUser: ", action.currentUser);
       return Object.assign({}, state, {
         loading: false,
         currentUser: action.currentUser

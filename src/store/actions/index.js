@@ -20,7 +20,8 @@ export {
   deleteSnippet,
   updateSnippet,
   clearSnippets,
-  setSnippetsAvailability
+  setSnippetsAvailability,
+  retrieveSnippets
 } from "./snippets";
 export { spellingAreaHidden, spellingAreaVisible } from "./spelling";
 export {

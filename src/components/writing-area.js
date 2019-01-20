@@ -53,7 +53,6 @@ export class WritingArea extends Component {
       let orderFromDate = new Date().getTime();
       this.props.dispatch(
         addSnippet({
-          userId: this.props.currentUser._id,
           category: "general", // Until we add user choice of category, we only have this one.
           snippetText: this.props.writing.activeSnippetText,
           snippetOrder: orderFromDate.toString()
